@@ -1,0 +1,42 @@
+{% if request.GET.min_price %}
+<input name="min_price" type="hidden" value="{{ request.GET.min_price }}">
+{% endif %}
+{% if request.GET.max_price %}
+<input name="max_price" type="hidden" value="{{ request.GET.max_price }}">
+{% endif %}
+{% if request.GET.available %}
+<input name="available" type="hidden" value="{{ request.GET.available }}">
+{% endif %}
+{% for element in product_type_get%}
+<input name="product_type" type="hidden" value="{{ element }}">
+{% endfor %}
+{% for element in compatibility_get%}
+<input name="compatibility" type="hidden" value="{{ element }}">
+{% endfor %}
+{% for element in thread_type_get%}
+<input name="thread_type" type="hidden" value="{{ element }}">
+{% endfor %}
+{% for element in mounting_type_get%}
+<input name="mounting_type" type="hidden" value="{{ element }}">
+{% endfor %}
+{% for element in imitation_of_a_shot_get%}
+<input name="imitation_of_a_shot" type="hidden" value="{{ element }}">
+{% endfor %}
+{% for element in laser_sight_get%}
+<input name="laser_sight" type="hidden" value="{{ element }}">
+{% endfor %}
+{% for element in weight_get%}
+<input name="weight" type="hidden" value="{{ element }}">
+{% endfor %}
+{% for element in principle_of_operation_get%}
+<input name="principle_of_operation" type="hidden" value="{{ element }}">
+{% endfor %}
+{% if request.GET.min_length %}
+<input name="min_length" type="hidden" value="{{ request.GET.min_length }}">
+{% endif %}
+{% if request.GET.max_length %}
+<input name="max_length" type="hidden" value="{{ request.GET.max_length }}">
+{% endif %}
+{% for element in diameter_get%}
+<input name="diameter" type="hidden" value="{{ element }}">
+{% endfor %}

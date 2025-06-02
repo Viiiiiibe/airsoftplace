@@ -1,0 +1,166 @@
+{% extends 'base.html' %}
+{% block title %}Редактирование товара{% endblock %}
+{% block content %}
+{% load user_filters %}
+<div class="space-padding-tb-70">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12">
+        <div class="orders-page">
+          <div class="title-page">
+            <h3>Редактирование товара {{ product.name }}</h3>
+            <ul class="breadcrumb white">
+              <li><a href="{% url 'users:personal_account_main' %}">Личный кабинет</a></li>
+              <li><a href="{% url 'users:shop_orders' %}">Управление товарами вашего магазина</a></li>
+              <li><a href="">Редактирование товара</a></li>
+            </ul>
+          </div>
+
+          <div class="alert alert-warning">
+                            <h4>После редактирования товар пройдет проверку!</h4>
+                            <p> Это может занять до 5 рабочих дней, на это время товар будет не доступен для покупки!</p>
+          </div>
+
+          <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row">
+              <!-- Блок категорий -->
+              <div class="col-12 mb-4">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ form.category.label }}</h5>
+                    <div class="row">
+                      {% for checkbox in form.category %}
+                        {% with cat_id=checkbox.data.value|stringformat:"s" %}
+                        <div class="col-md-4 col-lg-3 mb-3">
+                          <div class="category-checkbox">
+                            {{ checkbox.tag }}
+                            <label for="{{ checkbox.id_for_label }}" class="d-block">
+                              <div class="breadcrumbs-path small text-muted mb-1">
+                                {% with category_data=breadcrumbs_data|get_item:cat_id %}
+                                  {% if category_data %}
+                                    {% for ancestor in category_data.path %}
+                                      {{ ancestor.title }}{% if not forloop.last %} → {% endif %}
+                                    {% endfor %}
+                                  {% endif %}
+                                {% endwith %}
+                              </div>
+                              <div class="category-name">
+                                {{ checkbox.choice_label }}
+                              </div>
+                            </label>
+                          </div>
+                        </div>
+                        {% endwith %}
+                      {% endfor %}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Поле "Показывать" (show) выводим отдельно сверху -->
+              <div class="col-12 mb-3">
+                <div class="form-group">
+                  <label class="font-weight-bold">{{ form.show.label }}</label>
+                  {{ form.show }}
+                </div>
+              </div>
+
+              <!-- Основные поля товара (исключая категорию, show и дополнительные характеристики) -->
+              {% for field in form %}
+                {% if field.name not in 'category show brand product_type compatibility thread_type mounting_type imitation_of_a_shot laser_sight weight principle_of_operation length diameter' %}
+                  <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                      <label class="font-weight-bold">{{ field.label }}</label>
+                      {{ field|addclass:'form-control' }}
+                      {% if field.help_text %}
+                        <small class="form-text text-muted">{{ field.help_text }}</small>
+                      {% endif %}
+                    </div>
+                  </div>
+                {% endif %}
+              {% endfor %}
+            </div> <!-- end row -->
+
+            <!-- Ряд для кнопки сворачивания дополнительных характеристик -->
+            <div class="row">
+              <div class="col-12 text-center">
+                <div id="headingAdditional">
+                  <h6 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseAdditional" aria-expanded="false" aria-controls="collapseAdditional">
+                      ↓ Дополнительные характеристики ↓
+                    </button>
+                  </h6>
+                </div>
+              </div>
+            </div>
+
+            <!-- Панель дополнительных характеристик -->
+            <div id="collapseAdditional" class="collapse" aria-labelledby="headingAdditional">
+              <div class=" ">
+                <div class="form-row">
+                  {% for field in form %}
+                    {% if field.name in 'brand product_type compatibility thread_type mounting_type imitation_of_a_shot laser_sight weight principle_of_operation length diameter' %}
+                      <div class="form-group col-md-6 mb-3">
+                        <label>
+                          {{ field.label }}
+                          {% if field.field.required %}<span class="text-danger">*</span>{% endif %}
+                        </label>
+                        {{ field|addclass:"form-control" }}
+                        {% if field.help_text %}
+                          <small class="form-text text-muted">{{ field.help_text }}</small>
+                        {% endif %}
+                      </div>
+                    {% endif %}
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+
+            <!-- Кнопки "Сохранить изменения" и "Отмена" -->
+            <div class="row button-row mt-3">
+              <div class="col-12 text-center">
+                <button type="submit" class="btn  btn-lg">Сохранить изменения</button>
+                <a href="{% url 'users:shop_products' %}" class="btn btn-secondary btn-lg">Отмена</a>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #fff;
+  }
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+  }
+  .breadcrumbs-path {
+    font-size: 0.85em;
+  }
+  .form-group label {
+    font-weight: 600;
+  }
+  .btn-link {
+    color: #007bff;
+  }
+  .btn-link:hover {
+    text-decoration: underline;
+  }
+  .button-row {
+    clear: both;
+  }
+</style>
+{% endblock %}

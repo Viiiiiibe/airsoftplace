@@ -1,0 +1,264 @@
+<!-- templates/shop/orders.html -->
+{% extends 'base.html' %}
+{% block title %}
+Заказы магазина
+{% endblock %}
+
+{% block content %}
+{% load static %}
+{% load user_filters %}
+<div class="orders-page space-padding-tb-70">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12">
+                <div class="">
+                    <div class="title-page">
+                        <h3>Заказы вашего магазина</h3>
+                        <ul class="breadcrumb white">
+                            <li><a href="{% url  'users:personal_account_main' %}">Личный кабинет</a></li>
+                            <li><a href="">Заказы вашего магазина</a></li>
+                        </ul>
+                    </div>
+                    <div class="navbar main-menu">
+                            <div class="shop-links">
+                                <a href="{% url 'users:shop_docs' %}" class="level1 active dropdown"><h4>Документы</h4></a>
+                                <a href="{% url 'users:shop_orders' %}" class="level1 active dropdown"><h4>Заказы</h4></a>
+                                <a href="{% url 'users:shop_products' %}" class="level1 active dropdown"><h4>Товары</h4></a>
+                                <a href="{% url 'users:shop_statistics' %}" class="level1 active dropdown"><h4>Статистика</h4></a>
+                            </div>
+                    </div>
+
+                    <!-- Строка поиска -->
+
+                    <div class="input-group">
+                        <form method="get" action="{% url 'users:shop_orders' %}">
+                            <input name="q" placeholder="Номер заказа..." class="form-control control-search" type="search" value="{{ request.GET.q }}">
+                            <span class="input-group-btn">
+                                  <button class="btn btn-default button_search" type="submit">
+                                      <i class="fa fa-search"></i>
+                                  </button>
+                            </span>
+                        </form>
+                    </div><br>
+
+
+
+                    {% for order in orders %}
+                    <div id="order-{{order.pk}}" class="order-card">
+                        <div class="order-header">
+                            <h4>Заказ №{{ order.pk }}</h4>
+                            <span class="order-date">{{ order.created|date:"d.m.Y H:i" }}</span>
+                        </div>
+
+                        <div class="order-body">
+                            <!-- Форма изменения статуса -->
+                            <form method="post" action="{% url 'users:update_order_status' order.id %}" class="status-form">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <label>Статус заказа:</label>
+                                    <select name="status" class="form-control status-select">
+                                        {% for value, display in order.STATUS_OPTIONS %}
+                                            {% if value != 'awaiting_payment' %}
+                                            <option value="{{ value }}" {% if order.status == value %}selected{% endif %}>
+                                                {{ display }}
+                                            </option>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </select>
+                                    <input type="hidden" name="page" value="{% if request.GET.page %}{{ request.GET.page }}{% endif %}">
+                                    <input type="hidden" name="q" value="{% if request.GET.q %}{{ request.GET.q }}{% endif %}">
+                                    <button type="submit" class="btn btn-sm btn-light">Обновить</button>
+                                </div>
+                            </form>
+
+                            <div class="order-section">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p><strong>Сумма:</strong> {{ order.amount }} ₽</p>
+                                        <p><strong>Статус оплаты:</strong> {% if order.paid %}Оплачен{% else %}Не оплачен{% endif %}</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p><strong>Способ доставки:</strong> {{ order.get_delivery_method_display }}</p>
+                                        <p><strong>Дата обновления:</strong> {{ order.updated|date:"d.m.Y H:i" }}</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="order-section">
+                                <h5><strong>Состав заказа:</strong></h5>
+                                <div class="table-responsive">
+                                    <table class="table table-sm">
+                                        <thead>
+                                            <tr>
+                                                <th>Товар</th>
+                                                <th>Цена</th>
+                                                <th>Количество</th>
+                                                <th>Сумма</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for item in order.items.all %}
+                                            <tr>
+                                                <td>
+                                                    <a href="{% url 'product_detail' item.product.id %}"
+                                                       class="product-link">
+                                                        {{ item.product.name }}
+                                                    </a>
+                                                    <small class="text-muted">(ID: {{ item.product.id }})</small>
+                                                </td>
+                                                <td>{{ item.price }} ₽</td>
+                                                <td>{{ item.quantity }}</td>
+                                                <td>{{ item.total_cost }} ₽</td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="total-amount text-right">
+                                <h4>Итого: {{ order.amount }} ₽</h4>
+                            </div>
+                            </div>
+
+                            <div class="order-section">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h5><strong>Адрес доставки:</strong></h5>
+                                        <address>
+                                            {{ order.shipping_address.country }},
+                                            {{ order.shipping_address.region }} обл.,
+                                            {{ order.shipping_address.city }}
+                                            {% if order.shipping_address.street %}<br>ул. {{ order.shipping_address.street }}{% endif %}
+                                            {% if order.shipping_address.house %}, д. {{ order.shipping_address.house }}{% endif %}
+                                            {% if order.shipping_address.flat %}, кв. {{ order.shipping_address.flat }}{% endif %}
+                                        </address>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h5><strong>Контактные данные:</strong></h5>
+                                        <p>{{ order.customer_last_name }} {{ order.customer_first_name }} {{ order.customer_patronymic }}</p>
+                                        <p>Телефон: {{ order.customer_phone }}</p>
+                                        <p>Email: {{ order.customer_email }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <div class="alert alert-info">
+                        {% if request.GET.q %}Ничего не найдено{%else%}Нет доступных заказов{% endif %}
+                    </div>
+                    {% endfor %}
+
+                    <!-- Пагинация -->
+                    {% if orders.has_other_pages %}
+                    <div class="pagination-container pagination-blog button-v text-center">
+
+                    <nav>
+                          <ul class="pagination">
+                            {% if orders.has_previous %}
+                              <li>
+                                <a class="page-link" href="?page=1{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">
+                                  <!--1-->
+                                  <i class="fa fa-angle-double-left" aria-hidden="true"></i>
+                                </a>
+                              </li>
+                              <li>
+                                <a href="?page={{ orders.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">
+                                    <!--Предыдущая-->
+                                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                                </a>
+                              </li>
+                            {% endif %}
+                            {% for i in orders.paginator.page_range %}
+                                {% if orders.number == i %}
+                                  <li>
+                                    <a class="active" href="#">{{ i }}</a>
+                                  </li>
+                                {% else %}
+                                  <li>
+                                    <a href="?page={{ i }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">
+                                      {{ i }}
+                                    </a>
+                                  </li>
+                                {% endif %}
+                            {% endfor %}
+                            {% if orders.has_next %}
+                              <li class="page-item">
+                                <a class="page-link" href="?page={{ orders.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">
+                                  <!--Следующая-->
+                                  <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                </a>
+                              </li>
+                              <li class="page-item">
+                                <a class="page-link" href="?page={{ orders.paginator.num_pages }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">
+                                  <!--Последняя-->
+                                  <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                                </a>
+                              </li>
+                            {% endif %}
+                          </ul>
+                    </nav>
+
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .shop-links {
+        margin-top: 20px;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+    .order-card {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        margin-bottom: 30px;
+        padding: 20px;
+        background: #fff;
+    }
+
+    .order-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .status-form {
+        margin-bottom: 20px;
+    }
+
+    .status-select {
+        width: auto;
+        display: inline-block;
+        margin-right: 10px;
+    }
+
+    .pagination {
+        margin-top: 30px;
+        justify-content: center;
+    }
+
+    /* Дополнительные отступы между элементами внутри блоков */
+    .order-section h4 {
+        margin-bottom: 15px;
+    }
+    .order-section p,
+    .order-section address,
+    .order-section .status-badge {
+        margin-bottom: 10px;
+    }
+    .order-section .table-responsive {
+        margin-bottom: 15px;
+    }
+    .order-section form .form-control {
+        margin-bottom: 15px;
+    }
+</style>
+{% endblock %}

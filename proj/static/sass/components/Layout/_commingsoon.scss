@@ -1,0 +1,36 @@
+/*
+	6.5. Commingsoon
+			6.5.1 Commingsoon Page
+
+ */
+
+
+.commingsoon{
+	background:url(../img/about/Commingsoon.jpg) no-repeat center;
+	background-size:cover;
+	padding-top:250px;
+	padding-bottom:246px;
+}
+.commingsoon{
+	p{
+		color:#a4a4a4;
+	}
+}
+.c-title{
+	font-size:30px;
+	font-weight:500;
+	margin:65px 0 50px 0;
+	span{
+		font-size:60px;
+	}
+}
+.c-store{
+	font-size:24px;
+	font-weight:500;
+	position:relative;
+	padding-bottom:26px;
+	margin-bottom:30px;
+	&:before{
+		@include line-left(67px,#eb5050);
+	}
+}

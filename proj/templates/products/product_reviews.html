@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% block title %}Отзывы на "{{ product.name }}"{% endblock %}
+
+{% block content %}
+{% load static %}
+{% load user_filters %}
+<div class="orders-page space-padding-tb-70">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <!-- Заголовок страницы и хлебные крошки -->
+        <div class="title-page">
+          <ul class="breadcrumb white">
+            <li><a href="{% url 'product_detail' product.pk %}">{{product.name}} от {{product.shop.title}}"</a></li>
+            <li><a href="#">Отзывы</a></li>
+          </ul>
+        </div>
+
+        <!-- Список отзывов -->
+        {% if page_obj.object_list %}
+        <div class="reviews-list">
+          {% for review in page_obj %}
+          <div class="card mb-4 review-item" id="review-{{ review.pk }}">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                {{review.user.username}}
+              <div class="review-rating">
+                {% for i in "12345"|make_list %}
+                  {% if forloop.counter <= review.rating %}
+                    <span class="star" style="color: gold;"></span>
+                  {% else %}
+                    <span class="star" style="color: gray;"></span>
+                  {% endif %}
+                {% endfor %}
+              </div>
+              <div class="review-meta">
+                <small>{{ review.pub_date|date:"d.m.Y H:i" }}</small>
+                {% if review.user == request.user %}
+                  <a href="{% url 'edit_review' review.id %}" class="btn btn-link btn-sm">Редактировать</a>
+                {% endif %}
+              </div>
+            </div>
+            <div class="card-body">
+              <p>{{ review.text }}</p>
+              {% if review.image %}
+              <div class="review-image text-center">
+                <img src="{{ review.image.url }}" alt="Фото отзыва" class="img-fluid rounded" style="max-height: 250px;">
+              </div>
+              {% endif %}
+            </div>
+          </div><br>
+          {% endfor %}
+        </div>
+
+        <!-- Пагинация -->
+        <div class="pagination-container pagination-blog button-v text-center">
+                    {% include 'products/includes/paginator.html' %}
+        </div>
+
+        {% else %}
+        <div class="alert alert-info">
+          Отзывов пока нет.
+        </div>
+        {% endif %}
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Общие стили для страницы отзывов */
+  .breadcrumb {
+    background: transparent;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+  .review-item {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .review-item .card-header {
+    background-color: #f8f9fa;
+    padding: 15px 20px;
+  }
+  .review-item .card-body {
+    padding: 20px;
+  }
+  .review-rating .star {
+    margin-right: 3px;
+    font-size: 1.2em;
+  }
+  .review-meta {
+    font-size: 0.9em;
+  }
+</style>
+{% endblock %}

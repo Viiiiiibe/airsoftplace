@@ -1,0 +1,31 @@
+// 4.8. 404 Error page
+
+
+
+.error{
+	padding:50px 0;
+	@media(min-width:$screen-md){
+		padding:100px 0;
+	}
+}
+.error-title{
+	margin:82px 0 20px 0;
+	font-size:30px;
+	font-weight:500;
+}
+.error-desc{
+	margin-bottom:60px;
+	font-size:18px;
+	color:#a4a4a4;
+}
+.btn-back{
+	@include btn(196px, 54px, #fff, #000);
+    font-size: 16px;
+    font-weight: 500;
+    display: inline-block;
+    @include transition2;
+    &:hover {
+        background: #eb5050;
+        color: #fff;
+    }
+}

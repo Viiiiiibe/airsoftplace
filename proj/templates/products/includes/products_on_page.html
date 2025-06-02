@@ -1,0 +1,48 @@
+<div class="wrap-filter-box wrap-filter-number">
+        <span class="total-count">Показывать по</span>
+        <ul class="pagination">
+            <li>
+                <form class="form-inline" action="">
+                    <input name="prod_count" type="hidden" value="12">
+                    {% if request.GET.sort_by %}
+                    <input name="sort_by" type="hidden" value="{{ request.GET.sort_by }}">
+                    {% endif %}
+                    {% include 'products/includes/checking_previous_filters_for_prod_count_and_sort_by.html' %}
+
+                    {% if request.GET.prod_count == '12'%}
+                    <button type="submit"><a style="color:black;"> &nbsp &nbsp 12</a></button>
+                    {% else %}
+                    <button type="submit"><a> &nbsp &nbsp 12</a></button>
+                    {% endif %}
+                </form>
+            </li>
+            <li>
+                <form class="form-inline" action="">
+                    <input name="prod_count" type="hidden" value="24">
+                    {% if request.GET.sort_by %}
+                    <input name="sort_by" type="hidden" value="{{ request.GET.sort_by }}">
+                    {% endif %}
+                    {% include 'products/includes/checking_previous_filters_for_prod_count_and_sort_by.html' %}
+                    {% if request.GET.prod_count == '24' or request.GET.prod_count is None%}
+                    <button type="submit"><a style="color:black;">24</a></button>
+                    {% else %}
+                    <button type="submit"><a>24</a></button>
+                    {% endif %}
+                </form>
+            </li>
+            <li>
+                <form class="form-inline" action="">
+                    <input name="prod_count" type="hidden" value="36">
+                    {% if request.GET.sort_by %}
+                    <input name="sort_by" type="hidden" value="{{ request.GET.sort_by }}">
+                    {% endif %}
+                    {% include 'products/includes/checking_previous_filters_for_prod_count_and_sort_by.html' %}
+                    {% if request.GET.prod_count == '36' %}
+                    <button type="submit"><a style="color:black;">36</a></button>
+                    {% else %}
+                    <button type="submit"><a>36</a></button>
+                    {% endif %}
+                </form>
+            </li>
+        </ul>
+</div>

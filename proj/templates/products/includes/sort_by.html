@@ -1,0 +1,76 @@
+<div class="wrap-filter-box wrap-filter-sorting">
+        <button class="dropdown-toggle" type="button" data-toggle="dropdown" id="menu2">
+            Сортировка:
+            <span style="color: #000000;">
+                    {% if sort_parameter == '-pub_date' %}
+                    сначала&nbspновое
+                    {% elif sort_parameter == 'price' %}
+                    сначала&nbspдешевле
+                    {% elif sort_parameter == '-price' %}
+                    сначала&nbspдороже
+                    {% elif sort_parameter == '-order_count' %}
+                    сначала&nbspпопулярные
+                    {% else %}
+                    сначала&nbspновое
+                    {% endif %}
+                </span>
+        </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="menu2">
+            <li>
+                <form class="form-inline" action="">
+                    {% if request.GET.prod_count %}
+                    <input name="prod_count" type="hidden" value="{{ request.GET.prod_count }}">
+                    {% endif %}
+                    <input name="sort_by" type="hidden" value="-pub_date">
+                    {% include 'products/includes/checking_previous_filters_for_prod_count_and_sort_by.html' %}
+                    {% if sort_parameter == '-pub_date' %}
+                    <button type="submit" style="color:black;">сначала новое</button>
+                    {% else %}
+                    <button type="submit">сначала новое</button>
+                    {% endif %}
+                </form>
+            </li>
+            <li>
+                <form class="form-inline" action="">
+                    {% if request.GET.prod_count %}
+                    <input name="prod_count" type="hidden" value="{{ request.GET.prod_count }}">
+                    {% endif %}
+                    <input name="sort_by" type="hidden" value="-order_count">
+                    {% include 'products/includes/checking_previous_filters_for_prod_count_and_sort_by.html' %}
+                    {% if sort_parameter == '-order_count' %}
+                    <button type="submit" style="color:black;">сначала популярные</button>
+                    {% else %}
+                    <button type="submit">сначала популярные</button>
+                    {% endif %}
+                </form>
+            </li>
+            <li>
+                <form class="form-inline" action="">
+                    {% if request.GET.prod_count %}
+                    <input name="prod_count" type="hidden" value="{{ request.GET.prod_count }}">
+                    {% endif %}
+                    <input name="sort_by" type="hidden" value="price">
+                    {% include 'products/includes/checking_previous_filters_for_prod_count_and_sort_by.html' %}
+                    {% if sort_parameter == 'price' %}
+                    <button type="submit" style="color:black;">сначала дешевле</button>
+                    {% else %}
+                    <button type="submit">сначала дешевле</button>
+                    {% endif %}
+                </form>
+            </li>
+            <li>
+                <form class="form-inline" action="">
+                    {% if request.GET.prod_count %}
+                    <input name="prod_count" type="hidden" value="{{ request.GET.prod_count }}">
+                    {% endif %}
+                    <input name="sort_by" type="hidden" value="-price">
+                    {% include 'products/includes/checking_previous_filters_for_prod_count_and_sort_by.html' %}
+                    {% if sort_parameter == '-price' %}
+                    <button type="submit" style="color:black;">сначала дороже</button>
+                    {% else %}
+                    <button type="submit">сначала дороже</button>
+                    {% endif %}
+                </form>
+            </li>
+        </ul>
+</div>

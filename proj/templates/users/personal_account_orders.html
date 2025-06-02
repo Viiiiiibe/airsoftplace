@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% block title %}
+Заказы
+{% endblock %}
+
+{% block content %}
+{% load static %}
+{% load mptt_tags static %}
+
+<div class="  orders-page space-padding-tb-70">
+    <div class="container ">
+        <div class="row">
+            <div class="title-page">
+                <h3>Заказы</h3>
+                <ul class="breadcrumb white">
+                    <li><a href="{% url  'users:personal_account_main' %}">Личный кабинет</a></li>
+                    <li><a href="{% url 'users:orders' %}">Заказы</a></li>
+                </ul>
+            </div>
+            {% for order in orders %}
+            <div class="col-xs-12 col-sm-6 col-md-6" style="padding-bottom: 30px;">
+                <div class="banner-img">
+                    <a class="" href="{% url 'users:order_detail' order.pk %}"><img src="{% static 'img/order_banner.png' %}" alt="photo" class="img-reponsive">
+                    <div class="banner-content">
+                        <h3 class="banner-title">№ {{order.pk}}</h3>
+                        <p>{{order.get_status_display}}</p>
+                    </div>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<!-- Пагинация -->
+                    {% if orders.has_other_pages %}
+                    <div class="pagination-container pagination-blog button-v text-center">
+
+                    <nav>
+                          <ul class="pagination">
+                            {% if orders.has_previous %}
+                              <li>
+                                <a class="page-link" href="?page=1{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">
+                                  <!--1-->
+                                  <i class="fa fa-angle-double-left" aria-hidden="true"></i>
+                                </a>
+                              </li>
+                              <li>
+                                <a href="?page={{ orders.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">
+                                    <!--Предыдущая-->
+                                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                                </a>
+                              </li>
+                            {% endif %}
+                            {% for i in orders.paginator.page_range %}
+                                {% if orders.number == i %}
+                                  <li>
+                                    <a class="active" href="#">{{ i }}</a>
+                                  </li>
+                                {% else %}
+                                  <li>
+                                    <a href="?page={{ i }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">
+                                      {{ i }}
+                                    </a>
+                                  </li>
+                                {% endif %}
+                            {% endfor %}
+                            {% if orders.has_next %}
+                              <li class="page-item">
+                                <a class="page-link" href="?page={{ orders.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">
+                                  <!--Следующая-->
+                                  <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                </a>
+                              </li>
+                              <li class="page-item">
+                                <a class="page-link" href="?page={{ orders.paginator.num_pages }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">
+                                  <!--Последняя-->
+                                  <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                                </a>
+                              </li>
+                            {% endif %}
+                          </ul>
+                    </nav>
+
+                    </div>
+                    {% endif %}
+{% endblock %}

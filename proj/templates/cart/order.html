@@ -1,0 +1,330 @@
+{% extends 'base.html' %}
+{% block title %}
+Оформление Заказа
+{% endblock %}
+
+{% block headscripts %}
+<script src="https://api-maps.yandex.ru/2.1/?apikey=fa690b4d-c2ff-49d5-ab0f-8a0c6e236ae0&lang=ru_RU" type="text/javascript"></script>
+{% endblock %}
+
+{% block content %}
+{% load static %}
+{% load user_filters %}
+{% load mathfilters %}
+{% if cart %}
+<div class="main-content space-padding-tb-70">
+    <div class="container">
+        <form name="checkout" method="post" class="checkout">
+            {% csrf_token %}
+            <div class="cart-box-container-ver2">
+                <div class="row">
+                    <div class="col-md-8">
+                        <h3>Личные Данные</h3>
+                        <div class="row form-customer">
+                            <div class="form-group col-md-12">
+                                <label class=" control-label">Фамилия <span
+                                        class="required text-danger">*</span></label>
+                                {{ form.customer_last_name |addclass:'form-control form-account'}}
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label class=" control-label">Имя <span class="required text-danger">*</span></label>
+                                {{ form.customer_first_name |addclass:'form-control form-account'}}
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label class=" control-label">Отчество</label>
+                                {{ form.customer_patronymic |addclass:'form-control form-account'}}
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class=" control-label">Email <span class="required text-danger">*</span></label>
+                                {{ form.customer_email |addclass:'form-control form-account'}}
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class=" control-label">Тлефон <span class="required text-danger">*</span></label>
+                                {{ form.customer_phone |addclass:'form-control form-account'}}
+                            </div>
+                        </div>
+                        <h3>Способ Доставки</h3>
+                        <div class="row form-customer">
+                            <div id="yaMap" style="width: 100%; height: 400px; margin-bottom: 20px;"></div>
+                            <div class="form-check col-md-12">
+                                <label class=" ver2">
+                                    <input type="radio" name="shipping" value="Пункт выдачи"
+                                           class="js-show-pickup-point form-radio-input" required/>
+                                    <span>Забрать в пункте выдачи СДЭК</span>
+                                </label><br>
+                                <label class=" ver2">
+                                    <input type="radio" name="shipping" value="Курьером"
+                                           class="js-show-courier-delivery form-radio-input" required/>
+                                    <span>Курьерская доставка СДЭК</span>
+                                </label><br>
+                            </div>
+                            <div class="checkout-login col-md-12">
+                                <div class="form-login js-open-pickup-point">
+                                    <div class="form-group col-md-12">
+                                        <label class=" control-label">Область <span
+                                                class="required text-danger">*</span></label>
+                                        <input type="text" id="pickup-point-region" name="pickup-point-region"
+                                               class="form-control form-account">
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label class=" control-label">Населенный пункт <span
+                                                class="required text-danger">*</span></label>
+                                        <input type="text" id="pickup-point-city" name="pickup-point-city"
+                                               class="form-control form-account">
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label class=" control-label">Улица<span
+                                                class="required text-danger">*</span></label>
+                                        <input type="text" id="pickup-point-street" name="pickup-point-street" class="form-control form-account">
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label class=" control-label">Дом<span
+                                                class="required text-danger">*</span></label>
+                                        <input type="text" id="pickup-point-house" name="pickup-point-house" class="form-control form-account">
+                                    </div>
+                                </div>
+                                <div class="form-login js-open-courier-delivery">
+                                    <div class="form-group col-md-12">
+                                        <label class=" control-label">Область <span
+                                                class="required text-danger">*</span></label>
+                                        <input type="text" id="courier-delivery-region" name="courier-delivery-region"
+                                               class="form-control form-account">
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label class=" control-label">Населенный пункт <span
+                                                class="required text-danger">*</span></label>
+                                        <input type="text" id="courier-delivery-city" name="courier-delivery-city"
+                                               class="form-control form-account">
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label class=" control-label">Улица <span class="required text-danger">*</span></label>
+                                        <input type="text" id="courier-delivery-street" name="courier-delivery-street"
+                                               class="form-control form-account">
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label class=" control-label">Дом <span
+                                                class="required text-danger">*</span></label>
+                                        <input type="text" id="courier-delivery-house" name="courier-delivery-house"
+                                               class="form-control form-account">
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label class=" control-label">Квартира</label>
+                                        <input type="text" name="courier-delivery-flat"
+                                               class="form-control form-account">
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label class=" control-label">Подъезд</label>
+                                        <input type="text" name="courier-delivery-entrance"
+                                               class="form-control form-account">
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label class=" control-label">Этаж</label>
+                                        <input type="text" name="courier-delivery-floor"
+                                               class="form-control form-account">
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label class=" control-label">Домофон</label>
+                                        <input type="text" name="courier-delivery-intercom"
+                                               class="form-control form-account">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>Ваш Заказ</h3>
+                        <div class="cart-list">
+                            <ul class="list">
+                                {% for item in items %}
+                                {% with product=item.product %}
+                                <li class="flex">
+                                    <a href="{% url 'product_detail' product.pk %}" title="" class="cart-product-image"><img
+                                            src="{{product.image6.url}}" alt="Фото"></a>
+                                    <div class="text">
+                                        <p class="product-name">{{product.name}}</p>
+                                        <div class="quantity">x{{item.qty}}</div>
+                                        <p class="product-price">{{ product.price|mul:item.qty |floatformat:2}} ₽</p>
+                                        <p class="product-name">Склад - {{product.warehouse_city}}</p>
+                                        <p class="product-name">{{product.shipping_height}}x{{product.shipping_length}}x{{product.shipping_width}} см</p>
+                                        <p class="product-name">{{product.shipping_weight}} кг</p>
+                                    </div>
+                                </li>
+                                {% endwith %}
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <h3>Сумма заказа:</h3>
+                        <div class="text-price">
+                            <ul>
+                                <li><span class="text">Стоимость товаров</span><span class="number">{{ total_price |floatformat:2}} ₽</span>
+                                </li>
+                                <li><span class="text">Стоимость доставки</span><a class="product-desc" href="#" title="Пересчитать"><span id="shippingResultSpan"  class="number"><i class="icon-refresh f-15"></i> ... ₽</span></a>
+                                </li>
+                                <li>
+                                    <p class="no-checkbox">
+                                        После оплаты заказа письмо с подробной информацией придет на указанный вами Email. Информация о состоянии заказа будет доступна в личном кабинете.
+                                        <br><br>
+                                        Отправка заказа осуществляется по тарифу Посылка. Стоимость рассчитана примерно, точная сумма определяется при отправке.
+                                        <br><br>
+                                        Оплата доставки осуществляется клиентом в момент получения заказа.
+                                        <br><br>
+                                        Сроки доставки в большинстве случаев не привышают 4 дней.
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div id="shippingResult" class="alert" style="display: none;"></div>
+                        <button type="submit" class="btn link-button hover-white btn-checkout">Оплатить Заказ</button>
+                        Нажимая на кнопку, вы соглашаетесь с <a href="{% static 'docs/Privacy_Policy.pdf' %}" target="_blank">Условиями обработки персональных данных</a>, а также с <a href="{% static 'docs/TERMS_OF_SALE.pdf' %}" target="_blank">Условиями продажи</a>.
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <form id="shippingCostForm" method="post" style="margin-top: 20px;">
+            {% csrf_token %}
+            <input type="hidden" id="find_shipping_cost_to_city" name="find_shipping_cost_to_city">
+            <input type="hidden" id="find_shipping_cost_with_method" name="find_shipping_cost_with_method">
+            <button type="button" id="calculateShipping" class="btn link-button hover-white btn-checkout" style="display: none;"><i class="icon-refresh f-15"></i>Рассчитать доставку</button>
+        </form>
+    </div>
+</div>
+{% else %}
+<div class="main-content text-center empty-cart-content space-padding-tb-60">
+    <div class="container">
+        <span class="close-empty-cart"></span>
+        <h3>Корзина Пуста.</h3>
+        <a href="{% url 'categories' %}" class="bordersolid-2 btn-return">Продолжить покупки <span
+                class="icon-arr"></span></a>
+    </div>
+</div>
+{% endif %}
+
+
+
+
+<script type="text/javascript">
+    ymaps.ready(init);
+    function init() {
+        // Создаем карту с центром и зумом по умолчанию
+        var myMap = new ymaps.Map("yaMap", {
+            center: [55.751574, 37.573856], // Москва по умолчанию
+            zoom: 10,
+            controls: ['zoomControl', 'geolocationControl', 'typeSelector', ]
+        });
+
+        
+
+
+        // Создадим экземпляр элемента управления «поиск по карте»
+        // с установленной опцией провайдера данных для поиска по организациям.
+        var searchControl = new ymaps.control.SearchControl({
+            options: {
+                provider: 'yandex#search',
+                noPlacemark: true,
+                  visible: false
+            }
+        });
+
+        myMap.controls.add(searchControl);
+
+        // Программно выполним поиск определённых кафе в текущей
+        // прямоугольной области карты.
+        searchControl.search('СДЭК')
+
+        // Добавляем обработчик клика по карте
+        myMap.events.add('click', function (e) {
+            var coords = e.get('coords');
+            // Запрашиваем адрес по координатам
+            ymaps.geocode(coords).then(function (res) {
+                var firstGeoObject = res.geoObjects.get(0),
+                    address = firstGeoObject.getAddressLine();
+
+                // Дополнительно можно разобрать компоненты адреса:
+                var components = firstGeoObject.properties.get('metaDataProperty.GeocoderMetaData.Address.Components');
+                var region = '', city = '', street = '', house = '';
+                components.forEach(function(component) {
+                    if (component.kind === 'province') {
+                        region = component.name;
+                    } else if (component.kind === 'locality') {
+                        city = component.name;
+                    } else if (component.kind === 'street') {
+                        street = component.name;
+                    } else if (component.kind === 'house') {
+                        house = component.name;
+                    }
+                });
+
+                // Выводим адрес для отладки
+                console.log("Выбранный адрес: ", address);
+                console.log("Регион:", region, "Город:", city, "Улица:", street, "Дом:", house);
+
+                // Заполняем соответствующие поля формы, например:
+                document.getElementById("courier-delivery-region").value = region;
+                document.getElementById("courier-delivery-city").value = city;
+                document.getElementById("courier-delivery-street").value = street;
+                document.getElementById("courier-delivery-house").value = house;
+
+                document.getElementById("pickup-point-region").value = region;
+                document.getElementById("pickup-point-city").value = city;
+                document.getElementById("pickup-point-street").value = street;
+                document.getElementById("pickup-point-house").value = house;
+
+                document.getElementById("find_shipping_cost_to_city").value = city;
+            });
+        });
+    }
+
+
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // Обработчик клика на элементе shippingResultSpan
+        document.getElementById('shippingResultSpan').addEventListener('click', function(e) {
+            e.preventDefault(); // Предотвращаем действие по умолчанию (переход по якорю)
+            document.getElementById('calculateShipping').click(); // Имитируем клик по кнопке расчета
+        });
+
+        const cityInputs = ['pickup-point-city', 'courier-delivery-city'];
+        cityInputs.forEach(id => {
+            document.getElementById(id).addEventListener('input', function() {
+                document.getElementById('find_shipping_cost_to_city').value = this.value;
+            });
+        });
+
+        document.getElementById('calculateShipping').addEventListener('click', function() {
+            const formData = new FormData(document.getElementById('shippingCostForm'));
+
+            fetch(window.location.href, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest',
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                const resultDiv = document.getElementById('shippingResult');
+                const resultSpan = document.getElementById('shippingResultSpan');
+                resultDiv.style.display = 'block';
+                if (data.shipping_cost) {
+                    resultDiv.innerHTML = ``;
+                    resultSpan.innerHTML = `<i class="icon-refresh f-15"></i> ${data.shipping_cost} ₽`;
+                } else {
+                    resultDiv.innerHTML = 'Не удалось рассчитать стоимость доставки, введите корректное название города и выберите способ доставки';
+                    resultSpan.innerHTML = `<i class="icon-refresh f-15"></i> ... ₽`;
+                }
+            });
+        });
+    });
+
+
+    $(".js-show-courier-delivery").on('click', function() {
+        document.getElementById("find_shipping_cost_with_method").value = this.value;
+    });
+
+    $(".js-show-pickup-point").on('click', function() {
+        document.getElementById("find_shipping_cost_with_method").value = this.value;
+    });
+</script>
+
+{% endblock %}

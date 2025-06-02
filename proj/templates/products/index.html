@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% block title %}
+Страйкбольный магазин SOKOL, снаряжение для страйкбола в одном месте
+{% endblock %}
+
+{% block content %}
+{% load static %}
+<div class="wrapper-slider homeclean-slider js-homeclean-slider">
+    <div class="slider-img ">
+        <a href="{% url 'all_products' %}">
+            <img src="{% static 'img/homeclean_1_1-text.png' %}" alt="" class="img-responsive">
+        </a>
+    </div>
+    <div class="slider-img ">
+        <img src="{% static 'img/homeclean_1_1.png' %}" alt="" class="img-responsive">
+        <div class="container box-center">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="slider-content text-center">
+                        <h1></h1>
+                        <a href="{% url 'all_products' %}" class="btn-shop">К Новинкам!</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container container-40">
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6">
+            <div class="banner-img">
+                <a class="" href="{% url 'categories' %}"><img src="{% static 'img/banner.png' %}" alt="banner"
+                                                               class="img-reponsive">
+                <div class="banner-content">
+                    <h3 class="banner-title">Удобные категории и фильтры!</h3>
+                </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6">
+            <div class="banner-img">
+                <a class="" href="{% url 'shops' %}"><img src="{% static 'img/banner.png' %}"
+                                                                             alt="banner"
+                                                                             class="img-reponsive">
+                <div class="banner-content">
+                    <h3 class="banner-title">Проверенные продавцы!</h3>
+                </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="wrapper-product space-margin-top-85 ">
+    <div class="container container-40">
+        <h3 class="heading-v2 text-center">Популярные</h3>
+        <div class="row">
+            {% for product in products %}
+            <div class="col-md-15 col-sm-3 col-xs-6 product-item">
+                <div class="product-images">
+                    <a href="{% url 'product_detail' product.pk %}" class="hover-images effect"><img
+                            src="{{ product.image6.url }}"
+                            alt="photo" class="img-reponsive"></a>
+                    {% if product.items_left < 1 %}
+                    <div class="ribbon-sale ver3"><span>отсутствует &nbsp &nbsp</span></div>
+                    {% endif %}
+                </div>
+                <div class="product-info-ver2">
+                    <h3 class="product-title">
+                        <a href="{% url 'product_detail' product.pk %}">
+                            {{product.name }}
+                            {% if product.review_count > 0 %}
+                                <span class="star" style="color: gold;"></span> {{ product.avg_rating|floatformat:1 }} ({{ product.review_count }} отзывов)
+                            {% endif %}
+                        </a>
+                    </h3>
+                    <div class="product-after-switch">
+                        <div class="product-price">{{ product.price |floatformat:2 }} ₽</div>
+                        <div class="product-after-button">
+                            {% if product.items_left < 1 %}
+                            <a href="{% url 'product_detail' product.pk %}" class="addcart">ОТСУТСТВУЕТ</a>
+                            {% else %}
+                            <a href="{% url 'product_detail' product.pk %}" class="addcart">ПОСМОТРЕТЬ</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="button-v v7 text-center">
+            <a href="{% url 'all_products' %}" class="btn-loadmore"><i class="icon-refresh f-15"></i>Показать всё</a>
+        </div>
+    </div>
+</div>
+{% include 'products/includes/recommendations.html' %}
+{% include 'products/includes/recently_viewed.html' %}
+
+{% endblock %}

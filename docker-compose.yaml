@@ -1,0 +1,63 @@
+services:
+  db:
+    image: postgres:15
+    restart: always
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: 'pguser'
+      POSTGRES_PASSWORD: 'pgpassword'
+      POSTGRES_DB: 'proj_db'
+    ports:
+      - '5432:5432'
+
+  redis:
+    image: redis:7-alpine
+
+  worker:
+    build: .
+    restart: always
+    entrypoint: [ "celery", "--workdir=.", "-A", "proj", "worker", "--concurrency=1" ]
+    volumes:
+      - ./proj/:/app
+
+  flower:
+    image: mher/flower:0.9.7
+    command: [ 'flower', '--broker=redis://redis', '--port=5555' ]
+    ports:
+      - "5555:5555"
+    depends_on:
+      - redis
+
+  mailhog:
+    image: mailhog/mailhog
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+
+  web:
+    build: .
+    restart: always
+    volumes:
+      - ./proj/:/app
+    ports:
+     - "8000:8000"
+    depends_on:
+      - db
+      - worker
+
+  nginx:
+    image: nginx:1.21.3-alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx_dev.conf:/etc/nginx/conf.d/default.conf
+      - static_value:/var/html/static/
+      - media_value:/var/html/media/
+    depends_on:
+      - web
+
+volumes:
+  postgres_data:
+  static_value:
+  media_value:

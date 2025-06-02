@@ -1,0 +1,5789 @@
+[
+{
+  "model": "products.shop",
+  "pk": 1,
+  "fields": {
+    "title": "1Air-Shop",
+    "slug": "1Air-Shop",
+    "type": "individual_entrepreneur",
+    "address": "Россия, Московская, Москва, 111111, 1",
+    "INN": "1234567890",
+    "OGRNIP": "1234567890",
+    "OGRN": null,
+    "payment_account": "12345678900987654321",
+    "BIC": "123456789",
+    "verified": true
+  }
+},
+{
+  "model": "products.shop",
+  "pk": 2,
+  "fields": {
+    "title": "Алеша-шоп",
+    "slug": "aleshashop",
+    "type": "self-employed",
+    "address": "1",
+    "INN": "1",
+    "OGRNIP": null,
+    "OGRN": null,
+    "payment_account": "1",
+    "BIC": "123456789",
+    "verified": true
+  }
+},
+{
+  "model": "products.shop",
+  "pk": 3,
+  "fields": {
+    "title": "SuperShop",
+    "slug": "SuperShop",
+    "type": "individual_entrepreneur",
+    "address": "1",
+    "INN": "1234567890",
+    "OGRNIP": "1234567890",
+    "OGRN": null,
+    "payment_account": "1",
+    "BIC": "123456789",
+    "verified": true
+  }
+},
+{
+  "model": "products.shop",
+  "pk": 4,
+  "fields": {
+    "title": "ВСЕ У БЕЛЛЫ",
+    "slug": "vseubelli",
+    "type": "individual_entrepreneur",
+    "address": "1",
+    "INN": "1234567890",
+    "OGRNIP": "1234567890",
+    "OGRN": null,
+    "payment_account": "1",
+    "BIC": "123456789",
+    "verified": true
+  }
+},
+{
+  "model": "products.shop",
+  "pk": 5,
+  "fields": {
+    "title": "Питер-Страйк",
+    "slug": "piterstrike",
+    "type": "legal_person",
+    "address": "1",
+    "INN": "1",
+    "OGRNIP": null,
+    "OGRN": "1234567890",
+    "payment_account": "1",
+    "BIC": "123456789",
+    "verified": true
+  }
+},
+{
+  "model": "products.shop",
+  "pk": 6,
+  "fields": {
+    "title": "Arnoldik",
+    "slug": "Arnoldik",
+    "type": "self-employed",
+    "address": "1",
+    "INN": "1",
+    "OGRNIP": null,
+    "OGRN": null,
+    "payment_account": "1",
+    "BIC": "123456789",
+    "verified": true
+  }
+},
+{
+  "model": "products.category",
+  "pk": 1,
+  "fields": {
+    "title": "Страйкбольное оружие",
+    "slug": "strajkbolnoe-oruzhie",
+    "parent": null,
+    "image": "category_img/фывапма_x8IBJSk.jpg",
+    "lft": 1,
+    "rght": 8,
+    "tree_id": 1,
+    "level": 0
+  }
+},
+{
+  "model": "products.category",
+  "pk": 2,
+  "fields": {
+    "title": "автоматы",
+    "slug": "avtomaty",
+    "parent": 1,
+    "image": "category_img/фывапма_fzG7SUS.jpg",
+    "lft": 2,
+    "rght": 3,
+    "tree_id": 1,
+    "level": 1
+  }
+},
+{
+  "model": "products.category",
+  "pk": 3,
+  "fields": {
+    "title": "винтовки",
+    "slug": "vintovki",
+    "parent": 1,
+    "image": "category_img/фыкпрваыр.jpg",
+    "lft": 4,
+    "rght": 5,
+    "tree_id": 1,
+    "level": 1
+  }
+},
+{
+  "model": "products.category",
+  "pk": 4,
+  "fields": {
+    "title": "пистолеты",
+    "slug": "pistolety",
+    "parent": 1,
+    "image": "category_img/ывпывп.jpg",
+    "lft": 6,
+    "rght": 7,
+    "tree_id": 1,
+    "level": 1
+  }
+},
+{
+  "model": "products.category",
+  "pk": 5,
+  "fields": {
+    "title": "Снаряжение",
+    "slug": "snaryazhenie",
+    "parent": null,
+    "image": "category_img/фыкпувртф_zGq4rkk.jpg",
+    "lft": 1,
+    "rght": 10,
+    "tree_id": 2,
+    "level": 0
+  }
+},
+{
+  "model": "products.category",
+  "pk": 6,
+  "fields": {
+    "title": "шары",
+    "slug": "shary",
+    "parent": 5,
+    "image": "category_img/фыпрвар.jpg",
+    "lft": 2,
+    "rght": 3,
+    "tree_id": 2,
+    "level": 1
+  }
+},
+{
+  "model": "products.category",
+  "pk": 7,
+  "fields": {
+    "title": "Маски, очки, защита лица",
+    "slug": "maski-ochki-zashita-lica",
+    "parent": 5,
+    "image": "category_img/фывкпрфвапри.jpg",
+    "lft": 4,
+    "rght": 5,
+    "tree_id": 2,
+    "level": 1
+  }
+},
+{
+  "model": "products.category",
+  "pk": 8,
+  "fields": {
+    "title": "Лоадеры",
+    "slug": "loadery",
+    "parent": 5,
+    "image": "category_img/фывпфыкп.jpg",
+    "lft": 6,
+    "rght": 7,
+    "tree_id": 2,
+    "level": 1
+  }
+},
+{
+  "model": "products.category",
+  "pk": 9,
+  "fields": {
+    "title": "Экипировка",
+    "slug": "ekipirovka",
+    "parent": 5,
+    "image": "category_img/фыкпувртф_Zl6rBRr.jpg",
+    "lft": 8,
+    "rght": 9,
+    "tree_id": 2,
+    "level": 1
+  }
+},
+{
+  "model": "products.category",
+  "pk": 10,
+  "fields": {
+    "title": "Обвес",
+    "slug": "obves",
+    "parent": null,
+    "image": "category_img/ыфвапфыв.jpg",
+    "lft": 1,
+    "rght": 24,
+    "tree_id": 3,
+    "level": 0
+  }
+},
+{
+  "model": "products.category",
+  "pk": 11,
+  "fields": {
+    "title": "ДТК, глушители",
+    "slug": "dtk-glushiteli",
+    "parent": 10,
+    "image": "category_img/ывпывп_eH76bFs.jpg",
+    "lft": 2,
+    "rght": 3,
+    "tree_id": 3,
+    "level": 1
+  }
+},
+{
+  "model": "products.category",
+  "pk": 12,
+  "fields": {
+    "title": "ЛЦУ",
+    "slug": "lcu",
+    "parent": 10,
+    "image": "category_img/фываимва.jpg",
+    "lft": 4,
+    "rght": 5,
+    "tree_id": 3,
+    "level": 1
+  }
+},
+{
+  "model": "products.category",
+  "pk": 13,
+  "fields": {
+    "title": "пистолетные рукоятки",
+    "slug": "pistoletnye-rukoyatki",
+    "parent": 10,
+    "image": "category_img/ывпывпрыв.jpg",
+    "lft": 6,
+    "rght": 7,
+    "tree_id": 3,
+    "level": 1
+  }
+},
+{
+  "model": "products.category",
+  "pk": 14,
+  "fields": {
+    "title": "приклады",
+    "slug": "priklady",
+    "parent": 10,
+    "image": "category_img/фывпывп.jpg",
+    "lft": 8,
+    "rght": 9,
+    "tree_id": 3,
+    "level": 1
+  }
+},
+{
+  "model": "products.category",
+  "pk": 15,
+  "fields": {
+    "title": "прицелы",
+    "slug": "pricely",
+    "parent": 10,
+    "image": "category_img/ыфвпрывар.jpg",
+    "lft": 10,
+    "rght": 11,
+    "tree_id": 3,
+    "level": 1
+  }
+},
+{
+  "model": "products.category",
+  "pk": 16,
+  "fields": {
+    "title": "прочее",
+    "slug": "prochee",
+    "parent": 10,
+    "image": "category_img/фывпфывап.jpg",
+    "lft": 12,
+    "rght": 13,
+    "tree_id": 3,
+    "level": 1
+  }
+},
+{
+  "model": "products.category",
+  "pk": 17,
+  "fields": {
+    "title": "тактические блоки",
+    "slug": "takticheskie-bloki",
+    "parent": 10,
+    "image": "category_img/фвыаиммваи.jpg",
+    "lft": 14,
+    "rght": 15,
+    "tree_id": 3,
+    "level": 1
+  }
+},
+{
+  "model": "products.category",
+  "pk": 18,
+  "fields": {
+    "title": "тактические рукоятки",
+    "slug": "takticheskie-rukoyatki",
+    "parent": 10,
+    "image": "category_img/фыпфвыап.jpg",
+    "lft": 16,
+    "rght": 17,
+    "tree_id": 3,
+    "level": 1
+  }
+},
+{
+  "model": "products.category",
+  "pk": 19,
+  "fields": {
+    "title": "Трассерные насадки",
+    "slug": "trassernye-nasadki",
+    "parent": 10,
+    "image": "category_img/фпвкапрва.jpg",
+    "lft": 18,
+    "rght": 19,
+    "tree_id": 3,
+    "level": 1
+  }
+},
+{
+  "model": "products.category",
+  "pk": 20,
+  "fields": {
+    "title": "фонари",
+    "slug": "fonari",
+    "parent": 10,
+    "image": "category_img/йыкпфыв.jpg",
+    "lft": 20,
+    "rght": 21,
+    "tree_id": 3,
+    "level": 1
+  }
+},
+{
+  "model": "products.category",
+  "pk": 21,
+  "fields": {
+    "title": "цевья",
+    "slug": "cevya",
+    "parent": 10,
+    "image": "category_img/ывпарыаеолап.jpg",
+    "lft": 22,
+    "rght": 23,
+    "tree_id": 3,
+    "level": 1
+  }
+},
+{
+  "model": "products.category",
+  "pk": 22,
+  "fields": {
+    "title": "Аксессуары, прочее",
+    "slug": "aksessuary-prochee",
+    "parent": null,
+    "image": "/category_img/default_category_img.png",
+    "lft": 1,
+    "rght": 2,
+    "tree_id": 4,
+    "level": 0
+  }
+},
+{
+  "model": "products.category",
+  "pk": 23,
+  "fields": {
+    "title": "Тюнинг для пистолетов",
+    "slug": "tyuning-dlya-pistoletov",
+    "parent": null,
+    "image": "category_img/ыфывф.jpg",
+    "lft": 1,
+    "rght": 8,
+    "tree_id": 5,
+    "level": 0
+  }
+},
+{
+  "model": "products.category",
+  "pk": 24,
+  "fields": {
+    "title": "Внешний тюнинг",
+    "slug": "vneshnij-tyuning-pistoletov",
+    "parent": 23,
+    "image": "category_img/нкегшеноапо.jpg",
+    "lft": 2,
+    "rght": 3,
+    "tree_id": 5,
+    "level": 1
+  }
+},
+{
+  "model": "products.category",
+  "pk": 25,
+  "fields": {
+    "title": "Внутренний тюнинг",
+    "slug": "vnutrennij-tyuning-pistoletov",
+    "parent": 23,
+    "image": "category_img/фыкрвар.jpg",
+    "lft": 4,
+    "rght": 5,
+    "tree_id": 5,
+    "level": 1
+  }
+},
+{
+  "model": "products.category",
+  "pk": 26,
+  "fields": {
+    "title": "Магазины, ввд адаптеры, прочее",
+    "slug": "magaziny-vvd-adaptery-prochee-pistoletov",
+    "parent": 23,
+    "image": "category_img/ывфпрывар.jpg",
+    "lft": 6,
+    "rght": 7,
+    "tree_id": 5,
+    "level": 1
+  }
+},
+{
+  "model": "products.category",
+  "pk": 27,
+  "fields": {
+    "title": "Тюнинг приводов",
+    "slug": "tyuning-privodov",
+    "parent": null,
+    "image": "category_img/tyuning-privodov-m4-ak-prochee.jpg",
+    "lft": 1,
+    "rght": 8,
+    "tree_id": 6,
+    "level": 0
+  }
+},
+{
+  "model": "products.category",
+  "pk": 28,
+  "fields": {
+    "title": "Магазины, ввд адаптеры, прочее",
+    "slug": "magaziny-vvd-adaptery-prochee-privodov",
+    "parent": 27,
+    "image": "category_img/ывпывп_PwHkVKX.jpg",
+    "lft": 2,
+    "rght": 3,
+    "tree_id": 6,
+    "level": 1
+  }
+},
+{
+  "model": "products.category",
+  "pk": 29,
+  "fields": {
+    "title": "Внешний тюнинг",
+    "slug": "vneshnij-tyuning-privodov",
+    "parent": 27,
+    "image": "category_img/ывпаывап.jpg",
+    "lft": 4,
+    "rght": 5,
+    "tree_id": 6,
+    "level": 1
+  }
+},
+{
+  "model": "products.category",
+  "pk": 30,
+  "fields": {
+    "title": "Внутренний тюнинг",
+    "slug": "vnutrennij-tyuning-privodov",
+    "parent": 27,
+    "image": "category_img/ыврпвар.jpg",
+    "lft": 6,
+    "rght": 7,
+    "tree_id": 6,
+    "level": 1
+  }
+},
+{
+  "model": "products.product",
+  "pk": 1,
+  "fields": {
+    "name": "Страйкбольный автомат (Cyma) CM031C S-74M",
+    "shop": 1,
+    "description": "Автомат АК-74М от Cyma (CM031C) - страйкбольная версия автомата Калашникова АК-74М.\r\n\r\nКомпания Cyma широко известна высоким качеством страйкбольного оружия и разнообразием модельного ряда.  Ей доверяют как новички, так и опытные игроки в страйкбол. В АК-74М пользователи ценят эргономику, сборку без люфтов и хорошую внутреннюю составляющую.",
+    "price": 22900.0,
+    "items_left": 17,
+    "pub_date": "2025-04-17T17:54:53.427Z",
+    "image1": "product_img/DSCF179292837_1712775729_6.jpeg",
+    "image2": "product_img/DSCF17945606_1712775735_6.jpeg",
+    "image3": "product_img/IMG_8164316_1713373978_6.jpeg",
+    "image4": "",
+    "image5": "product_img/DSCF17945606_1712775735_6_LmgJSA9.jpeg",
+    "image6": "product_img/DSCF179292837_1712775729_6_6ApAC80.jpeg",
+    "link_to_a_video": null,
+    "brand": null,
+    "show": true,
+    "verified": true,
+    "product_type": "AEG",
+    "compatibility": null,
+    "thread_type": null,
+    "mounting_type": null,
+    "imitation_of_a_shot": null,
+    "laser_sight": null,
+    "weight": null,
+    "principle_of_operation": null,
+    "length": null,
+    "diameter": null,
+    "warehouse_city": "Москва",
+    "shipping_width": 94.0,
+    "shipping_length": 71.0,
+    "shipping_height": 10.0,
+    "shipping_weight": 4.0,
+    "category": [
+      2
+    ]
+  }
+},
+{
+  "model": "products.product",
+  "pk": 2,
+  "fields": {
+    "name": "Страйкбольный автомат (East Crane) M4 CQBR SOPMOD Block 2 (WB) 9inch EC-603-9-WB-UP",
+    "shop": 1,
+    "description": "Страйкбольный автомат M4 CQBR SOPMOD Block 2 9inch от East Crane (EC-603-9 WB) является репликой автомата М4А1 с цевьем 9 INCH (дюймов) в обвесе от SOPMOD. На привод установлено тактическое цевье Daniel Defense RIS II, приклад типа Crane Stock и складные прицельные приспособления от КАС.\r\n\r\n\r\nКомпания East Crane широко известна высоким качеством страйкбольного оружия и разнообразием модельного ряда.  Ей доверяют как новички, так и опытные игроки в страйкбол. В М4А1 пользователи ценят эргономику, сборку без люфтов и хорошую внутреннюю составляющую.",
+    "price": 26300.0,
+    "items_left": 4232,
+    "pub_date": "2025-04-17T18:06:08.883Z",
+    "image1": "product_img/DSCF782354389_1690974835_6.jpg",
+    "image2": "product_img/DSCF782813885_1690974845_6.jpg",
+    "image3": "",
+    "image4": "",
+    "image5": "",
+    "image6": "product_img/DSCF782354389_1690974835_6_PG0n2KU.jpg",
+    "link_to_a_video": null,
+    "brand": "East Crane",
+    "show": true,
+    "verified": true,
+    "product_type": "AEG",
+    "compatibility": "CQB - type",
+    "thread_type": null,
+    "mounting_type": null,
+    "imitation_of_a_shot": true,
+    "laser_sight": true,
+    "weight": null,
+    "principle_of_operation": null,
+    "length": null,
+    "diameter": null,
+    "warehouse_city": "Москва",
+    "shipping_width": 100.0,
+    "shipping_length": 70.0,
+    "shipping_height": 20.0,
+    "shipping_weight": 3.0,
+    "category": [
+      2
+    ]
+  }
+},
+{
+  "model": "products.product",
+  "pk": 3,
+  "fields": {
+    "name": "Страйкбольный пистолет-пулемёт (Cyma) CM041H MP5 (PLATINUM version)",
+    "shop": 1,
+    "description": "Важно! Продажа страйкбольного оборудования, в т.ч. пиротехники - осуществляется с 18 лет.\r\nФактический товар может отличаться от представленного на фотографиях или в видеообзоре (оттенок цвета, конструкция некоторых элементов и т.д.). Производители могут без предупреждения вносить изменения (в т.ч. улучшения) в конструкцию изделий. При заказе через сайт просим предварительно уточнять у менеджеров все существенные для Вас параметры изделия.",
+    "price": 34130.0,
+    "items_left": 2,
+    "pub_date": "2025-04-17T18:11:17.389Z",
+    "image1": "product_img/DSCF017764842_1739537650_6.jpg",
+    "image2": "product_img/DSCF019184030_1739537712_6.jpg",
+    "image3": "",
+    "image4": "",
+    "image5": "",
+    "image6": "product_img/DSCF017764842_1739537650_6_WDJiarK.jpg",
+    "link_to_a_video": null,
+    "brand": null,
+    "show": true,
+    "verified": true,
+    "product_type": "MP5",
+    "compatibility": "AK - type",
+    "thread_type": null,
+    "mounting_type": null,
+    "imitation_of_a_shot": true,
+    "laser_sight": false,
+    "weight": null,
+    "principle_of_operation": null,
+    "length": null,
+    "diameter": null,
+    "warehouse_city": "Екатеринбург",
+    "shipping_width": 60.0,
+    "shipping_length": 40.0,
+    "shipping_height": 20.0,
+    "shipping_weight": 2.0,
+    "category": [
+      2
+    ]
+  }
+},
+{
+  "model": "products.product",
+  "pk": 4,
+  "fields": {
+    "name": "Страйкбольная винтовка (Cyma) CM099 ВСС \"ВИНТОРЕЗ\" AEG Black",
+    "shop": 2,
+    "description": "Страйкбольный автомат ВСС Винторез от компании CYMA (CM099) представляет собой реплику известного российского снайперского оружия ВСС «Винторез». Этот страйкбольный автомат отличается характерным дизайном, который делает его легко узнаваемым.\r\n\r\nОсобенность: Благодаря тому, что внешний ствол (имитация глушителя) зафиксирован на корпусе при помощи винтов, точность и кучность хорошая без дополнительных доработок. Корпус собран качественно и практически не имеет люфтов. У автомата  механизм переключения огня выполнен как у стандартных автоматов АК-типа, а не как у классических ВСС Винторезов. Внутри установлен стандартный гирбокс ver.3 с нестандартными головой поршня, нозлом и таппетом.",
+    "price": 28350.0,
+    "items_left": 2,
+    "pub_date": "2025-04-17T18:18:15.894Z",
+    "image1": "product_img/DSCF090332729_1733908590_6.jpg",
+    "image2": "",
+    "image3": "",
+    "image4": "",
+    "image5": "",
+    "image6": "product_img/DSCF090332729_1733908590_6_MFGQSQ2.jpg",
+    "link_to_a_video": null,
+    "brand": "Cyma",
+    "show": true,
+    "verified": true,
+    "product_type": null,
+    "compatibility": null,
+    "thread_type": null,
+    "mounting_type": null,
+    "imitation_of_a_shot": null,
+    "laser_sight": null,
+    "weight": null,
+    "principle_of_operation": "Green Gas",
+    "length": null,
+    "diameter": null,
+    "warehouse_city": "Москва",
+    "shipping_width": 100.0,
+    "shipping_length": 40.0,
+    "shipping_height": 15.0,
+    "shipping_weight": 3.0,
+    "category": [
+      3
+    ]
+  }
+},
+{
+  "model": "products.product",
+  "pk": 5,
+  "fields": {
+    "name": "Страйкбольный винчестер (A&K) 1892R M-LOK (WOOD/Black)",
+    "shop": 2,
+    "description": "Страйкбольный винчестер 1892R M-LOK от A&K является репликой Winchester 1892.\r\n\r\nКорпус и органы управления выполнены из алюминиевого сплава, а ложе и приклад изготовлены из дерева. Тыльник приклада из алюминиевого сплава покрашен под золото. Есть прицельные приспособления. Хоп-ап регулируемый. На левой стороне корпуса расположена антабка под ремень.\r\n\r\nНа цевье винчестера расположены M-Lok планки для установки навесных и прицельных приспособлений.\r\n\r\nКлапан зарядки находится в торцевой части имитации магазинной трубки. Шарики вставляются в отверстие на корпусе винчестера.",
+    "price": 28833.0,
+    "items_left": 12,
+    "pub_date": "2025-04-17T18:20:33.787Z",
+    "image1": "product_img/DSCF803755144_1677079317_6.jpg",
+    "image2": "",
+    "image3": "",
+    "image4": "",
+    "image5": "",
+    "image6": "product_img/DSCF803755144_1677079317_6_fSRVArg.jpg",
+    "link_to_a_video": null,
+    "brand": "A&K",
+    "show": true,
+    "verified": true,
+    "product_type": "Винчестер",
+    "compatibility": null,
+    "thread_type": null,
+    "mounting_type": null,
+    "imitation_of_a_shot": true,
+    "laser_sight": null,
+    "weight": null,
+    "principle_of_operation": "Green Gas",
+    "length": null,
+    "diameter": null,
+    "warehouse_city": "Москва",
+    "shipping_width": 100.0,
+    "shipping_length": 40.0,
+    "shipping_height": 15.0,
+    "shipping_weight": 4.0,
+    "category": [
+      3
+    ]
+  }
+},
+{
+  "model": "products.product",
+  "pk": 6,
+  "fields": {
+    "name": "Страйкбольная винтовка (Cyma) CM708 Black",
+    "shop": 2,
+    "description": "Внешний вид\r\nНа верхнем рессивере расположена планка Пикатинни / Вивера для установки прицельных приспособлений. На нижней части ложа расположены крепления для сошек. На прикладе установлен регулируемый затыльник, выполненный из резины.  \r\n\r\nСтандартная резьба (14 отрицательная) глушителя позволяет установить на винтовку трассерные насадки и глушители через переходник.  На передней части ложа и прикладе расположены антабки для крепления оружейного ремня. \r\n\r\n\r\nПринцип работы и внутрянка\r\nВинтовка - спринговая, так что для ее работы не нужен аккумулятор. В таких винтовках выстрел производится при помощи пружины, которую необходимо взводить вручную перед каждым выстрелом.\r\n\r\nВнутренние запчасти стандартные, что открывает широкие возможности для ремонта и тюнинга. \r\n\r\nХоп-ап регулируется при помощи ползунка, который расположен между ложем и стволом. Длина внутреннего стволика: 460 мм. Начальная скорость вылета шара ~150 м/с.",
+    "price": 23630.0,
+    "items_left": 33,
+    "pub_date": "2025-04-17T18:24:10.637Z",
+    "image1": "product_img/DSCF014614568_1726747422_6.jpg",
+    "image2": "",
+    "image3": "",
+    "image4": "",
+    "image5": "",
+    "image6": "product_img/DSCF014614568_1726747422_6_yJEcD4I.jpg",
+    "link_to_a_video": null,
+    "brand": "Cyma",
+    "show": true,
+    "verified": true,
+    "product_type": null,
+    "compatibility": null,
+    "thread_type": null,
+    "mounting_type": null,
+    "imitation_of_a_shot": false,
+    "laser_sight": null,
+    "weight": null,
+    "principle_of_operation": "Spring",
+    "length": null,
+    "diameter": null,
+    "warehouse_city": "Москва",
+    "shipping_width": 110.0,
+    "shipping_length": 35.0,
+    "shipping_height": 15.0,
+    "shipping_weight": 5.0,
+    "category": [
+      3
+    ]
+  }
+},
+{
+  "model": "products.product",
+  "pk": 7,
+  "fields": {
+    "name": "Страйкбольная винтовка (King Arms) M2 Carbine GBBR Green Gas",
+    "shop": 2,
+    "description": "King Arms M2 GBBR (KA-AG-262-WO)— это страйкбольная винтовка, представляющая собой высококачественную реплику легендарной винтовки времен Второй Мировой войны.\r\n\r\nОна предназначена для игроков, которые ценят реалистичность и качество исполнения в страйкболе. Винтовка выполнена с высокой степенью детализации, что делает её внешне неотличимой от настоящего оружия.\r\n\r\nОсобенность: \r\n\r\nЭта модель отличается использованием системы газового привода (GBBR), что обеспечивает более реалистичную отдачу и звук при стрельбе, приближая ощущения к использованию настоящего огнестрельного оружия.",
+    "price": 66405.0,
+    "items_left": 5,
+    "pub_date": "2025-04-17T18:26:54.836Z",
+    "image1": "product_img/DSCF048284568_1730878259_6_1.jpg",
+    "image2": "",
+    "image3": "",
+    "image4": "",
+    "image5": "",
+    "image6": "product_img/DSCF048284568_1730878259_6_1_1mmmkHe.jpg",
+    "link_to_a_video": null,
+    "brand": "King Arms",
+    "show": true,
+    "verified": true,
+    "product_type": null,
+    "compatibility": null,
+    "thread_type": null,
+    "mounting_type": null,
+    "imitation_of_a_shot": true,
+    "laser_sight": false,
+    "weight": null,
+    "principle_of_operation": "Green Gas",
+    "length": null,
+    "diameter": null,
+    "warehouse_city": "Екатеринбург",
+    "shipping_width": 100.0,
+    "shipping_length": 20.0,
+    "shipping_height": 25.0,
+    "shipping_weight": 3.0,
+    "category": [
+      3
+    ]
+  }
+},
+{
+  "model": "products.product",
+  "pk": 8,
+  "fields": {
+    "name": "Страйкбольный пистолет (Cyma) CM030 GLOCK 18C AEP электр.",
+    "shop": 1,
+    "description": "Страйкбольный пистолет GLOCK 18C от Cyma (CM030) является качественной репликой знаменитого пистолета GLOCK 18С. Электропневматический пистолет работает от аккумулятора, так что можно смело забыть о чувствительности к перепадам температуры и не носить с собой внушительный баллон с газом. Как и у оригинального пистолета, у модели CM030 присутствует режим ведения автоматической стрельбы.\r\n\r\nКорпус изготовлен из прочного ABS-пластика, магазин - металлический. Качественные материалы повышают срок службы изделия, поэтому GLOCK 18С от Cyma готов к любым испытаниям, которые выпадают на его долю и долю его владельца. \r\n\r\nНа затворной раме пистолета располагаются целик и мушка. На нижней части свтола пистолет имеет рельсы для установки фонаря, ЛЦУ.\r\n\r\nНакладки на рукоять обеспечивают устойчивый хват. Таким образом пистолет не выскользнет из руки во время активных действий и позволит вам делать точные прицельные выстрелы.\r\n\r\nBlowback отсутвует. \r\n\r\nПереводчик огня имеет два положения: одиночный и автоматический огонь. Есть предохранитель, который расположен на нижней раме пистолета.\r\n\r\nВнутри пистолета расположен свой собственный гирбокс и регулируемая камера хоп-апа. Длина внутреннего стволика составляет 93 мм.\r\n\r\nАккумуляторный отсек располагается под затворной рамой, тип аккумулятора - \"рельса\". \r\n\r\nКомплектация:\r\n\r\n-Страйкбольный пистолет (Cyma) CM030 GLOCK 18C AEP электр.\r\n\r\n-Механичесикй магазин на 28 шаров\r\n\r\n-Аккумулятор\r\n\r\n-Зарядное устройство\r\n\r\n-Лоудер",
+    "price": 7140.0,
+    "items_left": 3,
+    "pub_date": "2025-04-17T18:30:26.136Z",
+    "image1": "product_img/DSCF758034905_1699342271_6.jpg",
+    "image2": "",
+    "image3": "",
+    "image4": "",
+    "image5": "",
+    "image6": "product_img/DSCF758034905_1699342271_6_kLZ5Hvr.jpg",
+    "link_to_a_video": null,
+    "brand": "Cyma",
+    "show": true,
+    "verified": true,
+    "product_type": "Glock",
+    "compatibility": null,
+    "thread_type": null,
+    "mounting_type": null,
+    "imitation_of_a_shot": true,
+    "laser_sight": false,
+    "weight": null,
+    "principle_of_operation": null,
+    "length": null,
+    "diameter": null,
+    "warehouse_city": "Москва",
+    "shipping_width": 40.0,
+    "shipping_length": 30.0,
+    "shipping_height": 8.0,
+    "shipping_weight": 1.0,
+    "category": [
+      4
+    ]
+  }
+},
+{
+  "model": "products.product",
+  "pk": 9,
+  "fields": {
+    "name": "Страйкбольный пистолет (East Crane) Glock 19 gen.3 TAN EC-1301-DE",
+    "shop": 1,
+    "description": "Страйкбольный GBB пистолет GLOCK 19 Gen.3 от East Crane (EC-1301) является репликой одного из самых известных пистолетов в мире – GLOCK 19. Данная страйкбольная модель копирует 3-ю модификацию (поколение) боевого прототипа. Внешний вид, система blowback, элементы управления (предохранитель, затворная задержка, кнопка сброса магазина и тд) и неполная разборка копируют боевой аналог.\r\n\r\nКомпания East Crane широко известна высоким качеством страйкбольного оружия и разнообразием модельного ряда. Ей доверяют как новички, так и опытные игроки в страйкбол. В Hi-Capa 5.1 Combat Master TTI пользователи ценят эргономику, сборку без люфтов и хорошую внутреннюю составляющую.",
+    "price": 6400.0,
+    "items_left": 22,
+    "pub_date": "2025-04-17T18:34:38.673Z",
+    "image1": "product_img/DSCF486887037_1715762887_6.jpg",
+    "image2": "",
+    "image3": "",
+    "image4": "",
+    "image5": "",
+    "image6": "product_img/DSCF486887037_1715762887_6_pUk69nn.jpg",
+    "link_to_a_video": null,
+    "brand": "Crane",
+    "show": true,
+    "verified": true,
+    "product_type": "Glock",
+    "compatibility": null,
+    "thread_type": null,
+    "mounting_type": null,
+    "imitation_of_a_shot": null,
+    "laser_sight": null,
+    "weight": null,
+    "principle_of_operation": "Green Gas",
+    "length": null,
+    "diameter": null,
+    "warehouse_city": "Москва",
+    "shipping_width": 30.0,
+    "shipping_length": 35.0,
+    "shipping_height": 9.0,
+    "shipping_weight": 1.0,
+    "category": [
+      4
+    ]
+  }
+},
+{
+  "model": "products.product",
+  "pk": 10,
+  "fields": {
+    "name": "Страйкбольный пистолет (Cyma) CM136 EBB GRACH (Ярыгин) AEP электр. Li-Po",
+    "shop": 1,
+    "description": "Страйкбольный пистолет EBB GRACH от Cyma (CM136) — это электропневматический пистолет, который сочетает в себе элегантный дизайн и исключительную производительность. Эта модель копирует огнестрельный самозарядный пистолет Ярыгина (MP-443), который также называют «Грач» . Пистолет работает от аккумулятора, так что можно смело забыть о чувствительности к перепадам температуры и не носить с собой внушительный баллон с газом.\r\n\r\nГлавной особенностью пистолета является подвижный затвор, который обеспечивает имитацию отдачи (Blowback). Благодаря подвижному затвору, пистолет можно взвести даже при разряженном аккумуляторе или вообще при его отсутствии. В таком случае принципе работы меняется на Spring, то есть для каждого выстрела надо взводить затвор вручную.",
+    "price": 9900.0,
+    "items_left": 12,
+    "pub_date": "2025-04-17T18:37:25.128Z",
+    "image1": "product_img/IMG_028833774_1721151203_6.jpeg",
+    "image2": "",
+    "image3": "",
+    "image4": "",
+    "image5": "",
+    "image6": "product_img/IMG_028833774_1721151203_6_xwn9Tu0.jpeg",
+    "link_to_a_video": null,
+    "brand": "Cyma",
+    "show": true,
+    "verified": true,
+    "product_type": null,
+    "compatibility": null,
+    "thread_type": null,
+    "mounting_type": null,
+    "imitation_of_a_shot": true,
+    "laser_sight": null,
+    "weight": null,
+    "principle_of_operation": "электрика",
+    "length": null,
+    "diameter": null,
+    "warehouse_city": "Москва",
+    "shipping_width": 30.0,
+    "shipping_length": 25.0,
+    "shipping_height": 11.0,
+    "shipping_weight": 1.0,
+    "category": [
+      4
+    ]
+  }
+},
+{
+  "model": "products.product",
+  "pk": 11,
+  "fields": {
+    "name": "Маска защиты лица Black (Тайвань)",
+    "shop": 1,
+    "description": "Маска редназначена для защиты нижней части лица от страйкбольных шариков. \r\n\r\nБлагодаря качественным материалам, изделие ударопрочное и износостойкое. Алюминивая сетка обеспечивает достаточный поток воздуха. \r\n\r\nЭластичные ремни позволяют регулировать размер маски, чтобы носить ее было более удобно.",
+    "price": 800.0,
+    "items_left": 4,
+    "pub_date": "2025-04-17T18:43:52.139Z",
+    "image1": "product_img/DSCF169732890_1687168189_6.jpg",
+    "image2": "",
+    "image3": "",
+    "image4": "",
+    "image5": "",
+    "image6": "product_img/DSCF169732890_1687168189_6_oE5DfNK.jpg",
+    "link_to_a_video": null,
+    "brand": "Black",
+    "show": true,
+    "verified": true,
+    "product_type": "защита лица",
+    "compatibility": null,
+    "thread_type": null,
+    "mounting_type": null,
+    "imitation_of_a_shot": null,
+    "laser_sight": null,
+    "weight": null,
+    "principle_of_operation": null,
+    "length": null,
+    "diameter": null,
+    "warehouse_city": "Москва",
+    "shipping_width": 20.0,
+    "shipping_length": 20.0,
+    "shipping_height": 20.0,
+    "shipping_weight": 0.1,
+    "category": [
+      7
+    ]
+  }
+},
+{
+  "model": "products.product",
+  "pk": 12,
+  "fields": {
+    "name": "Маска защитная Череп на все лицо (Coyote/TAN)",
+    "shop": 1,
+    "description": "Корпус маски изготовлен из ABS-пластика, а сетка в области глаз - из металла, поэтому изделие обладает хорошей ударопрочностью.\r\n\r\nВ области носа, лба и щек внутри маски предусмотрены резиновые подушечки, обеспечивающие более удобную посадку. Вентиляционные отверстия в области рта и носа обеспечивают достаточный поток воздуха. Эластичные ремни позволяют регулировать размер маски, чтобы носить ее было более удобно.\r\n\r\nМаска отлично подходит для игры в страйкбол, полевых ролевых игр (ролевок), различных мероприятий тематического характера, таких, как Хеллоуин.",
+    "price": 600.0,
+    "items_left": 4,
+    "pub_date": "2025-04-17T18:45:58.282Z",
+    "image1": "product_img/DSCF19287301_1687165491_6.jpg",
+    "image2": "",
+    "image3": "",
+    "image4": "",
+    "image5": "",
+    "image6": "product_img/DSCF19287301_1687165491_6_2TbJ0vf.jpg",
+    "link_to_a_video": null,
+    "brand": null,
+    "show": true,
+    "verified": true,
+    "product_type": "защита лица",
+    "compatibility": null,
+    "thread_type": null,
+    "mounting_type": null,
+    "imitation_of_a_shot": null,
+    "laser_sight": null,
+    "weight": null,
+    "principle_of_operation": null,
+    "length": null,
+    "diameter": null,
+    "warehouse_city": "Москва",
+    "shipping_width": 20.0,
+    "shipping_length": 20.0,
+    "shipping_height": 20.0,
+    "shipping_weight": 0.2,
+    "category": [
+      7
+    ]
+  }
+},
+{
+  "model": "products.product",
+  "pk": 13,
+  "fields": {
+    "name": "Очки защитные (Bolle) SLAM (прозрачные)",
+    "shop": 2,
+    "description": "",
+    "price": 1500.0,
+    "items_left": 3,
+    "pub_date": "2025-04-17T18:47:45.433Z",
+    "image1": "product_img/Очки_защитные__Bolle__SLAM_SLAPSI__прозрачные_50134_1445867201_61.jpg",
+    "image2": "",
+    "image3": "",
+    "image4": "",
+    "image5": "",
+    "image6": "product_img/Очки_защитные__Bolle__SLAM_SLAPSI__прозрачные_50134_1445867201_61_t0RxC4t.jpg",
+    "link_to_a_video": null,
+    "brand": null,
+    "show": true,
+    "verified": true,
+    "product_type": null,
+    "compatibility": null,
+    "thread_type": null,
+    "mounting_type": null,
+    "imitation_of_a_shot": null,
+    "laser_sight": null,
+    "weight": null,
+    "principle_of_operation": null,
+    "length": null,
+    "diameter": null,
+    "warehouse_city": "Москва",
+    "shipping_width": 20.0,
+    "shipping_length": 20.0,
+    "shipping_height": 10.0,
+    "shipping_weight": 0.1,
+    "category": [
+      7
+    ]
+  }
+},
+{
+  "model": "products.product",
+  "pk": 14,
+  "fields": {
+    "name": "Шары AIM 0.25 (3800 шт) ТРАССЕРА Красные",
+    "shop": 1,
+    "description": "Страна-производитель: Тайвань",
+    "price": 2200.0,
+    "items_left": 5,
+    "pub_date": "2025-04-17T21:37:37.697Z",
+    "image1": "product_img/IMG_216629494_1611851237_61.jpg",
+    "image2": "",
+    "image3": "",
+    "image4": "",
+    "image5": "",
+    "image6": "product_img/IMG_216629494_1611851237_61_B4S0Rzt.jpg",
+    "link_to_a_video": null,
+    "brand": "AIM",
+    "show": true,
+    "verified": true,
+    "product_type": "трассер",
+    "compatibility": null,
+    "thread_type": null,
+    "mounting_type": null,
+    "imitation_of_a_shot": null,
+    "laser_sight": null,
+    "weight": 0.25,
+    "principle_of_operation": null,
+    "length": null,
+    "diameter": null,
+    "warehouse_city": "Москва",
+    "shipping_width": 30.0,
+    "shipping_length": 20.0,
+    "shipping_height": 20.0,
+    "shipping_weight": 1.0,
+    "category": [
+      6
+    ]
+  }
+},
+{
+  "model": "products.product",
+  "pk": 15,
+  "fields": {
+    "name": "Лоадер Cyma 100ш C19A",
+    "shop": 3,
+    "description": "Предназначен для заряжания механических магазинов.\r\n\r\nКорпус - тёмный, но прозрачный.\r\n\r\nВмещает 100 шаров.\r\n\r\nВ комплекте насадка для пистолетных (газ) магазинов .",
+    "price": 250.0,
+    "items_left": 10,
+    "pub_date": "2025-04-18T16:51:44.542Z",
+    "image1": "product_img/DSCF189959756_1713193825_6.jpg",
+    "image2": "",
+    "image3": "",
+    "image4": "",
+    "image5": "",
+    "image6": "product_img/DSCF189959756_1713193825_6_qwonYAU.jpg",
+    "link_to_a_video": null,
+    "brand": "Cyma",
+    "show": true,
+    "verified": true,
+    "product_type": null,
+    "compatibility": null,
+    "thread_type": null,
+    "mounting_type": null,
+    "imitation_of_a_shot": null,
+    "laser_sight": null,
+    "weight": null,
+    "principle_of_operation": null,
+    "length": null,
+    "diameter": null,
+    "warehouse_city": "Москва",
+    "shipping_width": 20.0,
+    "shipping_length": 20.0,
+    "shipping_height": 10.0,
+    "shipping_weight": 0.2,
+    "category": [
+      8
+    ]
+  }
+},
+{
+  "model": "products.product",
+  "pk": 16,
+  "fields": {
+    "name": "Пламегаситель ДТК 110",
+    "shop": 4,
+    "description": "ДТК \"110\"\r\nДульный тормоз-компенсатор предназначен для установки на АК калибра 7,62 и 5,45. Снижает отдачу и улучшает кучность.",
+    "price": 1300.0,
+    "items_left": 3,
+    "pub_date": "2025-04-18T16:55:37.239Z",
+    "image1": "product_img/DSCF003528586_1734360776_6.jpg",
+    "image2": "",
+    "image3": "",
+    "image4": "",
+    "image5": "",
+    "image6": "product_img/DSCF003528586_1734360776_6_0TeyGkr.jpg",
+    "link_to_a_video": null,
+    "brand": null,
+    "show": true,
+    "verified": true,
+    "product_type": "ДТК",
+    "compatibility": null,
+    "thread_type": "М24х1,5мм",
+    "mounting_type": null,
+    "imitation_of_a_shot": null,
+    "laser_sight": null,
+    "weight": null,
+    "principle_of_operation": null,
+    "length": null,
+    "diameter": null,
+    "warehouse_city": "Москва",
+    "shipping_width": 10.0,
+    "shipping_length": 15.0,
+    "shipping_height": 15.0,
+    "shipping_weight": 0.5,
+    "category": [
+      11
+    ]
+  }
+},
+{
+  "model": "products.product",
+  "pk": 17,
+  "fields": {
+    "name": "Лазерный целеуказатель (WADSN) Close Quarters Battie Laser (Red/Green Laser) CNC (Black)",
+    "shop": 5,
+    "description": "",
+    "price": 13000.0,
+    "items_left": 7,
+    "pub_date": "2025-04-18T16:59:32.795Z",
+    "image1": "product_img/DSCF390074673_1714754589_6.jpg",
+    "image2": "",
+    "image3": "",
+    "image4": "",
+    "image5": "",
+    "image6": "product_img/DSCF390074673_1714754589_6_VyjJrmt.jpg",
+    "link_to_a_video": null,
+    "brand": null,
+    "show": true,
+    "verified": true,
+    "product_type": null,
+    "compatibility": null,
+    "thread_type": null,
+    "mounting_type": null,
+    "imitation_of_a_shot": null,
+    "laser_sight": null,
+    "weight": null,
+    "principle_of_operation": null,
+    "length": null,
+    "diameter": null,
+    "warehouse_city": "Москва",
+    "shipping_width": 10.0,
+    "shipping_length": 15.0,
+    "shipping_height": 15.0,
+    "shipping_weight": 0.8,
+    "category": [
+      12
+    ]
+  }
+},
+{
+  "model": "products.product",
+  "pk": 18,
+  "fields": {
+    "name": "Мишень № 4 грудная с кругами зеленая (пл. 48 г/м2) - 250 шт",
+    "shop": 6,
+    "description": "Мишень изготовлена из бумаги плотностью 48 г/м2. В комплекте 250 шт.",
+    "price": 2630.0,
+    "items_left": 2,
+    "pub_date": "2025-04-18T17:09:37.431Z",
+    "image1": "product_img/IMG_201413317_1735204808_6.jpg",
+    "image2": "",
+    "image3": "",
+    "image4": "",
+    "image5": "",
+    "image6": "product_img/IMG_201413317_1735204808_6_3OhEwST.jpg",
+    "link_to_a_video": null,
+    "brand": null,
+    "show": true,
+    "verified": true,
+    "product_type": null,
+    "compatibility": null,
+    "thread_type": null,
+    "mounting_type": null,
+    "imitation_of_a_shot": null,
+    "laser_sight": null,
+    "weight": null,
+    "principle_of_operation": null,
+    "length": null,
+    "diameter": null,
+    "warehouse_city": "Москва",
+    "shipping_width": 50.0,
+    "shipping_length": 15.0,
+    "shipping_height": 15.0,
+    "shipping_weight": 0.3,
+    "category": [
+      22
+    ]
+  }
+},
+{
+  "model": "cart.orderitem",
+  "pk": 1,
+  "fields": {
+    "order": 1,
+    "product": 11,
+    "price": "800.00",
+    "quantity": 1
+  }
+},
+{
+  "model": "cart.orderitem",
+  "pk": 2,
+  "fields": {
+    "order": 2,
+    "product": 2,
+    "price": "26300.00",
+    "quantity": 1
+  }
+},
+{
+  "model": "cart.orderitem",
+  "pk": 3,
+  "fields": {
+    "order": 2,
+    "product": 3,
+    "price": "34130.00",
+    "quantity": 1
+  }
+},
+{
+  "model": "cart.orderitem",
+  "pk": 4,
+  "fields": {
+    "order": 2,
+    "product": 1,
+    "price": "22900.00",
+    "quantity": 1
+  }
+},
+{
+  "model": "cart.orderitem",
+  "pk": 5,
+  "fields": {
+    "order": 3,
+    "product": 9,
+    "price": "6400.00",
+    "quantity": 1
+  }
+},
+{
+  "model": "cart.orderitem",
+  "pk": 6,
+  "fields": {
+    "order": 3,
+    "product": 12,
+    "price": "600.00",
+    "quantity": 1
+  }
+},
+{
+  "model": "cart.orderitem",
+  "pk": 7,
+  "fields": {
+    "order": 4,
+    "product": 10,
+    "price": "9900.00",
+    "quantity": 12
+  }
+},
+{
+  "model": "cart.orderitem",
+  "pk": 8,
+  "fields": {
+    "order": 5,
+    "product": 1,
+    "price": "22900.00",
+    "quantity": 1
+  }
+},
+{
+  "model": "cart.orderitem",
+  "pk": 9,
+  "fields": {
+    "order": 6,
+    "product": 7,
+    "price": "11000.00",
+    "quantity": 1
+  }
+},
+{
+  "model": "cart.orderitem",
+  "pk": 10,
+  "fields": {
+    "order": 7,
+    "product": 12,
+    "price": "700.00",
+    "quantity": 1
+  }
+},
+{
+  "model": "cart.orderitem",
+  "pk": 11,
+  "fields": {
+    "order": 8,
+    "product": 4,
+    "price": "28350.00",
+    "quantity": 1
+  }
+},
+{
+  "model": "cart.orderitem",
+  "pk": 12,
+  "fields": {
+    "order": 9,
+    "product": 5,
+    "price": "10000.00",
+    "quantity": 1
+  }
+},
+{
+  "model": "cart.orderitem",
+  "pk": 13,
+  "fields": {
+    "order": 10,
+    "product": 4,
+    "price": "10000.00",
+    "quantity": 1
+  }
+},
+{
+  "model": "cart.storesalesreport",
+  "pk": 1,
+  "fields": {
+    "shop": 1,
+    "start_date": "2025-04-01",
+    "end_date": "2025-04-30",
+    "revenue": "232830.00",
+    "category_performance": {
+      "7": 2,
+      "2": 4,
+      "4": 2
+    },
+    "products_performance": {
+      "11": 1,
+      "12": 1,
+      "4": 2,
+      "1": 2,
+      "2": 1,
+      "3": 1,
+      "10": 12,
+      "9": 1
+    },
+    "orders": [
+      5,
+      4,
+      3,
+      2,
+      1
+    ]
+  }
+},
+{
+  "model": "cart.storesalesreport",
+  "pk": 2,
+  "fields": {
+    "shop": 1,
+    "start_date": "2025-03-01",
+    "end_date": "2025-03-31",
+    "revenue": "700.00",
+    "category_performance": {
+      "7": 1
+    },
+    "products_performance": {
+      "12": 1
+    },
+    "orders": [
+      7
+    ]
+  }
+},
+{
+  "model": "cart.storesalesreport",
+  "pk": 3,
+  "fields": {
+    "shop": 2,
+    "start_date": "2025-06-01",
+    "end_date": "2025-06-30",
+    "revenue": "0.00",
+    "category_performance": null,
+    "products_performance": null,
+    "orders": []
+  }
+},
+{
+  "model": "cart.storesalesreport",
+  "pk": 4,
+  "fields": {
+    "shop": 3,
+    "start_date": "2025-06-01",
+    "end_date": "2025-06-30",
+    "revenue": "0.00",
+    "category_performance": null,
+    "products_performance": null,
+    "orders": []
+  }
+},
+{
+  "model": "cart.storesalesreport",
+  "pk": 5,
+  "fields": {
+    "shop": 4,
+    "start_date": "2025-06-01",
+    "end_date": "2025-06-30",
+    "revenue": "0.00",
+    "category_performance": null,
+    "products_performance": null,
+    "orders": []
+  }
+},
+{
+  "model": "cart.storesalesreport",
+  "pk": 6,
+  "fields": {
+    "shop": 5,
+    "start_date": "2025-06-01",
+    "end_date": "2025-06-30",
+    "revenue": "0.00",
+    "category_performance": null,
+    "products_performance": null,
+    "orders": []
+  }
+},
+{
+  "model": "cart.storesalesreport",
+  "pk": 7,
+  "fields": {
+    "shop": 6,
+    "start_date": "2025-06-01",
+    "end_date": "2025-06-30",
+    "revenue": "0.00",
+    "category_performance": null,
+    "products_performance": null,
+    "orders": []
+  }
+},
+{
+  "model": "cart.storesalesreport",
+  "pk": 8,
+  "fields": {
+    "shop": 1,
+    "start_date": "2025-05-01",
+    "end_date": "2025-05-31",
+    "revenue": "0.00",
+    "category_performance": null,
+    "products_performance": null,
+    "orders": []
+  }
+},
+{
+  "model": "cart.storesalesreport",
+  "pk": 9,
+  "fields": {
+    "shop": 1,
+    "start_date": "2025-06-01",
+    "end_date": "2025-06-30",
+    "revenue": "0.00",
+    "category_performance": null,
+    "products_performance": null,
+    "orders": []
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "products",
+    "model": "category"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "products",
+    "model": "product"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "products",
+    "model": "shop"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "products",
+    "model": "review"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "cart",
+    "model": "order"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "cart",
+    "model": "orderitem"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "cart",
+    "model": "shippingaddress"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "cart",
+    "model": "storesalesreport"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "users",
+    "model": "customuser"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "django_celery_beat",
+    "model": "crontabschedule"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "django_celery_beat",
+    "model": "intervalschedule"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "django_celery_beat",
+    "model": "periodictask"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "django_celery_beat",
+    "model": "periodictasks"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "django_celery_beat",
+    "model": "solarschedule"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "django_celery_beat",
+    "model": "clockedschedule"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "217brlnluvt19zssqq3kdrtzj8yjpp28",
+  "fields": {
+    "session_data": ".eJxVi8sKgzAQRf9l1kWSoM6My0K_I0wekmBroaOLIv57K7hxee45dwPNqvU9-yl_Ydj2G3hZl-JXzR9fEwxg4bIFiVOeD3GgNidr83hJfd5Pe7kU0fLvmSRFQyZhN1oikTYwo-OWHDIG4c6lHq2xMWGiEMfOORta7MVZRkOw_wCUIDf_:1uLpBB:bZ7foGxkSN_-TuPeJFvbUGHNlOMTiJviaFSO1rgQysI",
+    "expire_date": "2025-06-15T20:21:13.376Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "5irsuqvy6kape2uxhwt25ek15v6cu3nu",
+  "fields": {
+    "session_data": "eyJzZXNzaW9uX2tleSI6e319:1uCndL:ZwiyGv3XjHtwYxPcveyn-44Bx68waWybxLpAxCSk8Eo",
+    "expire_date": "2025-05-21T22:52:59.374Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "dql117bpsyrew9f56hlg6pwqid61skgh",
+  "fields": {
+    "session_data": "eyJzZXNzaW9uX2tleSI6e30sInJlY2VudGx5X3ZpZXdlZCI6WzExXX0:1u7HdB:CMG7Am5mJu8Ehd-_4o_cSJGFXGRQKhMKkbl4Yg-cOQE",
+    "expire_date": "2025-05-06T17:42:01.936Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "exbuihrey1bl9ercpj3o5mfj4bhpc1rc",
+  "fields": {
+    "session_data": ".eJxVjkGOwjAMRe_idaeKo5Yk7AaJE8wSochJDI0ohanbGSHUu5NKbNhY_u_Zlp8gLJJvg7_wA7ZPwLX8TqXHCu5jjgxb0NopVSuoQLrb3Us_nwvF7zx-_RQAy1KBp3nq_Cw8-pxWCx8sULzwsIo1Sv3OUu-vlPvd236sdCRdmXeWUlRWJdOe0FqiJjhntGusNs4Ecq1OG4MKYzLJhnhqtcbQmA1pdEbZcnTkyMPUP_xf5n8uTxzwuLwA4cNPwQ:1uEoV0:hu_GYskmYKpW-54i0j-fT_lOnpQeVjzEB_plpiPTX54",
+    "expire_date": "2025-05-27T12:12:42.027Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "mmgfz2ix17l5a8dcct0n4z4xofk7fsep",
+  "fields": {
+    "session_data": "eyJzZXNzaW9uX2tleSI6e319:1uEr4d:b5Q9-2pCuaJl4c87q4FzzM9WNoJ4g1oJo_gfoGPvxz8",
+    "expire_date": "2025-05-27T14:57:39.022Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "o67fn1q1bjpddj0moabk3lyqkzy1pgwm",
+  "fields": {
+    "session_data": "eyJzZXNzaW9uX2tleSI6e319:1uEqxU:MGn-nYo76Jc5n7EFAix1hflN0KXzRitaXNTW1xwNu0k",
+    "expire_date": "2025-05-27T14:50:16.014Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "rsel15w652chm77di1huexf55y1ugzsg",
+  "fields": {
+    "session_data": "eyJzZXNzaW9uX2tleSI6e319:1u7Hyu:llWWM1qKNuvfoD74azEmQkXZrfvevCp4msf1eQEIs10",
+    "expire_date": "2025-05-06T18:04:28.142Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "wiwt0zyv5btctbjougk7fhsh80m67hx4",
+  "fields": {
+    "session_data": "eyJzZXNzaW9uX2tleSI6e319:1uEqYm:lDB_X63lzF5c5jfzQYJo6zQo9KFekCOGqR5dqQHxzkI",
+    "expire_date": "2025-05-27T14:24:44.940Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "zyuh8j5hwg7a9xi25evr5yghgbpsyv88",
+  "fields": {
+    "session_data": "eyJzZXNzaW9uX2tleSI6e30sInJlY2VudGx5X3ZpZXdlZCI6WzFdfQ:1uCfEa:3FZPiSnngZXhSUB_ERyazvDV46ecgdGTwCGUX0dDGlc",
+    "expire_date": "2025-05-21T13:54:52.256Z"
+  }
+},
+{
+  "model": "django_celery_beat.crontabschedule",
+  "pk": 1,
+  "fields": {
+    "minute": "0",
+    "hour": "0",
+    "day_of_month": "28",
+    "month_of_year": "*",
+    "day_of_week": "*",
+    "timezone": "UTC"
+  }
+},
+{
+  "model": "django_celery_beat.periodictasks",
+  "pk": 1,
+  "fields": {
+    "last_update": "2025-06-01T20:20:37.756Z"
+  }
+},
+{
+  "model": "django_celery_beat.periodictask",
+  "pk": 1,
+  "fields": {
+    "name": "Создание отчетов о продажах",
+    "task": "cart.tasks.create_monthly_reports",
+    "interval": null,
+    "crontab": 1,
+    "solar": null,
+    "clocked": null,
+    "args": "[]",
+    "kwargs": "{}",
+    "queue": null,
+    "exchange": null,
+    "routing_key": null,
+    "headers": "{}",
+    "priority": null,
+    "expires": null,
+    "expire_seconds": null,
+    "one_off": false,
+    "start_time": null,
+    "enabled": true,
+    "last_run_at": null,
+    "total_run_count": 0,
+    "date_changed": "2025-06-01T20:19:56.013Z",
+    "description": "Создание пустых объектов отчета для всех магазинов на следующий месяц"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add Категория",
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "codename": "add_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change Категория",
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "codename": "change_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete Категория",
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "codename": "delete_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view Категория",
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "codename": "view_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add Продукт",
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "codename": "add_product"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change Продукт",
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "codename": "change_product"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete Продукт",
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "codename": "delete_product"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view Продукт",
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "codename": "view_product"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add Магазин",
+    "content_type": [
+      "products",
+      "shop"
+    ],
+    "codename": "add_shop"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change Магазин",
+    "content_type": [
+      "products",
+      "shop"
+    ],
+    "codename": "change_shop"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete Магазин",
+    "content_type": [
+      "products",
+      "shop"
+    ],
+    "codename": "delete_shop"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view Магазин",
+    "content_type": [
+      "products",
+      "shop"
+    ],
+    "codename": "view_shop"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add Отзыв",
+    "content_type": [
+      "products",
+      "review"
+    ],
+    "codename": "add_review"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change Отзыв",
+    "content_type": [
+      "products",
+      "review"
+    ],
+    "codename": "change_review"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete Отзыв",
+    "content_type": [
+      "products",
+      "review"
+    ],
+    "codename": "delete_review"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view Отзыв",
+    "content_type": [
+      "products",
+      "review"
+    ],
+    "codename": "view_review"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add Заказ",
+    "content_type": [
+      "cart",
+      "order"
+    ],
+    "codename": "add_order"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change Заказ",
+    "content_type": [
+      "cart",
+      "order"
+    ],
+    "codename": "change_order"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete Заказ",
+    "content_type": [
+      "cart",
+      "order"
+    ],
+    "codename": "delete_order"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view Заказ",
+    "content_type": [
+      "cart",
+      "order"
+    ],
+    "codename": "view_order"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add Заказанный товар",
+    "content_type": [
+      "cart",
+      "orderitem"
+    ],
+    "codename": "add_orderitem"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change Заказанный товар",
+    "content_type": [
+      "cart",
+      "orderitem"
+    ],
+    "codename": "change_orderitem"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete Заказанный товар",
+    "content_type": [
+      "cart",
+      "orderitem"
+    ],
+    "codename": "delete_orderitem"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view Заказанный товар",
+    "content_type": [
+      "cart",
+      "orderitem"
+    ],
+    "codename": "view_orderitem"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add Адрес доставки",
+    "content_type": [
+      "cart",
+      "shippingaddress"
+    ],
+    "codename": "add_shippingaddress"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change Адрес доставки",
+    "content_type": [
+      "cart",
+      "shippingaddress"
+    ],
+    "codename": "change_shippingaddress"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete Адрес доставки",
+    "content_type": [
+      "cart",
+      "shippingaddress"
+    ],
+    "codename": "delete_shippingaddress"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view Адрес доставки",
+    "content_type": [
+      "cart",
+      "shippingaddress"
+    ],
+    "codename": "view_shippingaddress"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add store sales report",
+    "content_type": [
+      "cart",
+      "storesalesreport"
+    ],
+    "codename": "add_storesalesreport"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change store sales report",
+    "content_type": [
+      "cart",
+      "storesalesreport"
+    ],
+    "codename": "change_storesalesreport"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete store sales report",
+    "content_type": [
+      "cart",
+      "storesalesreport"
+    ],
+    "codename": "delete_storesalesreport"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view store sales report",
+    "content_type": [
+      "cart",
+      "storesalesreport"
+    ],
+    "codename": "view_storesalesreport"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "view_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "view_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "view_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "view_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "view_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add user",
+    "content_type": [
+      "users",
+      "customuser"
+    ],
+    "codename": "add_customuser"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change user",
+    "content_type": [
+      "users",
+      "customuser"
+    ],
+    "codename": "change_customuser"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete user",
+    "content_type": [
+      "users",
+      "customuser"
+    ],
+    "codename": "delete_customuser"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view user",
+    "content_type": [
+      "users",
+      "customuser"
+    ],
+    "codename": "view_customuser"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add crontab",
+    "content_type": [
+      "django_celery_beat",
+      "crontabschedule"
+    ],
+    "codename": "add_crontabschedule"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change crontab",
+    "content_type": [
+      "django_celery_beat",
+      "crontabschedule"
+    ],
+    "codename": "change_crontabschedule"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete crontab",
+    "content_type": [
+      "django_celery_beat",
+      "crontabschedule"
+    ],
+    "codename": "delete_crontabschedule"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view crontab",
+    "content_type": [
+      "django_celery_beat",
+      "crontabschedule"
+    ],
+    "codename": "view_crontabschedule"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add interval",
+    "content_type": [
+      "django_celery_beat",
+      "intervalschedule"
+    ],
+    "codename": "add_intervalschedule"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change interval",
+    "content_type": [
+      "django_celery_beat",
+      "intervalschedule"
+    ],
+    "codename": "change_intervalschedule"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete interval",
+    "content_type": [
+      "django_celery_beat",
+      "intervalschedule"
+    ],
+    "codename": "delete_intervalschedule"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view interval",
+    "content_type": [
+      "django_celery_beat",
+      "intervalschedule"
+    ],
+    "codename": "view_intervalschedule"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add periodic task",
+    "content_type": [
+      "django_celery_beat",
+      "periodictask"
+    ],
+    "codename": "add_periodictask"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change periodic task",
+    "content_type": [
+      "django_celery_beat",
+      "periodictask"
+    ],
+    "codename": "change_periodictask"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete periodic task",
+    "content_type": [
+      "django_celery_beat",
+      "periodictask"
+    ],
+    "codename": "delete_periodictask"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view periodic task",
+    "content_type": [
+      "django_celery_beat",
+      "periodictask"
+    ],
+    "codename": "view_periodictask"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add periodic task track",
+    "content_type": [
+      "django_celery_beat",
+      "periodictasks"
+    ],
+    "codename": "add_periodictasks"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change periodic task track",
+    "content_type": [
+      "django_celery_beat",
+      "periodictasks"
+    ],
+    "codename": "change_periodictasks"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete periodic task track",
+    "content_type": [
+      "django_celery_beat",
+      "periodictasks"
+    ],
+    "codename": "delete_periodictasks"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view periodic task track",
+    "content_type": [
+      "django_celery_beat",
+      "periodictasks"
+    ],
+    "codename": "view_periodictasks"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add solar event",
+    "content_type": [
+      "django_celery_beat",
+      "solarschedule"
+    ],
+    "codename": "add_solarschedule"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change solar event",
+    "content_type": [
+      "django_celery_beat",
+      "solarschedule"
+    ],
+    "codename": "change_solarschedule"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete solar event",
+    "content_type": [
+      "django_celery_beat",
+      "solarschedule"
+    ],
+    "codename": "delete_solarschedule"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view solar event",
+    "content_type": [
+      "django_celery_beat",
+      "solarschedule"
+    ],
+    "codename": "view_solarschedule"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add clocked",
+    "content_type": [
+      "django_celery_beat",
+      "clockedschedule"
+    ],
+    "codename": "add_clockedschedule"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change clocked",
+    "content_type": [
+      "django_celery_beat",
+      "clockedschedule"
+    ],
+    "codename": "change_clockedschedule"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete clocked",
+    "content_type": [
+      "django_celery_beat",
+      "clockedschedule"
+    ],
+    "codename": "delete_clockedschedule"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view clocked",
+    "content_type": [
+      "django_celery_beat",
+      "clockedschedule"
+    ],
+    "codename": "view_clockedschedule"
+  }
+},
+{
+  "model": "users.customuser",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$u0OyiMTFdN54kUNJ5BuHIX$upevUnr6Hqkq+S/AY1u54ttMPlDoOxzeDzr5axqJ2Ik=",
+    "last_login": "2025-06-01T20:07:00.282Z",
+    "is_superuser": true,
+    "username": "Admin",
+    "first_name": "Админ",
+    "last_name": "Админов",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2025-04-17T17:11:12Z",
+    "patronymic": "Админович",
+    "email": "admin@gmail.com",
+    "phone_number": "+79124368352",
+    "shop": 1,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$OtMxdKFHqnRbro5Z8PT37O$fl7deOOanDWBGk+LW+H3Yw/eh90JY+p2kAE0jaYAxUU=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "Alex33",
+    "first_name": "Алексей",
+    "last_name": "Шоминов",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-04-17T17:21:08Z",
+    "patronymic": "Аристархович",
+    "email": "alex33@gmail.com",
+    "phone_number": "+79142375491",
+    "shop": 2,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$MC9PKCXPYxLs83EehrCSzU$qBx8Ts5MtK8MWp5DDVrKOd0SIaPJbXgFDayl3rquWNI=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "aaa",
+    "first_name": "Андрей",
+    "last_name": "Андреенко",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-04-17T17:23:33Z",
+    "patronymic": "Андреевич",
+    "email": "aaa@gmail.com",
+    "phone_number": "+79234567890",
+    "shop": 3,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$sm5bQid1otrmypy5prh9Vi$Zfp98Di3IBl1fREqST6NIz8RRCJ/58Xialvvja4PlVk=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "Bbb",
+    "first_name": "Белла",
+    "last_name": "Белякина",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-04-17T17:24:56Z",
+    "patronymic": "Владимировна",
+    "email": "bbb@gmail.com",
+    "phone_number": "+79123456789",
+    "shop": 4,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$o5qYzFmu2Qo1AtXynatpce$uxeASXdOnKNEKrE5RpchZG1E3UYdRE8TufW0/fqydXM=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "Ppp1703",
+    "first_name": "Петр",
+    "last_name": "Питеров",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-04-17T17:27:27Z",
+    "patronymic": "Сергеевич",
+    "email": "ppp@gmail.com",
+    "phone_number": "+79371235692",
+    "shop": 5,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$3WXb8x5S89rjOR9wQrqohv$Ghp4xpdv3SofqAI37nK91DF0Da597ylCXWcEM6wnQvs=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "ccc1994",
+    "first_name": "Арнольд",
+    "last_name": "Цемягин",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-04-17T17:29:06Z",
+    "patronymic": "Арнольдович",
+    "email": "ccc@gmail.com",
+    "phone_number": "+79123456755",
+    "shop": 6,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2025-04-17T17:31:12.198Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "shop"
+    ],
+    "object_id": "1",
+    "object_repr": "Shop object (1)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2025-04-17T17:31:36.902Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "users",
+      "customuser"
+    ],
+    "object_id": "1",
+    "object_repr": "Admin",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041c\\u0430\\u0433\\u0430\\u0437\\u0438\\u043d\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2025-04-17T17:32:52.870Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "shop"
+    ],
+    "object_id": "2",
+    "object_repr": "Shop object (2)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2025-04-17T17:32:58.531Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "users",
+      "customuser"
+    ],
+    "object_id": "2",
+    "object_repr": "Alex33",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041c\\u0430\\u0433\\u0430\\u0437\\u0438\\u043d\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2025-04-17T17:34:13.029Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "shop"
+    ],
+    "object_id": "1",
+    "object_repr": "Shop object (1)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u0435\", \"\\u041d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u0435 \\u0432 URL\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2025-04-17T17:35:02.137Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "shop"
+    ],
+    "object_id": "3",
+    "object_repr": "Shop object (3)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2025-04-17T17:35:06.250Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "users",
+      "customuser"
+    ],
+    "object_id": "3",
+    "object_repr": "aaa",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041c\\u0430\\u0433\\u0430\\u0437\\u0438\\u043d\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2025-04-17T17:35:59.186Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "shop"
+    ],
+    "object_id": "4",
+    "object_repr": "Shop object (4)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2025-04-17T17:36:04.868Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "users",
+      "customuser"
+    ],
+    "object_id": "4",
+    "object_repr": "Bbb",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041c\\u0430\\u0433\\u0430\\u0437\\u0438\\u043d\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2025-04-17T17:37:31.266Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "shop"
+    ],
+    "object_id": "5",
+    "object_repr": "Shop object (5)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2025-04-17T17:37:34.267Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "users",
+      "customuser"
+    ],
+    "object_id": "5",
+    "object_repr": "Ppp1703",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041c\\u0430\\u0433\\u0430\\u0437\\u0438\\u043d\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2025-04-17T17:38:10.019Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "shop"
+    ],
+    "object_id": "6",
+    "object_repr": "Shop object (6)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2025-04-17T17:38:13.317Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "users",
+      "customuser"
+    ],
+    "object_id": "6",
+    "object_repr": "ccc1994",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041c\\u0430\\u0433\\u0430\\u0437\\u0438\\u043d\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2025-04-17T17:42:18.300Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "1",
+    "object_repr": "Страйкбольное оружие",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2025-04-17T17:42:34.690Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "2",
+    "object_repr": "автоматы",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2025-04-17T17:42:55.222Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "3",
+    "object_repr": "винтовки",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2025-04-17T17:43:13.472Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "4",
+    "object_repr": "пистолеты",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 18,
+  "fields": {
+    "action_time": "2025-04-17T17:54:53.430Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "1",
+    "object_repr": "Страйкбольный автомат (Cyma) CM031C S-74M",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 19,
+  "fields": {
+    "action_time": "2025-04-17T17:54:58.028Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "1",
+    "object_repr": "Страйкбольный автомат (Cyma) CM031C S-74M",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0412\\u0435\\u0440\\u0438\\u0444\\u0438\\u0446\\u0438\\u0440\\u043e\\u0432\\u0430\\u043d\\u043d\\u044b\\u0439\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 20,
+  "fields": {
+    "action_time": "2025-04-17T17:57:12.702Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "1",
+    "object_repr": "Страйкбольный автомат (Cyma) CM031C S-74M",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 1 \\u0434\\u043b\\u044f \\u0441\\u0442\\u0440\\u0430\\u043d\\u0438\\u0446\\u044b \\u043f\\u0440\\u043e\\u0434\\u0443\\u043a\\u0442\\u0430\", \"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0434\\u043b\\u044f \\u043f\\u043e\\u043a\\u0430\\u0437\\u0430 \\u0432 \\u0441\\u043f\\u0438\\u0441\\u043a\\u0430\\u0445\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 21,
+  "fields": {
+    "action_time": "2025-04-17T17:58:51.809Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "1",
+    "object_repr": "Страйкбольный автомат (Cyma) CM031C S-74M",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 2 \\u0434\\u043b\\u044f \\u0441\\u0442\\u0440\\u0430\\u043d\\u0438\\u0446\\u044b \\u043f\\u0440\\u043e\\u0434\\u0443\\u043a\\u0442\\u0430\", \"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 3 \\u0434\\u043b\\u044f \\u0441\\u0442\\u0440\\u0430\\u043d\\u0438\\u0446\\u044b \\u043f\\u0440\\u043e\\u0434\\u0443\\u043a\\u0442\\u0430\", \"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0434\\u043b\\u044f \\u043e\\u043f\\u0438\\u0441\\u0430\\u043d\\u0438\\u044f \\u043d\\u0430 \\u0441\\u0442\\u0440\\u0430\\u043d\\u0438\\u0446\\u0435 \\u043f\\u0440\\u043e\\u0434\\u0443\\u043a\\u0442\\u0430\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 22,
+  "fields": {
+    "action_time": "2025-04-17T18:06:08.997Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "2",
+    "object_repr": "Страйкбольный автомат (East Crane) M4 CQBR SOPMOD Block 2 (WB) 9inch EC-603-9-WB-UP",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 23,
+  "fields": {
+    "action_time": "2025-04-17T18:11:17.696Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "3",
+    "object_repr": "Страйкбольный пистолет-пулемёт (Cyma) CM041H MP5 (PLATINUM version)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 24,
+  "fields": {
+    "action_time": "2025-04-17T18:13:46.015Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "users",
+      "customuser"
+    ],
+    "object_id": "1",
+    "object_repr": "Admin",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Last name\", \"First name\", \"\\u041e\\u0442\\u0447\\u0435\\u0441\\u0442\\u0432\\u043e\", \"\\u0422\\u043b\\u0435\\u0444\\u043e\\u043d\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 25,
+  "fields": {
+    "action_time": "2025-04-17T18:18:16.173Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "4",
+    "object_repr": "Страйкбольная винтовка (Cyma) CM099 ВСС \"ВИНТОРЕЗ\" AEG Black",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 26,
+  "fields": {
+    "action_time": "2025-04-17T18:20:33.825Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "5",
+    "object_repr": "Страйкбольный винчестер (A&K) 1892R M-LOK (WOOD/Black)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 27,
+  "fields": {
+    "action_time": "2025-04-17T18:24:10.642Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "6",
+    "object_repr": "Страйкбольная винтовка (Cyma) CM708 Black",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 28,
+  "fields": {
+    "action_time": "2025-04-17T18:26:54.839Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "7",
+    "object_repr": "Страйкбольная винтовка (King Arms) M2 Carbine GBBR Green Gas",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 29,
+  "fields": {
+    "action_time": "2025-04-17T18:30:26.143Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "8",
+    "object_repr": "Страйкбольный пистолет (Cyma) CM030 GLOCK 18C AEP электр.",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 30,
+  "fields": {
+    "action_time": "2025-04-17T18:31:44.328Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "7",
+    "object_repr": "Страйкбольная винтовка (King Arms) M2 Carbine GBBR Green Gas",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 1 \\u0434\\u043b\\u044f \\u0441\\u0442\\u0440\\u0430\\u043d\\u0438\\u0446\\u044b \\u043f\\u0440\\u043e\\u0434\\u0443\\u043a\\u0442\\u0430\", \"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0434\\u043b\\u044f \\u043f\\u043e\\u043a\\u0430\\u0437\\u0430 \\u0432 \\u0441\\u043f\\u0438\\u0441\\u043a\\u0430\\u0445\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 31,
+  "fields": {
+    "action_time": "2025-04-17T18:34:38.676Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "9",
+    "object_repr": "Страйкбольный пистолет (East Crane) Glock 19 gen.3 TAN EC-1301-DE",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 32,
+  "fields": {
+    "action_time": "2025-04-17T18:35:07.790Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "9",
+    "object_repr": "Страйкбольный пистолет (East Crane) Glock 19 gen.3 TAN EC-1301-DE",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 1 \\u0434\\u043b\\u044f \\u0441\\u0442\\u0440\\u0430\\u043d\\u0438\\u0446\\u044b \\u043f\\u0440\\u043e\\u0434\\u0443\\u043a\\u0442\\u0430\", \"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0434\\u043b\\u044f \\u043f\\u043e\\u043a\\u0430\\u0437\\u0430 \\u0432 \\u0441\\u043f\\u0438\\u0441\\u043a\\u0430\\u0445\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 33,
+  "fields": {
+    "action_time": "2025-04-17T18:37:25.132Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "10",
+    "object_repr": "Страйкбольный пистолет (Cyma) CM136 EBB GRACH (Ярыгин) AEP электр. Li-Po",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 34,
+  "fields": {
+    "action_time": "2025-04-17T18:37:57.260Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "10",
+    "object_repr": "Страйкбольный пистолет (Cyma) CM136 EBB GRACH (Ярыгин) AEP электр. Li-Po",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 1 \\u0434\\u043b\\u044f \\u0441\\u0442\\u0440\\u0430\\u043d\\u0438\\u0446\\u044b \\u043f\\u0440\\u043e\\u0434\\u0443\\u043a\\u0442\\u0430\", \"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0434\\u043b\\u044f \\u043f\\u043e\\u043a\\u0430\\u0437\\u0430 \\u0432 \\u0441\\u043f\\u0438\\u0441\\u043a\\u0430\\u0445\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 35,
+  "fields": {
+    "action_time": "2025-04-17T18:39:49.698Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "5",
+    "object_repr": "Снаряжение",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 36,
+  "fields": {
+    "action_time": "2025-04-17T18:40:22.394Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "6",
+    "object_repr": "шары",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 37,
+  "fields": {
+    "action_time": "2025-04-17T18:40:52.474Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "7",
+    "object_repr": "Маски, очки, защита лица",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 38,
+  "fields": {
+    "action_time": "2025-04-17T18:43:52.148Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "11",
+    "object_repr": "Маска защиты лица Black (Тайвань)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 39,
+  "fields": {
+    "action_time": "2025-04-17T18:45:58.586Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "12",
+    "object_repr": "Маска защитная Череп на все лицо (Coyote/TAN)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 40,
+  "fields": {
+    "action_time": "2025-04-17T18:47:45.454Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "13",
+    "object_repr": "Очки защитные (Bolle) SLAM (прозрачные)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 41,
+  "fields": {
+    "action_time": "2025-04-17T19:23:55.889Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "users",
+      "customuser"
+    ],
+    "object_id": "2",
+    "object_repr": "Alex33",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Last name\", \"First name\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 42,
+  "fields": {
+    "action_time": "2025-04-17T19:34:37.349Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "10",
+    "object_repr": "Страйкбольный пистолет (Cyma) CM136 EBB GRACH (Ярыгин) AEP электр. Li-Po",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 43,
+  "fields": {
+    "action_time": "2025-04-17T20:21:44.605Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "cart",
+      "order"
+    ],
+    "object_id": "1",
+    "object_repr": "Заказ1",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0421\\u043f\\u043e\\u0441\\u043e\\u0431 \\u0434\\u043e\\u0441\\u0442\\u0430\\u0432\\u043a\\u0438\", \"\\u0421\\u0442\\u0430\\u0442\\u0443\\u0441 \\u0437\\u0430\\u043a\\u0430\\u0437\\u0430\", \"\\u041e\\u043f\\u043b\\u0430\\u0447\\u0435\\u043d\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 44,
+  "fields": {
+    "action_time": "2025-04-17T20:22:36.241Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "cart",
+      "order"
+    ],
+    "object_id": "1",
+    "object_repr": "Заказ1",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0424\\u0430\\u043c\\u0438\\u043b\\u0438\\u044f \\u0437\\u0430\\u043a\\u0430\\u0437\\u0447\\u0438\\u043a\\u0430\", \"\\u0418\\u043c\\u044f \\u0437\\u0430\\u043a\\u0430\\u0437\\u0447\\u0438\\u043a\\u0430\", \"\\u041e\\u0442\\u0447\\u0435\\u0441\\u0442\\u0432\\u043e \\u0437\\u0430\\u043a\\u0430\\u0437\\u0447\\u0438\\u043a\\u0430\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 45,
+  "fields": {
+    "action_time": "2025-04-17T20:23:02.978Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "users",
+      "customuser"
+    ],
+    "object_id": "1",
+    "object_repr": "Admin",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Last name\", \"First name\", \"\\u041e\\u0442\\u0447\\u0435\\u0441\\u0442\\u0432\\u043e\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 46,
+  "fields": {
+    "action_time": "2025-04-17T20:26:39.205Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "cart",
+      "order"
+    ],
+    "object_id": "2",
+    "object_repr": "Заказ2",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0421\\u043f\\u043e\\u0441\\u043e\\u0431 \\u0434\\u043e\\u0441\\u0442\\u0430\\u0432\\u043a\\u0438\", \"\\u0421\\u0442\\u0430\\u0442\\u0443\\u0441 \\u0437\\u0430\\u043a\\u0430\\u0437\\u0430\", \"\\u041e\\u043f\\u043b\\u0430\\u0447\\u0435\\u043d\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 47,
+  "fields": {
+    "action_time": "2025-04-17T20:31:26.370Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "cart",
+      "order"
+    ],
+    "object_id": "3",
+    "object_repr": "Заказ3",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0421\\u043f\\u043e\\u0441\\u043e\\u0431 \\u0434\\u043e\\u0441\\u0442\\u0430\\u0432\\u043a\\u0438\", \"\\u0421\\u0442\\u0430\\u0442\\u0443\\u0441 \\u0437\\u0430\\u043a\\u0430\\u0437\\u0430\", \"\\u041e\\u043f\\u043b\\u0430\\u0447\\u0435\\u043d\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 48,
+  "fields": {
+    "action_time": "2025-04-17T20:37:16.515Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "cart",
+      "order"
+    ],
+    "object_id": "4",
+    "object_repr": "Заказ4",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0421\\u043f\\u043e\\u0441\\u043e\\u0431 \\u0434\\u043e\\u0441\\u0442\\u0430\\u0432\\u043a\\u0438\", \"\\u0421\\u0442\\u0430\\u0442\\u0443\\u0441 \\u0437\\u0430\\u043a\\u0430\\u0437\\u0430\", \"\\u041e\\u043f\\u043b\\u0430\\u0447\\u0435\\u043d\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 49,
+  "fields": {
+    "action_time": "2025-04-17T20:45:43.113Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "review"
+    ],
+    "object_id": "8",
+    "object_repr": "Review object (8)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 50,
+  "fields": {
+    "action_time": "2025-04-17T20:46:48.255Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "review"
+    ],
+    "object_id": "9",
+    "object_repr": "Review object (9)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 51,
+  "fields": {
+    "action_time": "2025-04-17T20:48:27.167Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "review"
+    ],
+    "object_id": "10",
+    "object_repr": "Review object (10)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 52,
+  "fields": {
+    "action_time": "2025-04-17T20:50:17.144Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "cart",
+      "order"
+    ],
+    "object_id": "5",
+    "object_repr": "Заказ5",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0421\\u043f\\u043e\\u0441\\u043e\\u0431 \\u0434\\u043e\\u0441\\u0442\\u0430\\u0432\\u043a\\u0438\", \"\\u0421\\u0442\\u0430\\u0442\\u0443\\u0441 \\u0437\\u0430\\u043a\\u0430\\u0437\\u0430\", \"\\u041e\\u043f\\u043b\\u0430\\u0447\\u0435\\u043d\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 53,
+  "fields": {
+    "action_time": "2025-04-17T21:01:05.319Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "cart",
+      "shippingaddress"
+    ],
+    "object_id": "2",
+    "object_repr": "ShippingAddress object (2)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 54,
+  "fields": {
+    "action_time": "2025-04-17T21:01:33.000Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "cart",
+      "order"
+    ],
+    "object_id": "6",
+    "object_repr": "Заказ6",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 55,
+  "fields": {
+    "action_time": "2025-04-17T21:01:37.541Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "cart",
+      "orderitem"
+    ],
+    "object_id": "9",
+    "object_repr": "Заказанный товар9",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 56,
+  "fields": {
+    "action_time": "2025-04-17T21:05:52.016Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "cart",
+      "storesalesreport"
+    ],
+    "object_id": "1",
+    "object_repr": "StoreSalesReport object (1)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 57,
+  "fields": {
+    "action_time": "2025-04-17T21:06:15.983Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "cart",
+      "storesalesreport"
+    ],
+    "object_id": "1",
+    "object_repr": "StoreSalesReport object (1)",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 58,
+  "fields": {
+    "action_time": "2025-04-17T21:07:28.077Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "cart",
+      "storesalesreport"
+    ],
+    "object_id": "1",
+    "object_repr": "StoreSalesReport object (1)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041f\\u0440\\u043e\\u0434\\u0430\\u0436\\u0438 \\u043f\\u043e \\u043a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\\u043c\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 59,
+  "fields": {
+    "action_time": "2025-04-17T21:10:52.310Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "cart",
+      "storesalesreport"
+    ],
+    "object_id": "1",
+    "object_repr": "StoreSalesReport object (1)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041f\\u0440\\u043e\\u0434\\u0430\\u0436\\u0438 \\u043f\\u043e \\u043a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\\u043c\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 60,
+  "fields": {
+    "action_time": "2025-04-17T21:14:09.411Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "cart",
+      "storesalesreport"
+    ],
+    "object_id": "1",
+    "object_repr": "StoreSalesReport object (1)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041f\\u0440\\u043e\\u0434\\u0430\\u0436\\u0438 \\u043f\\u043e \\u0442\\u043e\\u0432\\u0430\\u0440\\u0430\\u043c\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 61,
+  "fields": {
+    "action_time": "2025-04-17T21:19:33.927Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "cart",
+      "shippingaddress"
+    ],
+    "object_id": "3",
+    "object_repr": "ShippingAddress object (3)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 62,
+  "fields": {
+    "action_time": "2025-04-17T21:19:51.885Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "cart",
+      "order"
+    ],
+    "object_id": "7",
+    "object_repr": "Заказ7",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 63,
+  "fields": {
+    "action_time": "2025-04-17T21:19:54.705Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "cart",
+      "orderitem"
+    ],
+    "object_id": "10",
+    "object_repr": "Заказанный товар10",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 64,
+  "fields": {
+    "action_time": "2025-04-17T21:21:52.693Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "cart",
+      "storesalesreport"
+    ],
+    "object_id": "2",
+    "object_repr": "StoreSalesReport object (2)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 65,
+  "fields": {
+    "action_time": "2025-04-17T21:22:54.542Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "cart",
+      "order"
+    ],
+    "object_id": "1",
+    "object_repr": "Заказ1",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0421\\u0442\\u0430\\u0442\\u0443\\u0441 \\u0437\\u0430\\u043a\\u0430\\u0437\\u0430\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 66,
+  "fields": {
+    "action_time": "2025-04-17T21:23:03.315Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "cart",
+      "order"
+    ],
+    "object_id": "2",
+    "object_repr": "Заказ2",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0421\\u0442\\u0430\\u0442\\u0443\\u0441 \\u0437\\u0430\\u043a\\u0430\\u0437\\u0430\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 67,
+  "fields": {
+    "action_time": "2025-04-17T21:23:11.018Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "cart",
+      "order"
+    ],
+    "object_id": "3",
+    "object_repr": "Заказ3",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0421\\u0442\\u0430\\u0442\\u0443\\u0441 \\u0437\\u0430\\u043a\\u0430\\u0437\\u0430\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 68,
+  "fields": {
+    "action_time": "2025-04-17T21:23:18.607Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "cart",
+      "order"
+    ],
+    "object_id": "4",
+    "object_repr": "Заказ4",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0421\\u0442\\u0430\\u0442\\u0443\\u0441 \\u0437\\u0430\\u043a\\u0430\\u0437\\u0430\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 69,
+  "fields": {
+    "action_time": "2025-04-17T21:23:24.742Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "cart",
+      "order"
+    ],
+    "object_id": "5",
+    "object_repr": "Заказ5",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0421\\u0442\\u0430\\u0442\\u0443\\u0441 \\u0437\\u0430\\u043a\\u0430\\u0437\\u0430\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 70,
+  "fields": {
+    "action_time": "2025-04-17T21:23:30.266Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "cart",
+      "order"
+    ],
+    "object_id": "6",
+    "object_repr": "Заказ6",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0421\\u0442\\u0430\\u0442\\u0443\\u0441 \\u0437\\u0430\\u043a\\u0430\\u0437\\u0430\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 71,
+  "fields": {
+    "action_time": "2025-04-17T21:37:37.704Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "14",
+    "object_repr": "Шары AIM 0,25 (3800 шт) ТРАССЕРА Красные",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 72,
+  "fields": {
+    "action_time": "2025-04-17T21:38:39.521Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "14",
+    "object_repr": "Шары AIM 0,25 (3800 шт) ТРАССЕРА Красные",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0422\\u0438\\u043f \\u0442\\u043e\\u0432\\u0430\\u0440\\u0430\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 73,
+  "fields": {
+    "action_time": "2025-04-17T21:39:51.012Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "14",
+    "object_repr": "Шары AIM 0.25 (3800 шт) ТРАССЕРА Красные",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u0435\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 74,
+  "fields": {
+    "action_time": "2025-04-18T15:50:25.720Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "13",
+    "object_repr": "Очки защитные (Bolle) SLAM (прозрачные)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 1 \\u0434\\u043b\\u044f \\u0441\\u0442\\u0440\\u0430\\u043d\\u0438\\u0446\\u044b \\u043f\\u0440\\u043e\\u0434\\u0443\\u043a\\u0442\\u0430\", \"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0434\\u043b\\u044f \\u043f\\u043e\\u043a\\u0430\\u0437\\u0430 \\u0432 \\u0441\\u043f\\u0438\\u0441\\u043a\\u0430\\u0445\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 75,
+  "fields": {
+    "action_time": "2025-04-18T15:52:33.662Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "14",
+    "object_repr": "Шары AIM 0.25 (3800 шт) ТРАССЕРА Красные",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 1 \\u0434\\u043b\\u044f \\u0441\\u0442\\u0440\\u0430\\u043d\\u0438\\u0446\\u044b \\u043f\\u0440\\u043e\\u0434\\u0443\\u043a\\u0442\\u0430\", \"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0434\\u043b\\u044f \\u043f\\u043e\\u043a\\u0430\\u0437\\u0430 \\u0432 \\u0441\\u043f\\u0438\\u0441\\u043a\\u0430\\u0445\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 76,
+  "fields": {
+    "action_time": "2025-04-18T15:54:19.280Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "cart",
+      "storesalesreport"
+    ],
+    "object_id": "3",
+    "object_repr": "StoreSalesReport object (3)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 77,
+  "fields": {
+    "action_time": "2025-04-18T15:54:36.974Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "cart",
+      "storesalesreport"
+    ],
+    "object_id": "4",
+    "object_repr": "StoreSalesReport object (4)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 78,
+  "fields": {
+    "action_time": "2025-04-18T15:54:55.279Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "cart",
+      "storesalesreport"
+    ],
+    "object_id": "5",
+    "object_repr": "StoreSalesReport object (5)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 79,
+  "fields": {
+    "action_time": "2025-04-18T15:55:14.784Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "cart",
+      "storesalesreport"
+    ],
+    "object_id": "6",
+    "object_repr": "StoreSalesReport object (6)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 80,
+  "fields": {
+    "action_time": "2025-04-18T15:55:24.368Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "cart",
+      "storesalesreport"
+    ],
+    "object_id": "7",
+    "object_repr": "StoreSalesReport object (7)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 81,
+  "fields": {
+    "action_time": "2025-04-18T16:05:33.257Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "8",
+    "object_repr": "Лоадеры",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 82,
+  "fields": {
+    "action_time": "2025-04-18T16:06:17.317Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "9",
+    "object_repr": "Экипировка",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 83,
+  "fields": {
+    "action_time": "2025-04-18T16:09:32.376Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "10",
+    "object_repr": "Обвес",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 84,
+  "fields": {
+    "action_time": "2025-04-18T16:10:03.574Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "11",
+    "object_repr": "ДТК, глушители",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 85,
+  "fields": {
+    "action_time": "2025-04-18T16:10:21.840Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "12",
+    "object_repr": "ЛЦУ",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 86,
+  "fields": {
+    "action_time": "2025-04-18T16:10:52.993Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "13",
+    "object_repr": "пистолетные рукоятки",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 87,
+  "fields": {
+    "action_time": "2025-04-18T16:11:12.152Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "14",
+    "object_repr": "приклады",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 88,
+  "fields": {
+    "action_time": "2025-04-18T16:11:30.637Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "15",
+    "object_repr": "прицелы",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 89,
+  "fields": {
+    "action_time": "2025-04-18T16:12:10.078Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "16",
+    "object_repr": "прочее",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 90,
+  "fields": {
+    "action_time": "2025-04-18T16:12:38.598Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "17",
+    "object_repr": "тактические блоки",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 91,
+  "fields": {
+    "action_time": "2025-04-18T16:13:07.594Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "18",
+    "object_repr": "тактические рукоятки",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 92,
+  "fields": {
+    "action_time": "2025-04-18T16:13:23.351Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "19",
+    "object_repr": "Трассерные насадки",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 93,
+  "fields": {
+    "action_time": "2025-04-18T16:13:41.749Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "20",
+    "object_repr": "фонари",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 94,
+  "fields": {
+    "action_time": "2025-04-18T16:13:57.697Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "21",
+    "object_repr": "цевья",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 95,
+  "fields": {
+    "action_time": "2025-04-18T16:15:59.433Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "22",
+    "object_repr": "Наклейки и украшения",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 96,
+  "fields": {
+    "action_time": "2025-04-18T16:18:37.023Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "23",
+    "object_repr": "Тюнинг для пистолетов",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 97,
+  "fields": {
+    "action_time": "2025-04-18T16:21:46.190Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "24",
+    "object_repr": "Внешний тюнинг",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 98,
+  "fields": {
+    "action_time": "2025-04-18T16:22:15.526Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "25",
+    "object_repr": "Внутренний тюнинг",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 99,
+  "fields": {
+    "action_time": "2025-04-18T16:25:46.979Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "26",
+    "object_repr": "Магазины, ввд адаптеры",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 100,
+  "fields": {
+    "action_time": "2025-04-18T16:27:43.002Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "27",
+    "object_repr": "Тюнинг приводов",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 101,
+  "fields": {
+    "action_time": "2025-04-18T16:30:48.804Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "26",
+    "object_repr": "Магазины, ввд адаптеры, прочее",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u0435\", \"\\u041d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u0435 \\u0432 URL\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 102,
+  "fields": {
+    "action_time": "2025-04-18T16:31:18.579Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "24",
+    "object_repr": "Внешний тюнинг",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u0435 \\u0432 URL\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 103,
+  "fields": {
+    "action_time": "2025-04-18T16:31:24.573Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "25",
+    "object_repr": "Внутренний тюнинг",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u0435 \\u0432 URL\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 104,
+  "fields": {
+    "action_time": "2025-04-18T16:34:03.039Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "28",
+    "object_repr": "Магазины, ввд адаптеры, прочее",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 105,
+  "fields": {
+    "action_time": "2025-04-18T16:35:16.959Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "29",
+    "object_repr": "Внешний тюнинг",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 106,
+  "fields": {
+    "action_time": "2025-04-18T16:36:48.286Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "30",
+    "object_repr": "Внутренний тюнинг",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 107,
+  "fields": {
+    "action_time": "2025-04-18T16:51:44.844Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "15",
+    "object_repr": "Лоадер Cyma 100ш C19A",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 108,
+  "fields": {
+    "action_time": "2025-04-18T16:55:37.284Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "16",
+    "object_repr": "Пламегаситель ДТК 110",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 109,
+  "fields": {
+    "action_time": "2025-04-18T16:55:58.093Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "16",
+    "object_repr": "Пламегаситель ДТК 110",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041c\\u0430\\u0433\\u0430\\u0437\\u0438\\u043d\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 110,
+  "fields": {
+    "action_time": "2025-04-18T16:59:32.802Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "17",
+    "object_repr": "Лазерный целеуказатель (WADSN) Close Quarters Battie Laser (Red/Green Laser) CNC (Black)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 111,
+  "fields": {
+    "action_time": "2025-04-18T17:03:15.467Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "22",
+    "object_repr": "Наклейки, украшения, аксессуары",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u0435\", \"\\u041d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u0435 \\u0432 URL\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 112,
+  "fields": {
+    "action_time": "2025-04-18T17:05:49.882Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "22",
+    "object_repr": "Аксессуары, прочее",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u0435\", \"\\u041d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u0435 \\u0432 URL\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 113,
+  "fields": {
+    "action_time": "2025-04-18T17:09:37.437Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "18",
+    "object_repr": "Мишень № 4 грудная с кругами зеленая (пл. 48 г/м2) - 250 шт",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 114,
+  "fields": {
+    "action_time": "2025-04-18T17:14:23.326Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "cart",
+      "order"
+    ],
+    "object_id": "8",
+    "object_repr": "Заказ8",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 115,
+  "fields": {
+    "action_time": "2025-04-18T17:14:26.666Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "cart",
+      "orderitem"
+    ],
+    "object_id": "11",
+    "object_repr": "Заказанный товар11",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 116,
+  "fields": {
+    "action_time": "2025-04-18T17:15:17.818Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "review"
+    ],
+    "object_id": "12",
+    "object_repr": "Review object (12)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 117,
+  "fields": {
+    "action_time": "2025-04-18T17:16:56.871Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "cart",
+      "order"
+    ],
+    "object_id": "9",
+    "object_repr": "Заказ9",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 118,
+  "fields": {
+    "action_time": "2025-04-18T17:17:00.355Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "cart",
+      "orderitem"
+    ],
+    "object_id": "12",
+    "object_repr": "Заказанный товар12",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 119,
+  "fields": {
+    "action_time": "2025-04-18T17:17:33.098Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "review"
+    ],
+    "object_id": "13",
+    "object_repr": "Review object (13)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 120,
+  "fields": {
+    "action_time": "2025-04-18T17:21:20.954Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "cart",
+      "order"
+    ],
+    "object_id": "10",
+    "object_repr": "Заказ10",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 121,
+  "fields": {
+    "action_time": "2025-04-18T17:21:24.778Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "cart",
+      "orderitem"
+    ],
+    "object_id": "13",
+    "object_repr": "Заказанный товар13",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 122,
+  "fields": {
+    "action_time": "2025-04-18T17:22:18.821Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "review"
+    ],
+    "object_id": "14",
+    "object_repr": "Review object (14)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 123,
+  "fields": {
+    "action_time": "2025-04-21T19:09:30.009Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "products",
+      "shop"
+    ],
+    "object_id": "1",
+    "object_repr": "1Air-Shop",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0410\\u0434\\u0440\\u0435\\u0441 \\u0440\\u0435\\u0433\\u0438\\u0441\\u0442\\u0440\\u0430\\u0446\\u0438\\u0438\", \"\\u0420\\u0430\\u0441\\u0447\\u0451\\u0442\\u043d\\u044b\\u0439 \\u0441\\u0447\\u0451\\u0442\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 124,
+  "fields": {
+    "action_time": "2025-04-22T13:08:45.480Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "cart",
+      "order"
+    ],
+    "object_id": "11",
+    "object_repr": "Заказ 11",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 125,
+  "fields": {
+    "action_time": "2025-05-07T13:55:32.765Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "cart",
+      "order"
+    ],
+    "object_id": "12",
+    "object_repr": "Заказ 12",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 126,
+  "fields": {
+    "action_time": "2025-05-07T13:55:46.394Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "cart",
+      "shippingaddress"
+    ],
+    "object_id": "5",
+    "object_repr": "Адрес 5, пользователь None, Россия, Москва обл., Москва, ул. шоссе Энтузиастов, д. 6А, кв. , этаж , домофон ",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 127,
+  "fields": {
+    "action_time": "2025-05-07T14:01:07.861Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "cart",
+      "order"
+    ],
+    "object_id": "13",
+    "object_repr": "Заказ 13",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 128,
+  "fields": {
+    "action_time": "2025-06-01T20:07:40.955Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "cart",
+      "storesalesreport"
+    ],
+    "object_id": "1",
+    "object_repr": "StoreSalesReport object (1)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0421\", \"\\u041f\\u043e\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 129,
+  "fields": {
+    "action_time": "2025-06-01T20:08:15.160Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "cart",
+      "storesalesreport"
+    ],
+    "object_id": "3",
+    "object_repr": "StoreSalesReport object (3)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0421\", \"\\u041f\\u043e\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 130,
+  "fields": {
+    "action_time": "2025-06-01T20:08:30.467Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "cart",
+      "storesalesreport"
+    ],
+    "object_id": "4",
+    "object_repr": "StoreSalesReport object (4)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0421\", \"\\u041f\\u043e\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 131,
+  "fields": {
+    "action_time": "2025-06-01T20:08:43.423Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "cart",
+      "storesalesreport"
+    ],
+    "object_id": "5",
+    "object_repr": "StoreSalesReport object (5)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0421\", \"\\u041f\\u043e\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 132,
+  "fields": {
+    "action_time": "2025-06-01T20:08:56.714Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "cart",
+      "storesalesreport"
+    ],
+    "object_id": "6",
+    "object_repr": "StoreSalesReport object (6)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0421\", \"\\u041f\\u043e\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 133,
+  "fields": {
+    "action_time": "2025-06-01T20:09:15.629Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "cart",
+      "storesalesreport"
+    ],
+    "object_id": "7",
+    "object_repr": "StoreSalesReport object (7)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0421\", \"\\u041f\\u043e\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 134,
+  "fields": {
+    "action_time": "2025-06-01T20:10:31.737Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "cart",
+      "storesalesreport"
+    ],
+    "object_id": "1",
+    "object_repr": "StoreSalesReport object (1)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0421\", \"\\u041f\\u043e\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 135,
+  "fields": {
+    "action_time": "2025-06-01T20:11:00.617Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "cart",
+      "storesalesreport"
+    ],
+    "object_id": "8",
+    "object_repr": "StoreSalesReport object (8)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 136,
+  "fields": {
+    "action_time": "2025-06-01T20:12:08.918Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "cart",
+      "storesalesreport"
+    ],
+    "object_id": "8",
+    "object_repr": "StoreSalesReport object (8)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0421\", \"\\u041f\\u043e\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 137,
+  "fields": {
+    "action_time": "2025-06-01T20:12:23.239Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "cart",
+      "storesalesreport"
+    ],
+    "object_id": "9",
+    "object_repr": "StoreSalesReport object (9)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 138,
+  "fields": {
+    "action_time": "2025-06-01T20:19:09.747Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "django_celery_beat",
+      "crontabschedule"
+    ],
+    "object_id": "1",
+    "object_repr": "* * 28 * * (m/h/dM/MY/d) UTC",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 139,
+  "fields": {
+    "action_time": "2025-06-01T20:19:56.021Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "django_celery_beat",
+      "periodictask"
+    ],
+    "object_id": "1",
+    "object_repr": "Создание отчетов о продажах: * * 28 * * (m/h/dM/MY/d) UTC",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 140,
+  "fields": {
+    "action_time": "2025-06-01T20:20:37.758Z",
+    "user": [
+      "Admin"
+    ],
+    "content_type": [
+      "django_celery_beat",
+      "crontabschedule"
+    ],
+    "object_id": "1",
+    "object_repr": "0 0 28 * * (m/h/dM/MY/d) UTC",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Minute(s)\", \"Hour(s)\"]}}]"
+  }
+},
+{
+  "model": "cart.order",
+  "pk": 1,
+  "fields": {
+    "shop": 1,
+    "customer_last_name": "Админов",
+    "customer_first_name": "Админ",
+    "customer_patronymic": "Админович",
+    "customer_email": "admin@gmail.com",
+    "customer_phone": "+79124368352",
+    "delivery_method": "pick-up_point",
+    "user": [
+      "Admin"
+    ],
+    "status": "received",
+    "shipping_address": 1,
+    "amount": "800.00",
+    "created": "2025-04-17T20:21:09.161Z",
+    "updated": "2025-04-17T21:22:54.540Z",
+    "paid": true,
+    "payment_id": "2f937676-000f-5000-8000-138f34271abd"
+  }
+},
+{
+  "model": "cart.order",
+  "pk": 2,
+  "fields": {
+    "shop": 1,
+    "customer_last_name": "Админов",
+    "customer_first_name": "Админ",
+    "customer_patronymic": "Админович",
+    "customer_email": "admin@gmail.com",
+    "customer_phone": "+79124368352",
+    "delivery_method": "pick-up_point",
+    "user": [
+      "Admin"
+    ],
+    "status": "received",
+    "shipping_address": 1,
+    "amount": "83330.00",
+    "created": "2025-04-17T20:26:08.418Z",
+    "updated": "2025-04-17T21:23:03.313Z",
+    "paid": true,
+    "payment_id": "2f9377a1-000f-5000-a000-14c4693c7967"
+  }
+},
+{
+  "model": "cart.order",
+  "pk": 3,
+  "fields": {
+    "shop": 1,
+    "customer_last_name": "Админов",
+    "customer_first_name": "Админ",
+    "customer_patronymic": "Админович",
+    "customer_email": "admin@gmail.com",
+    "customer_phone": "+79124368352",
+    "delivery_method": "pick-up_point",
+    "user": [
+      "Admin"
+    ],
+    "status": "received",
+    "shipping_address": 1,
+    "amount": "7000.00",
+    "created": "2025-04-17T20:27:49.888Z",
+    "updated": "2025-04-17T21:23:11.016Z",
+    "paid": true,
+    "payment_id": "2f937806-000f-5000-b000-16fd865964df"
+  }
+},
+{
+  "model": "cart.order",
+  "pk": 4,
+  "fields": {
+    "shop": 1,
+    "customer_last_name": "Админов",
+    "customer_first_name": "Админ",
+    "customer_patronymic": "Админович",
+    "customer_email": "admin@gmail.com",
+    "customer_phone": "+79124368352",
+    "delivery_method": "pick-up_point",
+    "user": [
+      "Admin"
+    ],
+    "status": "received",
+    "shipping_address": 1,
+    "amount": "118800.00",
+    "created": "2025-04-17T20:37:00.846Z",
+    "updated": "2025-04-17T21:23:18.605Z",
+    "paid": true,
+    "payment_id": "2f937a2d-000f-5000-a000-10431532735b"
+  }
+},
+{
+  "model": "cart.order",
+  "pk": 5,
+  "fields": {
+    "shop": 1,
+    "customer_last_name": "Админов",
+    "customer_first_name": "Админ",
+    "customer_patronymic": "Админович",
+    "customer_email": "admin@gmail.com",
+    "customer_phone": "+79124368352",
+    "delivery_method": "pick-up_point",
+    "user": [
+      "Admin"
+    ],
+    "status": "received",
+    "shipping_address": 1,
+    "amount": "22900.00",
+    "created": "2025-04-17T20:50:02.428Z",
+    "updated": "2025-04-17T21:23:24.740Z",
+    "paid": true,
+    "payment_id": "2f937d3b-000f-5000-b000-1a8c105a8a3e"
+  }
+},
+{
+  "model": "cart.order",
+  "pk": 6,
+  "fields": {
+    "shop": 2,
+    "customer_last_name": "1",
+    "customer_first_name": "1",
+    "customer_patronymic": "1",
+    "customer_email": "ccc@gmail.com",
+    "customer_phone": "+79123456789",
+    "delivery_method": "pick-up_point",
+    "user": [
+      "ccc1994"
+    ],
+    "status": "received",
+    "shipping_address": 2,
+    "amount": "11000.00",
+    "created": "2025-04-17T21:01:32.998Z",
+    "updated": "2025-04-17T21:23:30.263Z",
+    "paid": true,
+    "payment_id": "2f937a2d-000f-5000-a000-2312312343"
+  }
+},
+{
+  "model": "cart.order",
+  "pk": 7,
+  "fields": {
+    "shop": 1,
+    "customer_last_name": "Наумов",
+    "customer_first_name": "Николай",
+    "customer_patronymic": "Александроваич",
+    "customer_email": "nnn@gmail.com",
+    "customer_phone": "+79123456789",
+    "delivery_method": "pick-up_point",
+    "user": null,
+    "status": "received",
+    "shipping_address": 3,
+    "amount": "700.00",
+    "created": "2025-04-17T21:19:51.883Z",
+    "updated": "2025-04-17T21:19:51.883Z",
+    "paid": true,
+    "payment_id": "2f937806-000f-5000-b000-2344234532"
+  }
+},
+{
+  "model": "cart.order",
+  "pk": 8,
+  "fields": {
+    "shop": 2,
+    "customer_last_name": "1",
+    "customer_first_name": "1",
+    "customer_patronymic": "1",
+    "customer_email": "1@gmail.com",
+    "customer_phone": "+79123456789",
+    "delivery_method": "pick-up_point",
+    "user": null,
+    "status": "awaiting_payment",
+    "shipping_address": 3,
+    "amount": "28350.00",
+    "created": "2025-04-18T17:14:23.291Z",
+    "updated": "2025-04-18T17:14:23.291Z",
+    "paid": true,
+    "payment_id": "2f7fd7b0-000f-5000-8000-23423424234"
+  }
+},
+{
+  "model": "cart.order",
+  "pk": 9,
+  "fields": {
+    "shop": 2,
+    "customer_last_name": "1",
+    "customer_first_name": "1",
+    "customer_patronymic": "1",
+    "customer_email": "1@gmail.com",
+    "customer_phone": "+79123456789",
+    "delivery_method": "pick-up_point",
+    "user": null,
+    "status": "received",
+    "shipping_address": 3,
+    "amount": "10000.00",
+    "created": "2025-04-18T17:16:56.870Z",
+    "updated": "2025-04-18T17:16:56.870Z",
+    "paid": true,
+    "payment_id": "2f7fd7b0-000f-5000-8000-2342342432432"
+  }
+},
+{
+  "model": "cart.order",
+  "pk": 10,
+  "fields": {
+    "shop": 2,
+    "customer_last_name": "1",
+    "customer_first_name": "1",
+    "customer_patronymic": "1",
+    "customer_email": "1@gmail.com",
+    "customer_phone": "+79123456789",
+    "delivery_method": "pick-up_point",
+    "user": null,
+    "status": "received",
+    "shipping_address": 3,
+    "amount": "10000.00",
+    "created": "2025-04-18T17:21:20.952Z",
+    "updated": "2025-04-18T17:21:20.952Z",
+    "paid": true,
+    "payment_id": "2f7fd7b0-000f-5000-8000-897897897"
+  }
+},
+{
+  "model": "cart.shippingaddress",
+  "pk": 1,
+  "fields": {
+    "country": "Россия",
+    "region": "Волгоградская область",
+    "city": "Волгоград",
+    "street": "бульвар Энгельса",
+    "house": "29",
+    "flat": "",
+    "entrance": "",
+    "floor": "",
+    "intercom": "",
+    "user": [
+      "Admin"
+    ]
+  }
+},
+{
+  "model": "cart.shippingaddress",
+  "pk": 2,
+  "fields": {
+    "country": "Россия",
+    "region": "1",
+    "city": "1",
+    "street": "1",
+    "house": "1",
+    "flat": null,
+    "entrance": null,
+    "floor": null,
+    "intercom": null,
+    "user": [
+      "ccc1994"
+    ]
+  }
+},
+{
+  "model": "cart.shippingaddress",
+  "pk": 3,
+  "fields": {
+    "country": "Россия",
+    "region": "Пермская",
+    "city": "Пермь",
+    "street": "Ленина",
+    "house": "1",
+    "flat": null,
+    "entrance": null,
+    "floor": null,
+    "intercom": null,
+    "user": null
+  }
+},
+{
+  "model": "cart.shippingaddress",
+  "pk": 4,
+  "fields": {
+    "country": "Россия",
+    "region": "Москва",
+    "city": "Москва",
+    "street": "Большая Татарская улица",
+    "house": "9",
+    "flat": "",
+    "entrance": "",
+    "floor": "",
+    "intercom": "",
+    "user": null
+  }
+},
+{
+  "model": "products.review",
+  "pk": 1,
+  "fields": {
+    "text": "Защищает!",
+    "rating": 5,
+    "image": "reviews_img/images_3VOCFjU.jpg",
+    "product": 11,
+    "user": [
+      "Admin"
+    ],
+    "pub_date": "2025-04-17T20:38:53.922Z",
+    "show": true
+  }
+},
+{
+  "model": "products.review",
+  "pk": 2,
+  "fields": {
+    "text": "КРУТОЙ",
+    "rating": 5,
+    "image": "reviews_img/images.jpg",
+    "product": 2,
+    "user": [
+      "Admin"
+    ],
+    "pub_date": "2025-04-17T20:40:35.798Z",
+    "show": true
+  }
+},
+{
+  "model": "products.review",
+  "pk": 3,
+  "fields": {
+    "text": "норм",
+    "rating": 4,
+    "image": "reviews_img/cattt_m_1.jpg",
+    "product": 3,
+    "user": [
+      "Admin"
+    ],
+    "pub_date": "2025-04-17T20:41:33.123Z",
+    "show": true
+  }
+},
+{
+  "model": "products.review",
+  "pk": 4,
+  "fields": {
+    "text": "ну супер просто",
+    "rating": 5,
+    "image": "reviews_img/cattt_m_1_QwA4S2s.jpg",
+    "product": 1,
+    "user": [
+      "Admin"
+    ],
+    "pub_date": "2025-04-17T20:42:05.531Z",
+    "show": true
+  }
+},
+{
+  "model": "products.review",
+  "pk": 5,
+  "fields": {
+    "text": "Идеальный",
+    "rating": 5,
+    "image": "",
+    "product": 9,
+    "user": [
+      "Admin"
+    ],
+    "pub_date": "2025-04-17T20:42:26.370Z",
+    "show": true
+  }
+},
+{
+  "model": "products.review",
+  "pk": 6,
+  "fields": {
+    "text": "удобная",
+    "rating": 5,
+    "image": "",
+    "product": 12,
+    "user": [
+      "Admin"
+    ],
+    "pub_date": "2025-04-17T20:42:50.904Z",
+    "show": true
+  }
+},
+{
+  "model": "products.review",
+  "pk": 7,
+  "fields": {
+    "text": "ТОП ТОП ТОП",
+    "rating": 5,
+    "image": "reviews_img/1726212692173518698.jpg",
+    "product": 10,
+    "user": [
+      "Admin"
+    ],
+    "pub_date": "2025-04-17T20:43:24.959Z",
+    "show": true
+  }
+},
+{
+  "model": "products.review",
+  "pk": 8,
+  "fields": {
+    "text": "ну такое...",
+    "rating": 3,
+    "image": "",
+    "product": 7,
+    "user": [
+      "aaa"
+    ],
+    "pub_date": "2025-04-17T20:45:43.111Z",
+    "show": true
+  }
+},
+{
+  "model": "products.review",
+  "pk": 9,
+  "fields": {
+    "text": "работает через раз, хлам",
+    "rating": 2,
+    "image": "",
+    "product": 7,
+    "user": [
+      "ccc1994"
+    ],
+    "pub_date": "2025-04-17T20:46:48.254Z",
+    "show": true
+  }
+},
+{
+  "model": "products.review",
+  "pk": 10,
+  "fields": {
+    "text": "норм",
+    "rating": 4,
+    "image": "",
+    "product": 1,
+    "user": [
+      "ccc1994"
+    ],
+    "pub_date": "2025-04-17T20:48:27.165Z",
+    "show": true
+  }
+},
+{
+  "model": "products.review",
+  "pk": 11,
+  "fields": {
+    "text": "топ за свои деньги",
+    "rating": 5,
+    "image": "",
+    "product": 1,
+    "user": [
+      "Admin"
+    ],
+    "pub_date": "2025-04-17T20:57:37.231Z",
+    "show": true
+  }
+},
+{
+  "model": "products.review",
+  "pk": 12,
+  "fields": {
+    "text": "nice",
+    "rating": 4,
+    "image": "",
+    "product": 6,
+    "user": [
+      "ccc1994"
+    ],
+    "pub_date": "2025-04-18T17:15:17.816Z",
+    "show": true
+  }
+},
+{
+  "model": "products.review",
+  "pk": 13,
+  "fields": {
+    "text": "пойдет",
+    "rating": 4,
+    "image": "",
+    "product": 5,
+    "user": [
+      "ccc1994"
+    ],
+    "pub_date": "2025-04-18T17:17:33.096Z",
+    "show": true
+  }
+},
+{
+  "model": "products.review",
+  "pk": 14,
+  "fields": {
+    "text": "Годно, годно, еще и по скидочке))",
+    "rating": 5,
+    "image": "",
+    "product": 4,
+    "user": [
+      "Ppp1703"
+    ],
+    "pub_date": "2025-04-18T17:22:18.820Z",
+    "show": true
+  }
+}
+]

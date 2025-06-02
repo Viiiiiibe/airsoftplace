@@ -1,0 +1,118 @@
+/*
+    6.4. Other Page
+            6.4.1 Login page
+            6.4.2 Register Page
+
+
+ */
+
+//Login
+.customer-page {
+    margin: 0 auto 300px auto;
+    max-width: 560px;
+    position: relative;
+    .title-page {
+        h3 {
+            font-size: 20px;
+            font-weight: 500;
+            border-radius: 30px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.06);
+            display: table;
+            line-height: 54px;
+            margin: 0 auto 60px;
+            padding: 0 60px;
+        }
+    }
+}
+
+.form-customer {
+    label {
+        font-size: 14px;
+        font-weight: 500;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    .form-account {
+        background: #f8f8f8;
+        border: 1px solid #f1f1f1;
+        height: 54px;
+        @include border-radius(0);
+        @include placeholder(#000, 14px);
+        box-shadow: none;
+    }
+    .btn-login {
+        @include btn(196px, 54px, #fff, #000);
+        @include border-radius(0);
+        font-size: 16px;
+        font-weight: 500;
+        padding: 0;
+        &:hover {
+            @include btn-hover;
+        }
+    }
+    .lost-password {
+        text-decoration: underline;
+        float: right;
+        margin: 15px 0;
+    }
+    .create-account {
+        height: 54px;
+        line-height: 54px;
+    }
+
+    .form-check {
+        margin: 20px 0 35px 0;
+    }
+    .form-check-label {
+        margin-left: 25px;
+        color: #a4a4a4;
+        cursor: pointer;
+        &.ver2{
+            margin-left:0;
+            color:#000;
+        }
+        span {
+            &:before {
+                content: "";
+                display: inline-block;
+                width: 13px;
+                height: 13px;
+                border: 1px solid #e4e4e4;
+                background: #f5f5f5;
+                border-radius: 50%;
+                margin-right: 11px;
+                margin-bottom: -2px;
+            }
+        }
+        .form-check-input  {
+            display: none;
+        }
+    }
+    .form-check-label .form-check-input:checked+span::before {
+        background: #000000;
+        border-color: #000000;
+    }
+}
+
+.divider {
+    border-bottom: 1px solid #ededed;
+    color: #d8d8d8;
+    display: inline-block;
+    float: left;
+    height: 1px;
+    margin-bottom: 37px;
+    position: relative;
+    text-align: center;
+    width: 100%;
+    &:before {
+        background: #ffffff;
+        content: "\f0d7";
+        display: inline-block;
+        font-family: 'FontAwesome', sans-serif;
+        left: 50%;
+        position: absolute;
+        top: -10px;
+        @include translateX(-50%);
+        width: 31px;
+    }
+}

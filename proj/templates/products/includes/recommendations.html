@@ -1,0 +1,41 @@
+<div class="blog">
+    <div class="product-related">
+        <div class="container container-42">
+            <h3 class="title text-center">Подобрали для Вас</h3>
+            <div class="owl-carousel owl-theme js-owl-product">
+                {% for product in recommended_products %}
+                <div class="product-item">
+                    <div class="product-images">
+                        <a href="{% url 'product_detail' product.pk %}" class="hover-images effect"><img
+                                    src="{{ product.image6.url }}"
+                                    alt="photo" class="img-reponsive"></a>
+                        {% if product.items_left < 1 %}
+                        <div class="ribbon-sale ver3"><span>отсутствует &nbsp &nbsp</span></div>
+                        {% endif %}
+                    </div>
+                    <div class="product-info-ver2">
+                            <h3 class="product-title">
+                                <a href="{% url 'product_detail' product.pk %}">
+                                    {{product.name }}
+                                    {% if product.review_count > 0 %}
+                                        <span class="star" style="color: gold;"></span> {{ product.avg_rating|floatformat:1 }} ({{ product.review_count }} отзывов)
+                                    {% endif %}
+                                </a>
+                            </h3>
+                            <div class="product-after-switch">
+                                <div class="product-price">{{ product.price |floatformat:2}} ₽</div>
+                                <div class="product-after-button">
+                                    {% if product.items_left < 1 %}
+                                    <a href="{% url 'product_detail' product.pk %}" class="addcart">ОТСУТСТВУЕТ</a>
+                                    {% else %}
+                                    <a href="{% url 'product_detail' product.pk %}" class="addcart">ПОСМОТРЕТЬ</a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>

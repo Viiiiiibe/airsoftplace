@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% block title %}
+Личный Кабинет
+{% endblock %}
+
+{% block content %}
+{% load static %}
+
+<div class="wrap-gallery">
+    <div class="container container-42">
+            <div class="heading-gallery">
+                <h3 class="title">
+                    ЛИЧНЫЙ КАБИНЕТ
+                </h3>
+                <p>{{ user.username }}</p>
+                <a href="{% url 'users:shop_docs' %}"><h4>{% if not user.shop %}Зарегистрируй свой магазин!{% else %}→Управлене магазином{% endif %}</h4></a>
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+                        <div class="blog-post-item item-grid">
+                            <a class="hover-images" href="{% url 'users:personal_information' %}">
+                                <img src="{% static 'img/LKbackground-grid.png' %}" alt="" class="img-reponsive">
+                                <div class=" account-centered-icon ">
+                                    <i class="icon-user " style="color: white; font-size: 80px; "></i>
+                                </div>
+                            </a>
+
+                            <div class="blog-post-info">
+                                <h3 class="post-name"><a href="{% url 'users:personal_information' %}">Личные данные</a></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+                        <div class="blog-post-item item-grid">
+                            <a class="hover-images" href="{% url 'users:orders' %}">
+                                <img src="{% static 'img/LKbackground-grid.png' %}" alt="" class="img-reponsive">
+                                <div class=" account-centered-icon ">
+                                    <i class="icon-bag " style="color: white; font-size: 80px; "></i>
+                                </div>
+                            </a>
+
+                            <div class="blog-post-info">
+                                <h3 class="post-name"><a href="{% url 'users:orders' %}">Заказы</a></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+                        <div class="blog-post-item item-grid">
+                            <form id="logout-form" action="{% url 'logout' %}" method="POST">
+                                {% csrf_token %}
+
+                            <a class="hover-images" href="javascript:void(0);" id="form-submit-link">
+                                <img src="{% static 'img/LKbackground-grid.png' %}" alt="" class="img-reponsive">
+                                <div class=" account-centered-icon ">
+                                    <i class="icon-logout " style="color: white; font-size: 80px; "></i>
+                                </div>
+                            </a>
+
+                            <div class="blog-post-info">
+                                <h3 class="post-name"><a href="javascript:void(0);" id="form-submit-link2">Выйти</a></h3>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+<script>
+    document.getElementById('form-submit-link').addEventListener('click', function() {
+        document.getElementById('logout-form').submit();
+    });
+    document.getElementById('form-submit-link2').addEventListener('click', function() {
+        document.getElementById('logout-form').submit();
+    });
+</script>
+{% endblock %}

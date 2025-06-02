@@ -1,0 +1,269 @@
+{% extends 'base.html' %}
+{% block title %}
+Купить {{product.name}} от {{product.shop.title}} в маркетплейсе страйкбольного оборудования AirsoftPlace
+{% endblock %}
+
+{% block content %}
+{% load static %}
+{% load l10n %}
+
+<div class="container container-42">
+    {% for category in product.category.all %}
+    <ul class="breadcrumb">
+        <li><a href="{% url 'index' %}">Главная</a></li>
+        <li><a href="{% url 'categories' %}">Категории</a></li>
+        {% for obj in category.get_ancestors %}
+        <li><a href="{% url 'subcategories' obj.slug %}">{{ obj.title }}</a></li>
+        {% endfor %}
+        <li><a href="{% url 'category_products' category.slug %}">{{ category.title }}</a></li>
+        <li class="active"><a href="">{{product.name}}</a></li>
+    </ul>
+    {% endfor %}
+
+</div>
+<div class="container">
+    <div class="single-product-detail product-bundle single-product-space v3">
+        <div class="row">
+            <div class="col-xs-12 col-sm-5 col-md-6">
+                <div class="product-images">
+                    <div class="main-img js-product-slider">
+                        {% if product.image1 %}
+                        <a href="" class="hover-images effect"><img
+                                src="{{ product.image1.url }}"
+                                alt="photo" class="img-reponsive"></a>
+                        {% endif %}
+                        {% if product.image2 %}
+                        <a href="" class="hover-images effect"><img
+                                src="{{ product.image2.url }}"
+                                alt="photo" class="img-reponsive"></a>
+                        {% endif %}
+                        {% if product.image3 %}
+                        <a href="" class="hover-images effect"><img
+                                src="{{ product.image3.url }}"
+                                alt="photo" class="img-reponsive"></a>
+                        {% endif %}
+                        {% if product.image4 %}
+                        <a href="" class="hover-images effect"><img
+                                src="{{ product.image4.url }}"
+                                alt="photo" class="img-reponsive"></a>
+                        {% endif %}
+                    </div>
+                    {% if product.link_to_a_video%}
+                    <div class="cosre-btn">
+                        <div class="btn-video">
+                            <a href="{{product.link_to_a_video}}">СМОТРЕТЬ ВИДЕО!</a>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="multiple-img-list-ver2 js-click-product">
+                    {% if product.image1 %}
+                    <div class="product-col">
+                        <div class="img active">
+                            <img
+                                    src="{{ product.image1.url }}"
+                                    alt="photo" class="img-reponsive">
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% if product.image2 %}
+                    <div class="product-col">
+                        <div class="img active">
+                            <img
+                                    src="{{ product.image2.url }}"
+                                    alt="photo" class="img-reponsive">
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% if product.image3 %}
+                    <div class="product-col">
+                        <div class="img active">
+                            <img
+                                    src="{{ product.image3.url }}"
+                                    alt="photo" class="img-reponsive">
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% if product.image4 %}
+                    <div class="product-col">
+                        <div class="img active">
+                            <img
+                                    src="{{ product.image4.url }}"
+                                    alt="photo" class="img-reponsive">
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-7 col-md-6">
+                <div class="single-product-info">
+                    <h3 class="product-title"><a href="#">{{product.name}}</a></h3>
+                    <div class="product-price">
+                        <span>{{product.price |floatformat:2}}₽</span><br/>
+                        <span>
+                            <a href="{% url 'shop_categories' product.shop.slug %}">{{product.shop.title}}</a>
+                        </span><br/>
+                        {% if reviews_count > 0 %}
+                            <span>
+                                <a href="{% url 'product_reviews' product.pk %}">
+                                    <span class="star" style="color: gold;"></span> {{ avg_rating|floatformat:1 }} ({{ reviews_count }})
+                                </a>
+                            </span>
+                        {% else %}
+                            <span>пока нет отзывов</span>
+                        {% endif %}
+                        {% if can_review %}
+                            <span>
+                                <a href="{% url 'add_review' product.pk %}">оставить отзыв</a>
+                            </span>
+                        {% endif %}
+
+                    </div>
+                    {% if product.description %}
+                    <p class="product-desc" style="white-space: pre-wrap;">{{product.description |truncatechars:90}}</p>
+                    <a class="product-desc" href="{% url 'product_detail' product.pk %}#dscrptn">Перейти к описанию</a>
+                    {% endif %}
+                    <div class="action v6">
+                        {% if product.items_left < 1 or not product.show or not product.verified %}
+                        <button type="button" value="" class="link-ver1 add-cart">
+                            ОТСУТСТВУЕТ
+                        </button>
+                        {% else %}
+                        {% if in_cart == False %}
+                        <button type="button" id="add-button" value=" {{ product.pk }} " class="link-ver1 add-cart" data-product-id="{{ product.pk }}"  data-cart-url="{% url 'cart:cart-view' %}">
+                            ДОБАВИТЬ В КОРЗИНУ
+                        </button>
+                        {% else %}
+
+                        <button onclick="window.location.href='{% url 'cart:cart-view' %}#item_{{product.pk}}';" class="link-ver1 add-cart">
+                            В КОРЗИНЕ
+                        </button>
+                        {% endif %}
+                        {% endif %}
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="dscrptn"></div>
+    <div class="single-product-tab">
+        <ul class="nav nav-tabs nav-space text-center">
+            <li class="active"><a data-toggle="pill" href="#desc">Описание</a></li>
+            <li><a data-toggle="pill" href="#info">Характеристики</a></li>
+        </ul>
+        <div class="tab-content">
+            <div id="desc" class="tab-pane fade in active">
+                <div class="img">
+                    {% if product.image5 %}
+                    <a href="" class=""><img
+                            src="{{ product.image5.url }}"
+                            alt="photo" class="img-reponsive">
+                    </a>
+                    {% endif %}
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 ">
+                        <p class="product-desc" style="white-space: pre-wrap; ">{{product.description }}</p>
+                    </div>
+                </div>
+            </div>
+            <div id="info" class="tab-pane fade in">
+                Магазин: <a href="{% url 'shop_categories' product.shop.slug %}">{{product.shop.title}}</a><br/>
+                {% if product.brand %}
+                Бренд : {{product.brand }}<br/>
+                {% endif %}
+
+                {% if product.product_type %}
+                Тип товара : {{product.product_type }}<br/>
+                {% endif %}
+
+                {% if product.compatibility %}
+                Совместимость : {{product.compatibility }}<br/>
+                {% endif %}
+                {% if product.thread_type %}
+                Тип резьбы : {{product.thread_type }}<br/>
+                {% endif %}
+                {% if product.mounting_type %}
+                Тип крепления : {{product.mounting_type }}<br/>
+                {% endif %}
+                {% if product.imitation_of_a_shot is not None %}
+                Имитация выстрела :
+                {% if product.imitation_of_a_shot is True%}
+                Да<br/>
+                {% else %}
+                Нет<br/>
+                {% endif %}
+                {% endif %}
+                {% if product.laser_sight is not None %}
+                С ЛЦУ :
+                {% if product.laser_sight is True%}
+                Да<br/>
+                {% else %}
+                Нет<br/>
+                {% endif %}
+                {% endif %}
+                {% if product.weight %}
+                Вес : {{product.weight |unlocalize}} гр.<br/>
+                {% endif %}
+                {% if product.principle_of_operation %}
+                Принцип действия : {{product.principle_of_operation }}<br/>
+                {% endif %}
+                {% if product.length %}
+                Длина : {{product.length }} мм<br/>
+                {% endif %}
+                {% if product.diameter %}
+                Диаметр : {{product.diameter |unlocalize}} мм<br/>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="information">
+</div>
+
+
+<script>
+$(document).on('click', '#add-button', function (e) {
+  e.preventDefault();
+
+  const btn      = $(this);
+  const productId = btn.data('product-id');
+  const cartUrl   = btn.data('cart-url');
+
+  $.ajax({
+    type: 'POST',
+    url: '{% url "cart:add-to-cart" %}',
+    data: {
+      product_id:    productId,
+      product_qty:   1,
+      csrfmiddlewaretoken: '{{ csrf_token }}',
+      action:        'post'
+    },
+    success: function (response) {
+      // 1) Обновляем счётчик
+      $('#lblCartCount').text(response.qty);
+
+      // 2) Меняем текст кнопки
+      btn.text('В КОРЗИНЕ');
+
+      // 3) Отвязываем старый клик (добавление в корзину)
+      btn.off('click');
+
+      // 4) Навешиваем новый — переход в корзину
+      btn.on('click', function () {
+        window.location.href = cartUrl + '#item_' + productId;
+      });
+    },
+    error: function (error) {
+      console.error(error);
+    }
+  });
+});
+</script>
+
+{% include 'products/includes/recommendations.html' %}
+{% include 'products/includes/recently_viewed.html' %}
+
+{% endblock %}

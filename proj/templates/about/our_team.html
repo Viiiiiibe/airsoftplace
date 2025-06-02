@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% block title %}
+О Нас
+{% endblock %}
+
+{% block content %}
+{% load static %}
+<div class="page-heading">
+    <div class="banner-heading">
+        <img src="{% static 'img/headerbg.png' %}" alt="" class="img-reponsive">
+        <div class="heading-content text-center">
+            <div class="container container-42">
+                <h1 class="page-title white">О Нас</h1>
+                <ul class="breadcrumb white">
+                    <li><a href="{% url 'index' %}">Главная</a></li>
+                    <li><a href="">О Нас</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="our-teams">
+        <div class="text-center">
+            <h2 class="us-title text-center">
+                Добро пожаловать на наш сайт – первый маркетплейс страйкбольного оборудования в России!
+            </h2>
+            <p class="us-desc">
+                Мы создали уникальную платформу, которая объединяет лучших продавцов и производителей страйкбольного снаряжения, аксессуаров и экипировки. Наша миссия – сделать процесс покупки максимально удобным и безопасным для всех любителей активного отдыха и спортивных игр.
+            </p>
+        </div>
+        <div class="owl-carousel owl-theme js-owl-team">
+            <div class="team-item">
+                <div class="team-img">
+                    <img src="{% static 'img/about/igor.png' %}" alt="">
+                    <div class="box-center overlay-img ver4 social">
+                        <a href="https://vk.com/" title="vk">
+                            <i class="fa fa-vk"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="team-info">
+                    <h3 class="team-name"><a href="https://vk.com/">Игорь Юрченко</a></h3>
+                    <p class="team-career">Основатель и владелец</p>
+                </div>
+            </div>
+            <div class="team-item">
+                <div class="team-img">
+                    <img src="{% static 'img/about/anton2.png' %}" alt="">
+                    <div class="box-center overlay-img ver4 social">
+                        <a href="https://vk.com/" title="vk">
+                            <i class="fa fa-vk"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="team-info">
+                    <h3 class="team-name"><a href="https://vk.com/">Антон Соколов</a></h3>
+                    <p class="team-career">Реклама и связи</p>
+                </div>
+            </div>
+            <div class="team-item">
+                <div class="team-img">
+                    <img src="{% static 'img/about/vadim.png' %}" alt="">
+                    <div class="box-center overlay-img ver4 social">
+                        <a href="https://vk.com/" title="vk">
+                            <i class="fa fa-vk"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="team-info">
+                    <h3 class="team-name"><a href="https://vk.com/">Вадим Семенов</a></h3>
+                    <p class="team-career">Служба поддержки</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,44 @@
+/*
+		7.4. Mobile
+			
+			7.4.2. Max mobile
+ */
+
+
+// cart
+
+.pushmenu-push-toright-cart { right: 320px; }
+.pushmenu.pushmenu-left{width:320px;}
+.menu-social{width:320px;}
+.cart-bottom{width:300px;}
+
+// lookbook grid
+.wrap-gallery-grid{
+	[class*="col-xs-"] {
+		width:100%;
+	}
+}
+
+.btn-shoplook{
+	font-size:10px;
+}
+// Product Grid page
+.product-grid{
+	[class*="col-xs-"] {
+		width:100%;
+	}
+}
+.wrapper-product{
+	[class*="col-xs-"] {
+		width:100%;
+	}
+}
+
+.wrapper-category{
+	[class*="col-xs-"] {
+		width:100%;
+	}
+}
+.slider-homesimple .slider-content{
+	min-width:280px;
+}

@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block title %}
+Магазины
+{% endblock %}
+
+{% block content %}
+{% load static %}
+{% load mptt_tags static %}
+<div class="page-heading">
+    <div class="banner-heading">
+        <img src="{% static 'img/headerbg.png' %}" alt="" class="img-reponsive">
+        <div class="heading-content text-center">
+            <div class="container container-42">
+                <h1 class="page-title white">Магазины</h1>
+                <ul class="breadcrumb white">
+                    <li><a href="{% url 'index' %}">Главная</a></li>
+                    <li><a href="{% url 'shops' %}">Магазины</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="product-standard product-grid">
+    <div class="container container-40">
+        <div class="row">
+            {% for shop in shops %}
+            <div class="col-xs-12 col-sm-6 col-md-6" style="padding-bottom: 30px;">
+                <div class="banner-img">
+                    <a class=""
+                       href="{% url 'shop_categories' shop.slug %}"><img
+                            src="{% static 'img/banner.png' %}"
+                            alt="photo" class="img-reponsive">
+                    <div class="banner-content">
+                        <h3 class="banner-title">{{shop.title}}</h3>
+                        <p></p>
+                    </div>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<div class="pagination-container pagination-blog button-v text-center">
+    <nav>
+        <ul class="pagination">
+        </ul>
+    </nav>
+</div>
+{% endblock %}

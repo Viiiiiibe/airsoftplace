@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block title %}
+Купить {{ category.title }} в маркетплейсе страйкбольного оборудования AirsoftPlace
+{% endblock %}
+
+{% block content %}
+{% load static %}
+{% load mptt_tags static %}
+
+<div class="page-heading">
+    <div class="banner-heading">
+        <img src="{% static 'img/headerbg.png' %}" alt="" class="img-reponsive">
+        <div class="heading-content text-center">
+            <div class="container container-42">
+                <h1 class="page-title white">{{ category.title }}</h1>
+                <ul class="breadcrumb white">
+                    <li><a href="{% url 'index' %}">Главная</a></li>
+                    <li><a href="{% url 'categories' %}">Категории</a></li>
+                    {% for obj in category.get_ancestors %}
+                    <li><a href="{% url 'subcategories' obj.slug %}">{{ obj.title }}</a></li>
+                    {% endfor %}
+                    <li><a href="">{{ category.title }}</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="product-standard product-grid">
+    <div class="container container-40">
+        <div class="row">
+            {% recursetree subcategories %}
+            <div class="col-xs-12 col-sm-6 col-md-6" style="padding-bottom: 30px;">
+                <div class="banner-img">
+                    <a class=""
+                       href="{% if not node.is_leaf_node %} {% url 'subcategories' node.slug %} {% else %}{% url 'category_products' node.slug %}{% endif %}"><img
+                            src="{{ node.image.url }}"
+                            alt="photo" class="img-reponsive">
+                    <div class="banner-content">
+                        <h3 class="banner-title">{{node.title}}</h3>
+                        <p></p>
+                    </div>
+                    </a>
+                </div>
+            </div>
+            {% endrecursetree %}
+        </div>
+    </div>
+</div>
+{% endblock %}

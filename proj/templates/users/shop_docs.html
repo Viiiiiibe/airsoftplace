@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+{% block title %}
+Документы магазина
+{% endblock %}
+
+{% block content %}
+{% load static %}
+{% load user_filters %}
+<div class="orders-page space-padding-tb-70">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12">
+                <div class="">
+                    <div class="title-page">
+                        <h3>Документы вашего магазина</h3>
+                        <ul class="breadcrumb white">
+                            <li><a href="{% url  'users:personal_account_main' %}">Личный кабинет</a></li>
+                            <li><a href="">Документы вашего магазина</a></li>
+                        </ul>
+                    </div>
+
+                    {% if not shop %}
+                        <div class="alert alert-info">
+                            <h4>Начните продавать на нашей платформе!</h4>
+                            <p>Заполните форму ниже для регистрации вашего магазина</p>
+                        </div>
+
+                    {% elif not shop.verified %}
+                        <div class="alert alert-warning">
+                            <h4>Ваш магазин на проверке</h4>
+                            <p>Мы проверяем ваши документы, это может занять до 5 рабочих дней</p>
+                        </div>
+
+                    {% else %}
+                        <div class="navbar main-menu">
+                            <div class="shop-links">
+                                <a href="{% url 'users:shop_docs' %}" class="level1 active dropdown"><h4>Документы</h4></a>
+                                <a href="{% url 'users:shop_orders' %}" class="level1 active dropdown"><h4>Заказы</h4></a>
+                                <a href="{% url 'users:shop_products' %}" class="level1 active dropdown"><h4>Товары</h4></a>
+                                <a href="{% url 'users:shop_statistics' %}" class="level1 active dropdown"><h4>Статистика</h4></a>
+                            </div>
+                        </div>
+
+                        <div class="alert alert-success">
+                            <h4>Ваш магазин подтвержден</h4>
+
+                        </div>
+                    При совершении любого действия в личном кабинете продавца вы автоматически примаете 👉<a href="{% static 'docs/PUBLIC_OFFER_for_Sellers.pdf' %}" target="_blank">оферту</a>👈.
+                    {% endif %}
+
+                    {% if form.errors %}
+                        {% for field in form %}
+                            {% for error in field.errors %}
+                            <div class="alert alert-danger">
+                                {{ error|escape }}
+                            </div>
+                            {% endfor %}
+                        {% endfor %}
+                        {% for error in form.non_field_errors %}
+                            <div class="alert alert-danger">
+                                {{ error|escape }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+
+                    <form method="post" class="form-customer form-login" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {% for field in form %}
+                            <div class="form-group">
+                                <label for="{{ field.id_for_label }}">
+                                    {{ field.label }}
+                                    {% if field.field.required %}
+                                    <span class="required text-danger">*</span>
+                                    {% endif %}
+                                </label>
+                                <div>
+                                    {{ field|addclass:'form-control form-account' }}
+                                    {% if field.help_text %}
+                                    <small class="form-text text-muted">{{ field.help_text }}</small>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        {% endfor %}
+
+                        <div class="form-check">
+                            <button type="submit" class="btn-login btn-register hover-white">
+                                {% if shop %}Обновить данные{% else %}Отправить{% endif %}
+                            </button>
+
+                        </div>
+                        Нажимая на кнопку, вы соглашаетесь с <a href="{% static 'docs/Privacy_Policy.pdf' %}" target="_blank">Условиями обработки персональных данных</a>.
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .shop-links {
+        margin-top: 20px;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .alert h4 {
+        margin-bottom: 10px;
+    }
+
+    .form-group {
+        margin-bottom: 25px;
+    }
+
+    .required {
+        font-size: 1.2em;
+    }
+</style>
+{% endblock %}

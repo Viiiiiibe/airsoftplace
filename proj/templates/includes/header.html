@@ -1,0 +1,89 @@
+{% load static %}
+<div class="sticky-header text-center hidden-xs hidden-sm">
+    <div class="text">
+    </div>
+</div>
+<div class="topbar" style="line-height: 96px;">
+    <div class="container container-40">
+        <div class="topbar-left">
+            <div class="topbar-option">
+                <div class="topbar-account">
+                    {% if request.user.is_authenticated %}
+                    <a href="{% url 'users:personal_account_main' %}"><i class="icon-user f-15"></i></a>
+                    {% else %}
+                    <a href="{% url 'login' %}"><i class="icon-user f-15"></i></a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="logo hidden-xs hidden-sm">
+            <a href="{% url 'index' %}" title=""><img src="{% static 'img/logo.png' %}" alt="AirsoftPlace"
+                                                      class="img-reponsive"></a>
+        </div>
+        <div class="topbar-right">
+            <div class="topbar-option">
+                <div class="topbar-search">
+                    <div class="search-popup dropdown" data-toggle="modal" data-target="#myModal">
+                        <a href="#"><i class="icon-magnifier f-15"></i></a>
+                    </div>
+                </div>
+                <div class="">
+                    <a href="{% url 'cart:cart-view' %}" class="icon-cart">
+                        <i class="icon-basket f-15"></i>
+                        <span id="lblCartCount" class="count cart-count">
+                                {% with cart_qty=cart|length%}
+                                {% if cart_qty > 0 %}
+                                {{cart_qty}}
+                                {% else %}
+                                0
+                                {% endif %}
+
+                                {% endwith %}
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="header-top">
+    <div class="container container-40">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="logo-mobile hidden-lg hidden-md">
+                    <a href="{% url 'index' %}" title="home-logo"><img src="{% static 'img/logo-big.png' %}"
+                                                                       alt="logo"
+                                                                       class="img-reponsive"></a>
+                </div>
+                <button type="button" class="navbar-toggle icon-mobile" data-toggle="collapse"
+                        data-target="#myNavbar">
+                    <span class="icon-menu"></span>
+                </button>
+                <nav class="navbar main-menu">
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav js-menubar">
+                            <li class="level1 active dropdown"><a href="{% url 'index' %}">Главная</a>
+                            </li>
+                            <li class="level1 active dropdown">
+                                <a href="{% url 'categories' %}">Категории</a>
+                            </li>
+                            <li class="level1 dropdown hassub">
+                                <a href="{% url 'shops' %}">Магазины</a>
+                            </li>
+                            <li class="level1 dropdown hassub">
+                                <a href="{% url 'about:our_team' %}">О нас</a>
+                            </li>
+                            <li class="level1 active dropdown">
+                                <a href="{% url 'about:contacts' %}">Контакты</a>
+                            </li>
+                            <li class="level1 active dropdown">
+                                <a href="{% url 'about:faq' %}">FAQ</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>

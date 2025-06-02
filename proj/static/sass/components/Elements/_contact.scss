@@ -1,0 +1,351 @@
+// 4.7. Contact page
+
+.about-title{
+    font-size:24px;
+    font-weight:500;
+    position:relative;
+    padding-bottom:20px;
+    margin-bottom:42px;
+    &:before {
+        @include line-left(67px, #eb5050);
+    }
+    &.ver2{
+        padding-bottom:26px;
+    }
+}
+.address{
+    margin-bottom:30px;
+    @media(min-width:$screen-md){
+    width:340px;
+}
+}
+.hours{
+        @media(min-width:$screen-md){
+        width:280px;
+    } 
+
+}
+.about_simple{
+    padding-top:50px;
+    @media(min-width:$screen-md){
+        padding-top:107px;
+        padding-bottom:7px;
+    }
+    > .row > [class*="col-xs-"] {
+        @media(max-width:$screen-xs-max){
+            margin-bottom:30px;
+        }
+    }
+
+}
+.contact{
+    p{
+        color:#a4a4a4;
+        line-height:24px;
+    }
+}
+.contact-mail{
+    display:block;
+    font-size:16px;
+    font-weight:500;
+    color:#ff3434;
+    @include transition2;
+    margin:48px 0;
+        &:hover{
+            color:#000;
+        }
+    &.ver2{
+        margin:50px 0 66px 0;
+    }
+}
+
+.contact_map{
+    padding:50px 0;
+    @media(min-width:$screen-md){
+        padding:114px 0 62px 0;
+    }
+    > .row > [class*="col-xs-"] {
+        @media(max-width:$screen-sm-max){
+            margin-bottom:50px;
+        }
+    }
+}
+.contact-social{
+    text-align:left;
+    a{
+        margin:0 20px;
+        @media(max-width:$screen-xs){
+            margin:0 15px;
+        }
+        &:first-child{
+            margin-left:0;
+        }
+        i{
+            font-size:20px;
+        }
+    }
+}
+.map{
+    height:480px;
+    @media(min-width:$screen-md){
+        height:964px;
+    }
+}
+.us-title{
+    font-size:22px;
+    font-weight:500;
+    line-height:36px;
+    @media(min-width:$screen-sm){
+        max-width:555px;
+        margin:0 auto;
+    }
+}
+.us-desc{
+    color:#a4a4a4;
+    margin-top:55px;
+    margin-bottom:50px;
+    line-height:24px;
+    @media(min-width:$screen-md){
+        max-width:861px;
+        margin:50px auto 90px auto;
+    }
+}
+.team-info{
+    padding-top:28px;
+    .team-name{
+        font-size:20px;
+        font-weight:500;
+        margin-bottom:10px;
+    }
+    .team-career{
+        color:#a4a4a4;
+        font-size:11px;
+        font-weight:600;
+    }
+}
+.team-item{
+    .team-img{
+        position:relative;
+    }
+    .social{
+        a{
+            background:transparent;
+            color:#fff;
+            border:2px solid #fff;
+            display:inline-block;
+            height:48px;
+            line-height:48px;
+            text-align:center;
+            width:48px;
+            @include border-radius(50%);
+            @include transition2;
+            margin-right:20px;
+            &:last-child{
+                margin-right:0;
+            }
+            i{
+                font-size:16px;
+                
+                
+            }
+            &:hover{
+                color:#eb5050;
+                background:#000;
+                border-color:#000;
+                
+            }
+        }
+    }
+}
+@media(min-width:$screen-md){
+    .team-item:hover .social{
+        opacity:1;
+    }
+}
+.our-teams .owl-nav > div{
+    display: block;
+     width: 30px;
+     height: 30px;
+     line-height: 30px;
+     text-align: center;
+     color: #000000;
+     font-size: 22px;
+     left: 0;
+     position: absolute;
+     top: 40%;
+     @include translateY(-50%);
+     opacity:0;
+     @include transition2;
+     @media(max-width:$screen-sm-max){
+        opacity:1;
+     }
+ }
+ .our-teams:hover .owl-nav > div{
+    opacity:1;
+ }
+ .our-teams .owl-theme .owl-nav [class*=owl-]{
+    background: #fff;
+     color: #000;
+     margin: 0;
+     padding: 0;
+     font-size: 22px;
+     -moz-border-radius: 0;
+     -webkit-border-radius: 0;
+     border-radius: 0;
+ }
+ .our-teams .owl-nav > div.owl-prev{
+    right:auto;
+    left:0;
+ }
+ .our-teams .owl-nav > div.owl-next{
+    right:0;
+    left:auto;
+ }
+ .our-teams{
+    padding:50px 0;
+     @media(min-width:$screen-md){
+         padding-bottom:130px;
+         padding-top:88px;
+     }
+ }
+ .faq-title{
+     font-size:18px;
+     line-height:30px;
+     margin-top:50px;
+     margin-bottom:50px;
+     @media(min-width:$screen-md){
+         max-width:800px;
+         margin:80px auto 85px auto;
+     }
+ }
+ .faq-quest{
+    font-size:20px;
+     font-weight:500;
+     display:block;
+     height:75px;
+     line-height:75px;
+     border:2px solid #e8e8e8;
+     padding-left:30px;
+     position:relative;
+     @media(max-width:$screen-xs){
+         font-size:16px;
+         height:30px;
+         line-height:30px;
+         border:0;
+         padding-left:0;
+     }
+     
+ }
+ .faq-answer{
+     padding:49px 38px 48px 32px;
+     display:none;
+     @media(max-width:$screen-xs){
+         padding-left:0;
+         padding-right:0;
+     }
+     &.open{
+         display:block;
+     }
+     p{
+         color:#a4a4a4;
+         line-height:24px;
+         
+             margin-bottom:30px;
+         
+     }
+ }
+ .faq-content{
+
+    position:relative;
+    margin-bottom:27px;
+    @media(max-width:$screen-xs){
+        padding-left: 30px;
+    }
+     .plus{
+            border:2px solid #eaeaea;
+            position: absolute;
+            right: 26px;
+            top: 14px;
+            width: 44px;
+            height: 44px;
+            line-height:44px;
+            @include border-radius(50%);
+            @media(max-width:$screen-xs){
+                border:0;
+                left: 15px;
+                right:unset;
+                top:0;
+                width: unset;
+                height: unset;
+                line-height:unset;
+                @include border-radius(0);
+            }
+                &:after {
+                content: "\f489";
+                display: block;
+                font-family: "ionicons";
+                font-size: 20px;
+                position: absolute;
+                right: 14px;
+                top: -1px;
+                color: #000;
+                cursor: pointer;
+                -moz-transition: all 0.1s ease 0s;
+                -webkit-transition: all 0.1s ease 0s;
+                -o-transition: all 0.1s ease 0s;
+                @media(max-width:$screen-xs){
+                    
+                    right:0;
+                    top:0;
+                    color:#eb5050;
+                    
+                }
+            }
+        }
+        .minus{
+                border:2px solid #eaeaea;
+                position: absolute;
+                right: 26px;
+                top: 14px;
+                width: 44px;
+                height: 44px;
+                line-height:44px;
+                @include border-radius(50%);
+                @media(max-width:$screen-xs){
+                    border:0;
+                    left: 15px;
+                    right:unset;
+                    top:0;
+                    width: unset;
+                    height: unset;
+                    line-height:unset;
+                    @include border-radius(0);
+                }
+                &:after {
+                content: "\f462";
+                display: block;
+                font-family: "ionicons";
+                font-size: 20px;
+                position: absolute;
+                right: 14px;
+                top: -1px;
+                color: #000;
+                cursor: pointer;
+                -moz-transition: all 0.1s ease 0s;
+                -webkit-transition: all 0.1s ease 0s;
+                -o-transition: all 0.1s ease 0s;
+                @media(max-width:$screen-xs){
+                    
+                    right:0;
+                    top:0;
+                    color:#eb5050;
+                }
+            }
+        }
+ }
+ .faq{
+     padding-bottom:66px;
+     @media(max-width:$screen-xs){
+         padding-bottom:30px
+     }
+ }

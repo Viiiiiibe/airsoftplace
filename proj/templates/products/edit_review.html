@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+{% block title %}Редактировать отзыв {% endblock %}
+
+{% block content %}
+{% load static %}
+{% load user_filters %}
+<div class="orders-page space-padding-tb-70">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <!-- Заголовок и хлебные крошки -->
+        <div class="title-page">
+          <ul class="breadcrumb white">
+            <li><a href="{% url 'product_detail' product.pk %}">{{product.name}} от {{product.shop.title}}"</a></li>
+            <li><a href="{% url 'product_reviews' product.pk %}">Отзывы"</a></li>
+            <li><a href="#">Редактировать отзыв </a></li>
+          </ul>
+        </div>
+
+        <!-- Форма добавления отзыва -->
+        <div class="card mb-4">
+          <div class="card-body">
+            <form method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+              <!-- Поле оценки (rating) -->
+              <div class="form-group">
+                <label class="font-weight-bold">{{ form.rating.label }}</label>
+                <div class="rating-options">
+                  {% for radio in form.rating %}
+                  <label class="rating-label">
+                    {{ radio.tag }}
+                    <span class="star-label">{{ radio.choice_label }}</span>
+                  </label>
+                  {% endfor %}
+                </div>
+              </div>
+
+              <!-- Поле текста отзыва -->
+              <div class="form-group">
+                <label class="font-weight-bold">{{ form.text.label }}</label>
+                {{ form.text|addclass:"form-control" }}
+                {% if form.text.help_text %}
+                <small class="form-text text-muted">{{ form.text.help_text }}</small>
+                {% endif %}
+              </div>
+
+              <!-- Поле загрузки изображения -->
+              <div class="form-group">
+                <label class="font-weight-bold">{{ form.image.label }}</label>
+                {{ form.image }}
+                {% if form.image.help_text %}
+                <small class="form-text text-muted">{{ form.image.help_text }}</small>
+                {% endif %}
+              </div>
+
+              <!-- Кнопка отправки отзыва -->
+              <div class="text-center mt-4">
+                <button type="submit" class="btn  btn-lg">Отправить отзыв</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Общие стили для заголовка и хлебных крошек */
+  .title-page {
+    margin-bottom: 30px;
+  }
+  .breadcrumb {
+    background: transparent;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+  /* Стили карточки */
+  .card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  }
+  /* Стили для блока рейтинга */
+  .rating-options {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+  }
+  .rating-label {
+    cursor: pointer;
+    font-size: 1.8em;
+    display: flex;
+    align-items: center;
+  }
+  .rating-label input {
+    display: none;
+  }
+  .rating-label .star-label {
+    color: gray;
+    transition: color 0.2s ease;
+  }
+  .rating-label input:checked + .star-label {
+    color: gold;
+  }
+  /* Можно добавить эффект при наведении на ярлыки */
+  .rating-label:hover .star-label {
+    color: gold;
+  }
+</style>
+{% endblock %}

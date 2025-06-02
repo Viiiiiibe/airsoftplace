@@ -1,0 +1,158 @@
+{% extends 'base.html' %}
+{% block title %}
+Корзина
+{% endblock %}
+
+{% block content %}
+{% load static %}
+{% load mathfilters %}
+{% if cart %}
+<div class="main-content">
+    <div class="cart-box-container-ver2">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8" style="width: 100%;">
+                    <h3>Корзина</h3>
+                    {% for group in grouped_items %}
+                    <div class="shop-group">
+                        <a href="{% url 'shop_categories' group.shop.slug %}" title=""><h3>Магазин: {{ group.shop.title }}</h3></a>
+
+                        <table class="table cart-table space-30">
+                            <tbody>
+
+
+                            {% for item in group.items %}
+                            {% with product=item.product %}
+                            <tr class="item_cart" id="item_{{product.pk}}">
+                                <td class="product-photo">
+                                    <a href="{% url 'product_detail' product.pk %}" title="">
+                                        <img src="{{product.image6.url}}" alt="Фото">
+                                    </a>
+                                </td>
+                                <td class="produc-name"><div class="text" style="margin-left: 1em;"><a href="{% url 'product_detail' product.pk %}" title="">{{product.name}}</a></div>
+                                    <div class="quantity input-group">
+                                        &nbsp;&nbsp;
+                                        <button type="button"
+                                                class="quantity-left-minus btn btn-number js-minus_{{product.pk}} update-button"
+                                                data-type="minus" data-field="" data-index="{{product.pk}}">
+                                            <span class="minus-icon">-</span>
+                                        </button>
+                                        <input id="selectt{{product.pk}}" type="text" name="number" value="{{item.qty}}"
+                                               class="product_quantity_number js-number_{{product.pk}}" readonly>
+                                        <button type="button"
+                                                class="quantity-right-plus btn btn-number js-plus_{{product.pk}} update-button"
+                                                data-type="plus" data-field="" data-index="{{product.pk}}">
+                                            <span class="plus-icon">+</span>
+                                        </button>
+                                    </div>
+                                </td>
+                                <td class="total-price">
+                                    <button type="button" class="remove delete-button"
+                                            style="background: transparent; color: #dfdfdf; font-size: 14px;"
+                                            data-index="{{product.pk}}">
+                                        X
+                                    </button>
+                                    <p class="price">{{ product.price|mul:item.qty |floatformat:2}} ₽</p>
+                                </td>
+                            </tr>
+                            <script>
+                                var quantitiy = 0;
+                                $('.js-plus_{{product.pk}}').on("click", function(e) {
+                                    e.preventDefault();
+                                    var quantity = parseInt($('.js-number_{{product.pk}}').val(), 10);
+                                    $('.js-number_{{product.pk}}').val(quantity + 1);
+                                });
+                                $('.js-minus_{{product.pk}}').on("click", function(e) {
+                                    e.preventDefault();
+                                    var quantity = parseInt($('.js-number_{{product.pk}}').val(), 10);
+                                    if (quantity > 0) {
+                                        $('.js-number_{{product.pk}}').val(quantity - 1);
+                                    }
+                                });
+                            </script>
+                            {% endwith %}
+                            {% endfor %}
+
+
+
+                            </tbody>
+                        </table>
+
+
+                        <div>
+                            <h3 id="{{group.shop.title}}_total">Сумма заказа: {{ group.total|floatformat:2 }} ₽</h3>
+                            <a href="{% url 'cart:order-view' group.shop.slug %}" class="btn link-button hover-white checkout">
+                                Оформить Заказ из {{ group.shop.title }}
+                            </a>
+                        </div>
+
+                        <script>
+                            $(document).on('click', '.delete-button', function(e){
+                                e.preventDefault();
+
+                                $.ajax({
+                                    type: 'POST',
+                                    url: '{% url "cart:delete-to-cart" %}',
+                                    data: {
+                                        product_id: $(this).data('index'),
+                                        csrfmiddlewaretoken: '{{ csrf_token }}',
+                                        action: 'post'
+                                    },
+                                    success: function(response){
+                                        document.getElementById('lblCartCount').textContent = response.qty
+                                        document.getElementById('{{group.shop.title}}_total').textContent = response.total
+
+                                        location.reload()
+                                    },
+                                    error: function(error, status){
+                                        console.log(error)
+                                    }
+                                })
+                            });
+
+                            $(document).on('click', '.update-button', function(e){
+                                e.preventDefault();
+
+                                var product_id = $(this).data('index')
+
+                                $.ajax({
+                                    type: 'POST',
+                                    url: '{% url "cart:update-to-cart" %}',
+                                    data: {
+                                        product_id: $(this).data('index'),
+                                        product_qty: $('#selectt'+product_id).val(),
+                                        csrfmiddlewaretoken: '{{ csrf_token }}',
+                                        action: 'post'
+                                    },
+                                    success: function(response){
+                                        document.getElementById('lblCartCount').textContent = response.qty
+                                        document.getElementById('{{group.shop.title}}_total').textContent = 'Сумма заказа: '+response.total+' ₽'
+
+                                        location.reload()
+                                    },
+                                    error: function(error, status){
+                                        console.log(error)
+                                    }
+                                })
+                            });
+                        </script>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% else %}
+<div class="main-content text-center empty-cart-content space-padding-tb-60">
+    <div class="container">
+        <span class="close-empty-cart"></span>
+        <h3>Корзина Пуста.</h3>
+        <a href="{% url 'categories' %}" class="bordersolid-2 btn-return">Продолжить покупки <span
+                class="icon-arr"></span></a>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

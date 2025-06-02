@@ -1,0 +1,283 @@
+<!-- для фильтра unlocalize отключающего замену . на , во float-->
+{% load user_filters %}
+{% load l10n %}
+<form action="#" method="get" class="form-filter-product js-filter-open" style="display: none;">
+    <span class="close-left js-close"><i class="icon-close f-20"></i></span>
+    <div class="product-filter-wrapper">
+        <div class="product-filter-inner text-left">
+            {% if request.GET.prod_count %}
+                <input name="prod_count" type="hidden" value="{{ request.GET.prod_count }}">
+            {% endif %}
+            {% if request.GET.sort_by %}
+                <input name="sort_by" type="hidden" value="{{ request.GET.sort_by }}">
+            {% endif %}
+
+            <div class="product-filter">
+                <div class="form-group">
+                    <span class="title-filter">Цена</span>
+                    <div class="filter-content">
+                        <div class="price-range-holder">
+                            <span class="min-max">ОТ </span>
+                            <input type="text" oninput="this.value = this.value.replace(/[^0-9]/g,'')"
+                                   name="min_price" class="form-control control-search"
+                                   placeholder="{{price_data_for_filters.price__min |floatformat:2 }}"
+                                   {% if request.GET.min_price %}
+                                   value="{{ request.GET.min_price }}"
+                                   {% endif %}
+                            >
+                            <span class="min-max">ДО</span>
+                            <input type="text" oninput="this.value = this.value.replace(/[^0-9]/g,'')"
+                                   name="max_price" class="form-control control-search"
+                                   placeholder="{{price_data_for_filters.price__max |floatformat:2 }}"
+                                   {% if request.GET.max_price %}
+                                   value="{{ request.GET.max_price }}"
+                                   {% endif %}
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-filter">
+                <div class="form-group">
+                    <span class="title-filter">Наличие</span></br>
+                    <label class="label_for_product_filters">
+                        <input name="available" type="checkbox" class="checkbox_for_product_filters" value="1"
+                            {% if request.GET.available %}
+                            checked
+                            {% endif %}
+                        >
+                        <span>Только в наличии</span>
+                    </label><br/>
+                </div>
+            </div>
+
+            {% if product_type_data_for_filters%}
+            <div class="product-filter">
+                <div class="form-group">
+                    <span class="title-filter">Тип товара</span></br>
+                    {% for data in product_type_data_for_filters %}
+                    <label class="label_for_product_filters">
+                        <input name="product_type" type="checkbox" class="checkbox_for_product_filters"  value="{{data.product_type}}"
+                            {% if data.product_type in request.GET|getlist:"product_type" %}
+                            checked
+                            {% endif %}
+                        >
+                        <span>{{data.product_type}}</span>
+                    </label><br/>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+
+            {% if compatibility_data_for_filters%}
+            <div class="product-filter">
+                <div class="form-group">
+                    <span class="title-filter">Совместимость</span></br>
+                    {% for data in compatibility_data_for_filters %}
+                    <label class="label_for_product_filters">
+                        <input name="compatibility" type="checkbox" class="checkbox_for_product_filters" value="{{data.compatibility}}"
+                            {% if data.compatibility in request.GET|getlist:"compatibility" %}
+                            checked
+                            {% endif %}
+                        >
+                        <span>{{data.compatibility}}</span>
+                    </label><br/>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+
+            {% if thread_type_data_for_filters%}
+            <div class="product-filter">
+                <div class="form-group">
+                    <span class="title-filter">Тип резьбы</span></br>
+                    {% for data in thread_type_data_for_filters %}
+                    <label class="label_for_product_filters">
+                        <input name="thread_type" type="checkbox" class="checkbox_for_product_filters" value="{{data.thread_type}}"
+                            {% if data.thread_type in request.GET|getlist:"thread_type" %}
+                            checked
+                            {% endif %}
+                        >
+                        <span>{{data.thread_type}}</span>
+                    </label><br/>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+
+            {% if mounting_type_data_for_filters%}
+            <div class="product-filter">
+                <div class="form-group">
+                    <span class="title-filter">Тип крепления</span></br>
+                    {% for data in mounting_type_data_for_filters %}
+                    <label class="label_for_product_filters">
+                        <input name="mounting_type" type="checkbox" class="checkbox_for_product_filters" value="{{data.mounting_type}}"
+                            {% if data.mounting_type in request.GET|getlist:"mounting_type" %}
+                            checked
+                            {% endif %}
+                        >
+                        <span>{{data.mounting_type}}</span>
+                    </label><br/>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+
+            {% if imitation_of_a_shot_data_for_filters%}
+            <div class="product-filter">
+                <div class="form-group">
+                    <span class="title-filter">Имитация выстрела</span></br>
+                    {% for data in imitation_of_a_shot_data_for_filters %}
+                    {% if data.imitation_of_a_shot == True %}
+                    <label class="label_for_product_filters">
+                        <input name="imitation_of_a_shot" type="checkbox" class="checkbox_for_product_filters" value="{{data.imitation_of_a_shot}}"
+                            {% if 'True' in request.GET|getlist:"imitation_of_a_shot" %}
+                            checked
+                            {% endif %}
+                        >
+                        <span>Да</span>
+                    </label><br/>
+                    {% else %}
+                    <label class="label_for_product_filters">
+                        <input name="imitation_of_a_shot" type="checkbox" class="checkbox_for_product_filters" value="{{data.imitation_of_a_shot}}"
+                            {% if 'False' in request.GET|getlist:"imitation_of_a_shot" %}
+                            checked
+                            {% endif %}
+                        >
+                        <span>Нет</span>
+                    </label><br/>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+
+            {% if laser_sight_data_for_filters%}
+            <div class="product-filter">
+                <div class="form-group">
+                    <span class="title-filter">С ЛЦУ</span></br>
+                    {% for data in laser_sight_data_for_filters %}
+                    {% if data.laser_sight == True %}
+                    <label class="label_for_product_filters">
+                        <input name="laser_sight" type="checkbox" class="checkbox_for_product_filters" value="{{data.laser_sight}}"
+                            {% if 'True' in request.GET|getlist:"laser_sight" %}
+                            checked
+                            {% endif %}
+                        >
+                        <span>Да</span>
+                    </label><br/>
+                    {% else %}
+                    <label class="label_for_product_filters">
+                        <input name="laser_sight" type="checkbox" class="checkbox_for_product_filters" value="{{data.laser_sight}}"
+                            {% if 'False' in request.GET|getlist:"laser_sight" %}
+                            checked
+                            {% endif %}
+                        >
+                        <span>Нет</span>
+                    </label><br/>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+
+            {% if weight_data_for_filters%}
+            <div class="product-filter">
+                <div class="form-group">
+                    <span class="title-filter">Вес</span></br>
+                    {% for data in weight_data_for_filters %}
+                    <label class="label_for_product_filters">
+                        <input name="weight" type="checkbox" class="checkbox_for_product_filters" value="{{data.weight |unlocalize}}"
+                            {% if data.weight|unlocalize in request.GET|getlist:"weight" %}
+                            checked
+                            {% endif %}
+                        >
+                        <span>{{data.weight |unlocalize}} гр.</span>
+                    </label><br/>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+
+            {% if principle_of_operation_data_for_filters%}
+            <div class="product-filter">
+                <div class="form-group">
+                    <span class="title-filter">Принцип действия</span></br>
+                    {% for data in principle_of_operation_data_for_filters %}
+                    <label class="label_for_product_filters">
+                        <input name="principle_of_operation" type="checkbox" class="checkbox_for_product_filters" value="{{data.principle_of_operation}}"
+                               {% if data.principle_of_operation in request.GET|getlist:"principle_of_operation" %}
+                                    checked
+                                {% endif %}
+                        >
+                        <span>{{data.principle_of_operation}}</span>
+                    </label><br/>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+
+            {% if length_data_for_filters.length__min is not None%}
+            <div class="product-filter">
+                <div class="form-group">
+                    <span class="title-filter">Длина</span></br>
+                    <div class="filter-content">
+                        <div class="price-range-holder">
+                            <span class="min-max">ОТ</span>
+                            <input type="text" oninput="this.value = this.value.replace(/[^0-9]/g,'')"
+                                   name="min_length" class="form-control control-search"
+                                   placeholder="{{length_data_for_filters.length__min}}"
+                                   {% if request.GET.min_length %}
+                                   value="{{ request.GET.min_length }}"
+                                   {% endif %}
+                            >
+                            <span class="min-max">ДО</span>
+                            <input type="text" oninput="this.value = this.value.replace(/[^0-9]/g,'')"
+                                   name="max_length" class="form-control control-search"
+                                   placeholder="{{length_data_for_filters.length__max}}"
+                                   {% if request.GET.max_length%}
+                                   value="{{ request.GET.max_length }}"
+                                   {% endif %}
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+            {% if diameter_data_for_filters%}
+            <div class="product-filter">
+                <div class="form-group">
+                    <span class="title-filter">Диаметр</span></br>
+                    {% for data in diameter_data_for_filters %}
+                    <label class="label_for_product_filters">
+                        <input name="diameter" type="checkbox" class="checkbox_for_product_filters" value="{{data.diameter |unlocalize}}"
+                            {% if data.diameter|unlocalize in request.GET|getlist:"weight" %}
+                            checked
+                            {% endif %}
+                        >
+                        <span>{{data.diameter |unlocalize}} мм</span>
+                    </label><br/>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+
+
+            <div class="clearfix"></div>
+        </div>
+            <div class="product-filter-button-group clearfix">
+                <div class="product-filter-button">
+                    <button class="btn btn-default btn-submit" type="submit">
+                        Применить
+                    </button>
+                </div>
+                <div class="product-filter-button">
+                    <a id="reset_button_for_product_filters" class="btn btn-default btn-submit" href="{% url 'all_products' %}?q={{ request.GET.q }}">
+                        Сбросить все
+                    </a>
+                </div>
+            </div>
+        </div>
+</form>

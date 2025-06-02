@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block title %}
+Регистрация
+{% endblock %}
+
+{% block content %}
+{% load static %}
+{% load user_filters %}
+<div class="main-content space-padding-tb-70">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12">
+                        <div class="customer-page">
+                            <div class="title-page">
+                                <h3>Регистрация</h3>
+                            </div>
+                            {% if form.errors %}
+                            {% for field in form %}
+                            {% for error in field.errors %}
+                            <div class="alert alert-danger">
+                                {{ error|escape }}
+                            </div>
+                            {% endfor %}
+                            {% endfor %}
+                            {% for error in form.non_field_errors %}
+                            <div class="alert alert-danger">
+                                {{ error|escape }}
+                            </div>
+                            {% endfor %}
+                            {% endif %}
+                            <form method="post" class="form-customer form-login"
+                                  {% if action_url %}action="{% url action_url %}"{% endif %}>
+                                {% csrf_token %}
+                                {% for field in form %}
+                                <div class="form-group"
+                                    {% if field.field.required %}
+                                    aria-required="true"
+                                    {% else %}
+                                    aria-required="false"
+                                    {% endif %}
+                                >
+                                    <label for="{{ field.id_for_label }}">
+                                        {{ field.label }}
+                                        {% if field.field.required %}
+                                        <span class="required text-danger">*</span>
+                                        {% endif %}
+                                    </label>
+                                    <div>
+                                        {{ field |addclass:'form-control form-account'  }}
+                                    </div>
+                                </div>
+                                {% endfor %}
+                                <div class="form-check">
+                                    <button type="submit" class="btn-login btn-register hover-white">Зарегистрироваться</button>
+                                </div>
+                                Нажимая на кнопку, вы соглашаетесь с <a href="{% static 'docs/Privacy_Policy.pdf' %}" target="_blank">Условиями обработки персональных данных</a>.
+                            </form>
+                            <span class="divider"></span>
+                            <a href="{% url 'login' %}" class="btn link-button create-account hover-black">Войти</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %} 

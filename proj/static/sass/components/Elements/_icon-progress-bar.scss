@@ -1,0 +1,19 @@
+// 4.4. Icon-progress
+
+
+
+
+span.star {
+  font-size: 12px;
+  color: #eb5050;
+  margin: 0 2px;
+  @include transition2;
+}
+
+
+
+
+span.star:before {
+  content: '\f005';
+  font-family: FontAwesome;
+}

@@ -1,0 +1,115 @@
+/*
+	5.3. Checkout Page
+ */
+
+.checkout-login {
+    .form-login {
+        display: none;
+        p {
+            color: #a4a4a4;
+            line-height: 24px;
+            margin-bottom: 20px;
+        }
+    }
+}
+
+.form-cp {
+    display: none;
+}
+
+.box-toggle {
+    font-weight: 500;
+    color: #a4a4a4;
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    border: 1px solid #f1f1f1;
+    height: 82px;
+    line-height: 82px;
+    a {
+        text-decoration: underline;
+    }
+}
+
+.box-toggle {
+    margin-bottom: 35px;
+}
+@media(min-width:$screen-xs){
+    .checkout-cp[class*="col-sm-"] {
+        padding: 0;
+    }
+}
+.checkout-cp {
+    input {
+        background: #f8f8f8;
+    }
+}
+
+.form-cp>* {
+    display: inline-block;
+    input {
+        @media(min-width:480px){
+            width: 413px;
+        }
+    }
+}
+
+.btn-cp-inline {
+    width: 128px;
+    height: 54px;
+    line-height: 54px;
+    padding: 0;
+    @include border-radius(0);
+    float: right;
+}
+
+.checkout {
+    .cart-list {
+        .product-price {
+            float: none;
+        }
+        .quantity {
+            float: none;
+            font-size: 14px;
+            font-weight: 500;
+        }
+    }
+    .cart-list .list>li .text .product-name {
+        margin-bottom: 5px;
+    }
+}
+
+.box-payment {
+    ul {
+        li:first-child {
+            border: 0;
+        }
+        li {
+            .payment {
+                label {
+                    color: #000;
+                }
+                .no-checkbox {
+                    color: #a4a4a4;
+                    line-height: 18px;
+                    font-size: 12px;
+                    padding-left: 20px;
+                    margin-bottom: 35px;
+                }
+            }
+        }
+    }
+}
+
+.btn-checkout {
+    height: 83px;
+    line-height: 83px;
+    font-size: 18px;
+}
+
+.form-note {
+    background: #f8f8f8;
+    border: 1px solid #f1f1f1;
+    @include border-radius(0);
+    box-shadow: none;
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Новый оплаченный заказ</title>
+</head>
+<body>
+    <h2>Новый оплаченный заказ №{{ order.id }}</h2>
+
+    <p><strong>Магазин:</strong> {{ order.shop.title }}</p>
+    <p><strong>Дата создания:</strong> {{ order.created|date:"d.m.Y H:i" }}</p>
+    <p><strong>Сумма заказа:</strong> {{ order.amount }} ₽</p>
+
+    <h3>Детали заказа:</h3>
+    <ul>
+        {% for item in order.items.all %}
+        <li>
+            {{ item.product.name }}
+            ({{ item.quantity }} × {{ item.price }} ₽)
+        </li>
+        {% endfor %}
+    </ul>
+
+    <h3>Информация о доставке:</h3>
+    <p><strong>Способ доставки:</strong> {{ order.get_delivery_method_display }}</p>
+    <p><strong>Адрес:</strong>
+        {{ order.shipping_address.city }},
+        ул. {{ order.shipping_address.street }},
+        д. {{ order.shipping_address.house }},
+        кв. {{ order.shipping_address.flat }}
+    </p>
+
+    <h3>Контактные данные клиента:</h3>
+    <p>{{ order.customer_last_name }} {{ order.customer_first_name }} {{ order.customer_patronymic }}</p>
+    <p>Телефон: {{ order.customer_phone }}</p>
+    <p>Email: {{ order.customer_email }}</p>
+</body>
+</html>

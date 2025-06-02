@@ -1,0 +1,417 @@
+{% extends 'base.html' %}
+{% block title %}
+Управление товарами
+{% endblock %}
+
+{% block content %}
+{% load static %}
+{% load user_filters %}
+<div class="orders-page space-padding-tb-70">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12">
+                <div class="">
+                    <div class="title-page">
+                        <h3>Управление товарами вашего магазина</h3>
+                        <ul class="breadcrumb white">
+                            <li><a href="{% url  'users:personal_account_main' %}">Личный кабинет</a></li>
+                            <li><a href="">Управление товарами вашего магазина</a></li>
+                        </ul>
+                    </div>
+                    <div class="navbar main-menu">
+                            <div class="shop-links">
+                                <a href="{% url 'users:shop_docs' %}" class="level1 active dropdown"><h4>Документы</h4></a>
+                                <a href="{% url 'users:shop_orders' %}" class="level1 active dropdown"><h4>Заказы</h4></a>
+                                <a href="{% url 'users:shop_products' %}" class="level1 active dropdown"><h4>Товары</h4></a>
+                                <a href="{% url 'users:shop_statistics' %}" class="level1 active dropdown"><h4>Статистика</h4></a>
+                            </div>
+                    </div>
+
+
+
+
+                    <!-- Панель добавления нового товара -->
+<div class="card mb-4">
+  <div class="card-header" id="headingAddProduct">
+    <h5 class="mb-0">
+      <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseAddProduct" aria-expanded="true" aria-controls="collapseAddProduct">
+        Добавить товар
+      </button>
+    </h5>
+  </div>
+  <div id="collapseAddProduct" class="collapse" aria-labelledby="headingAddProduct">
+    <div class="card-body">
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="hidden" name="add_product" value="true">
+
+        <div class="form-row">
+          <!-- Выбор категорий -->
+          <div class="col-12 mb-4">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">
+                  {{ form.category.label }}
+                  {% if form.category.field.required %}<span class="text-danger">*</span>{% endif %}
+                </h5>
+                <div class="row">
+                  {% for checkbox in form.category %}
+                    {% with cat_id=checkbox.data.value|stringformat:"s" %}
+                    <div class="col-md-4 col-lg-3 mb-3">
+                      <div class="form-check">
+
+                        <label for="{{ checkbox.id_for_label }}" class="form-check-label">
+                          <div class="small text-muted mb-1">
+                            {% for ancestor in breadcrumbs_data|get_item:cat_id|get_item:'path' %}
+                              {{ ancestor.title }}{% if not forloop.last %} → {% endif %}
+                            {% endfor %}
+                          </div>
+                          <div>
+                            {{ checkbox.tag }} {{ checkbox.choice_label }}
+                          </div>
+                        </label>
+                      </div>
+                    </div>
+                    {% endwith %}
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Основные поля товара -->
+          {% for field in form %}
+            {% if field.name != 'category' and field.name not in 'product_type compatibility thread_type mounting_type imitation_of_a_shot laser_sight weight principle_of_operation length diameter show brand' %}
+              <div class="form-group col-md-6 mb-3">
+                <label>
+                  {{ field.label }}
+                  {% if field.field.required %}<span class="text-danger">*</span>{% endif %}
+                </label>
+                {{ field|addclass:"form-control" }}
+                {% if field.help_text %}
+                  <small class="form-text text-muted">{{ field.help_text }}</small>
+                {% endif %}
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>  <!-- end .form-row -->
+
+        <!-- Ряд для кнопки сворачивания дополнительных характеристик -->
+        <div class="row">
+          <div class="col-12 text-center">
+            <div id="headingAdditional">
+              <h6 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseAdditional" aria-expanded="false" aria-controls="collapseAdditional">
+                   ↓Дополнительные характеристики↓
+                </button>
+              </h6>
+            </div>
+          </div>
+        </div>
+
+        <!-- Панель дополнительных характеристик -->
+        <div id="collapseAdditional" class="collapse" aria-labelledby="headingAdditional">
+          <div class="card-body">
+            <div class="form-row">
+              {% for field in form %}
+                {% if field.name in 'brand product_type compatibility thread_type mounting_type imitation_of_a_shot laser_sight weight principle_of_operation length diameter' %}
+                  <div class="form-group col-md-6 mb-3">
+                    <label>
+                      {{ field.label }}
+                      {% if field.field.required %}<span class="text-danger">*</span>{% endif %}
+                    </label>
+                    {{ field|addclass:"form-control" }}
+                    {% if field.help_text %}
+                      <small class="form-text text-muted">{{ field.help_text }}</small>
+                    {% endif %}
+                  </div>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+
+        <!-- Кнопка "Добавить товар" на новом ряду, занимающая всю ширину -->
+        <div class="row button-row mt-3">
+          <div class="col-12 text-center">
+            <button type="submit" class="btn btn-light btn-lg mt-3">Добавить товар</button>
+          </div>
+            <div class="col-12 text-center">
+                <small class="form-text text-muted">После добавления товар пройдет проверку (это может занять до 5 рабочих дней)</small>
+            </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+                    <!-- Строка поиска -->
+
+                    <div class="input-group">
+                        <form method="get" action="{% url 'users:shop_products' %}">
+                            <input name="q" placeholder="ID, Имя, Категория..." class="form-control control-search" type="search" value="{{ request.GET.q }}">
+                            <span class="input-group-btn">
+                                  <button class="btn btn-default button_search" type="submit">
+                                      <i class="fa fa-search"></i>
+                                  </button>
+                            </span>
+                        </form>
+                    </div><br>
+
+
+
+                    {% for product, form in update_forms %}
+                    <div class="card mb-4 product-card" id="product-{{product.pk}}">
+                      <div class="card-header ">
+                        <div>
+                            <h4 class="mb-0">
+                                <a href="{% url 'product_detail' product.id %}" class="product-link">
+                                    {{ product.name }}
+                                </a>
+                                <small class="text-muted">(ID: {{ product.id }})</small>
+                                <small class="text-muted">{% if product.verified %}Проверен{% else %}На проверке...{% endif %}</small>
+                            </h4>
+                            <a href="{% url 'users:edit_product' product.id %}" class="product-link">Редактировать</a>
+                        </div>
+                          <span class="order-date">{{ product.pub_date|date:"d.m.Y H:i" }}</span>
+
+
+                      </div>
+                      <div class="card-body">
+                        <div class="row">
+                          <!-- Изображение товара -->
+                          <div class="col-md-4 mb-3">
+                            <div class="image-container text-center">
+                              <img src="{{ product.image1.url }}" class="img-fluid rounded" alt="Основное изображение" style="max-height: 250px;">
+                            </div>
+                          </div>
+                          <!-- Информация о товаре -->
+                          <div class="col-md-8">
+                            <div class="row">
+                              <div class="col-md-6 mb-3">
+                                <p><strong>Цена:</strong> <span class="text-primary">{{ product.price }} ₽</span></p>
+                                <p><strong>Категории:</strong>
+                                  <div class="d-flex flex-wrap">
+                                    {% for cat in product.category.all %}
+                                    <span class="badge badge-secondary mr-1">{{ cat.title }}</span>
+                                    {% endfor %}
+                                  </div>
+                                </p>
+                                <p><strong>Описание:</strong> <span class="">{{ product.description|truncatechars:15 }}</span></p>
+                                <p><strong>Ссылка на видео:</strong> <span class="text-primary">{{ product.link_to_a_video|truncatechars:15 }}</span></p>
+                              </div>
+                              <div class="col-md-6 mb-3">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h6>Обновление без проверки</h6>
+                                    </div>
+                                  <div class="card-body">
+
+                                    <h6 class="card-title">Доступно единиц товара</h6>
+                                    <form method="post" action="{% url 'users:update_product_stock' product.id %}">
+                                      {% csrf_token %}
+                                      <div class="input-group mb-2">
+                                        {{ form.items_left|addclass:"form-control" }}
+                                          <div class="form-check">
+                                            {{ form.show }}
+                                            <label class="form-check-label" for="{{ form.show.id_for_label }}">
+                                              Показывать товар
+                                            </label>
+                                          </div>
+                                        <div class="input-group-append">
+                                           <input type="hidden" name="page" value="{% if request.GET.page %}{{ request.GET.page }}{% endif %}">
+                                           <input type="hidden" name="q" value="{% if request.GET.q %}{{ request.GET.q }}{% endif %}">
+                                          <button type="submit" class="btn btn-light">Обновить</button>
+                                        </div>
+                                      </div>
+                                    </form>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                            <!-- Вывод дополнительных характеристик -->
+                            <div class="card mt-3">
+                              <div class="card-header">
+                                <h6>Доп. характеристики</h6>
+                              </div>
+                              <div class="card-body">
+                                <div class="row">
+                                  <div class="col-md-6">
+                                    <ul class="list-unstyled">
+                                      {% if product.brand %}<li><strong>Бренд:</strong> {{ product.brand }}</li>{% endif %}
+                                      {% if product.product_type %}<li><strong>Тип товара:</strong> {{ product.product_type }}</li>{% endif %}
+                                      {% if product.compatibility %}<li><strong>Совместимость:</strong> {{ product.compatibility }}</li>{% endif %}
+                                      {% if product.thread_type %}<li><strong>Тип резьбы:</strong> {{ product.thread_type }}</li>{% endif %}
+                                      {% if product.weight %}<li><strong>Вес в гр.:</strong> {{ product.weight }}</li>{% endif %}
+                                      {% if product.length %}<li><strong>Длина в мм:</strong> {{ product.length }}</li>{% endif %}
+                                    </ul>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <ul class="list-unstyled">
+                                      {% if product.mounting_type %}<li><strong>Тип крепления:</strong> {{ product.mounting_type }}</li>{% endif %}
+                                      {% if product.imitation_of_a_shot is not None %}<li><strong>Имитация выстрела:</strong> {% if product.imitation_of_a_shot %}Да{% else %}Нет{% endif %}</li>{% endif %}
+                                      {% if product.laser_sight is not None %}<li><strong>С ЛЦУ:</strong> {% if product.laser_sight %}Да{% else %}Нет{% endif %}</li>{% endif %}
+                                      {% if product.principle_of_operation %}<li><strong>Принцип действия:</strong> {{ product.principle_of_operation }}</li>{% endif %}
+                                      {% if product.diameter %}<li><strong>Длина в мм:</strong> {{ product.diameter }}</li>{% endif %}
+                                    </ul>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+
+                            <div class="card mt-3">
+                              <div class="card-header">
+                                <h6>Данные для доставки</h6>
+                              </div>
+                              <div class="card-body">
+                                <div class="row">
+                                  <div class="col-md-6">
+                                    <ul class="list-unstyled">
+                                      <li><strong>Город Склада:</strong> {{ product.warehouse_city }}</li>
+                                      <li><strong>Ширина при доставке в см:</strong> {{ product.shipping_width }}</li>
+                                      <li><strong>Длина при доставке в см:</strong> {{ product.shipping_length }}</li>
+                                    </ul>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <ul class="list-unstyled">
+                                      <li><strong>Высота при доставке в см:</strong> {{ product.shipping_height }}</li>
+                                      <li><strong>Вес при доставке в кг:</strong> {{ product.shipping_weight }}</li>
+                                    </ul>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+
+
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    {% empty %}
+                    <div class="alert alert-info">
+                      {% if request.GET.q %}Ничего не найдено{%else%}В вашем магазине пока нет товаров.{% endif %}
+                    </div>
+                    {% endfor %}
+
+                    <!-- Пагинация -->
+                    {% if products.has_other_pages %}
+                    <div class="pagination-container pagination-blog button-v text-center">
+
+                    <nav>
+                          <ul class="pagination">
+                            {% if products.has_previous %}
+                              <li>
+                                <a class="page-link" href="?page=1{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">
+                                  <!--1-->
+                                  <i class="fa fa-angle-double-left" aria-hidden="true"></i>
+                                </a>
+                              </li>
+                              <li>
+                                <a href="?page={{ products.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">
+                                    <!--Предыдущая-->
+                                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                                </a>
+                              </li>
+                            {% endif %}
+                            {% for i in products.paginator.page_range %}
+                                {% if products.number == i %}
+                                  <li>
+                                    <a class="active" href="#">{{ i }}</a>
+                                  </li>
+                                {% else %}
+                                  <li>
+                                    <a href="?page={{ i }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">
+                                      {{ i }}
+                                    </a>
+                                  </li>
+                                {% endif %}
+                            {% endfor %}
+                            {% if products.has_next %}
+                              <li class="page-item">
+                                <a class="page-link" href="?page={{ products.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">
+                                  <!--Следующая-->
+                                  <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                </a>
+                              </li>
+                              <li class="page-item">
+                                <a class="page-link" href="?page={{ products.paginator.num_pages }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">
+                                  <!--Последняя-->
+                                  <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                                </a>
+                              </li>
+                            {% endif %}
+                          </ul>
+                    </nav>
+
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .shop-links {
+        margin-top: 20px;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+    .card {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        margin-bottom: 30px;
+        padding: 20px;
+        background: #fff;
+    }
+
+    .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .status-form {
+        margin-bottom: 20px;
+    }
+
+    .status-select {
+        width: auto;
+        display: inline-block;
+        margin-right: 10px;
+    }
+
+    .pagination {
+        margin-top: 30px;
+        justify-content: center;
+    }
+
+    /* Дополнительные отступы между элементами внутри блоков */
+    .card h4 {
+        margin-bottom: 15px;
+    }
+    .card p,
+
+
+    .card form .form-control {
+        margin-bottom: 15px;
+    }
+
+    .button-row {
+        clear: both;
+      }
+</style>
+{% endblock %}

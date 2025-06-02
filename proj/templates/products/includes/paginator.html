@@ -1,0 +1,47 @@
+{% if page_obj.has_other_pages %}
+<nav>
+  <ul class="pagination">
+    {% if page_obj.has_previous %}
+      <li>
+        <a class="page-link" href="?page=1{% include 'products/includes/checking_previous_filters_for_paginator.html' %}">
+          <!--1-->
+          <i class="fa fa-angle-double-left" aria-hidden="true"></i>
+        </a>
+      </li>
+      <li>
+        <a href="?page={{ page_obj.previous_page_number }}{% include 'products/includes/checking_previous_filters_for_paginator.html' %}">
+            <!--Предыдущая-->
+          <i class="fa fa-angle-left" aria-hidden="true"></i>
+        </a>
+      </li>
+    {% endif %}
+    {% for i in page_obj.paginator.page_range %}
+        {% if page_obj.number == i %}
+          <li>
+            <a class="active" href="#">{{ i }}</a>
+          </li>
+        {% else %}
+          <li>
+            <a href="?page={{ i }}{% include 'products/includes/checking_previous_filters_for_paginator.html' %}">
+              {{ i }}
+            </a>
+          </li>
+        {% endif %}
+    {% endfor %}
+    {% if page_obj.has_next %}
+      <li class="page-item">
+        <a class="page-link" href="?page={{ page_obj.next_page_number }}{% include 'products/includes/checking_previous_filters_for_paginator.html' %}">
+          <!--Следующая-->
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+        </a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}{% include 'products/includes/checking_previous_filters_for_paginator.html' %}">
+          <!--Последняя-->
+          <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+        </a>
+      </li>
+    {% endif %}    
+  </ul>
+</nav>
+{% endif %} 

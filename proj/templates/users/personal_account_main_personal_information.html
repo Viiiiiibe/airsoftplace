@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block title %}
+Личные Данные
+{% endblock %}
+
+{% block content %}
+{% load static %}
+{% load user_filters %}
+<div class="orders-page space-padding-tb-70">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12">
+                        <div class="">
+                            <div class="title-page">
+                                <h3>Личные Данные</h3>
+                                <ul class="breadcrumb white">
+                                    <li><a href="{% url  'users:personal_account_main' %}">Личный кабинет</a></li>
+                                    <li><a href="{% url 'users:personal_information' %}">Личные данные</a></li>
+                                </ul>
+                            </div>
+                            {% if form.errors %}
+                            {% for field in form %}
+                            {% for error in field.errors %}
+                            <div class="alert alert-danger">
+                                {{ error|escape }}
+                            </div>
+                            {% endfor %}
+                            {% endfor %}
+                            {% for error in form.non_field_errors %}
+                            <div class="alert alert-danger">
+                                {{ error|escape }}
+                            </div>
+                            {% endfor %}
+                            {% endif %}
+                            <form method="post" class="form-customer form-login"
+                                  {% if action_url %}action="{% url action_url %}"{% endif %}>
+                                {% csrf_token %}
+                                {% for field in form %}
+                                {% if field.label != 'Пароль' %}
+                                <div class="form-group"
+                                    {% if field.field.required %}
+                                    aria-required="true"
+                                    {% else %}
+                                    aria-required="false"
+                                    {% endif %}
+                                >
+                                    <label for="{{ field.id_for_label }}">
+                                        {{ field.label }}
+                                        {% if field.field.required %}
+                                        <span class="required text-danger">*</span>
+                                        {% endif %}
+                                    </label>
+                                    <div>
+                                        {{ field |addclass:'form-control form-account'  }}
+                                    </div>
+                                </div>
+                                {% endif %}
+                                {% endfor %}
+
+                                <div class="form-group" aria-required="false">
+                                    <label>
+                                        Пароль
+                                    </label>
+                                    <div>
+                                        <a href="{% url 'users:password_change' %}" class="btn link-button create-account hover-black">Изменить Пароль</a>
+                                    </div>
+                                </div>
+                                <div class="form-check">
+                                    <button type="submit" class="btn-login btn-register hover-white">Изменить</button>
+                                </div>
+                                Нажимая на кнопку, вы соглашаетесь с <a href="{% static 'docs/Privacy_Policy.pdf' %}" target="_blank">Условиями обработки персональных данных</a>.
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}

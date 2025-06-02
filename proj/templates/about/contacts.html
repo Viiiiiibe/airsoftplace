@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block title %}
+Контакты
+{% endblock %}
+
+{% block content %}
+{% load static %}
+<div class="page-heading">
+    <div class="banner-heading">
+        <img src="{% static 'img/headerbg.png' %}" alt="" class="img-reponsive">
+        <div class="heading-content text-center">
+            <div class="container container-42">
+                <h1 class="page-title white">Контакты</h1>
+                <ul class="breadcrumb white">
+                    <li><a href="{% url 'index' %}">Главная</a></li>
+                    <li><a href="">Контакты</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="contact about_simple">
+        <div class="row">
+            <div class="col-xs-12 col-sm-4">
+                <h2 class="about-title">Телефон</h2>
+                <p class="address">+79371234567</p>
+            </div>
+            <div class="col-xs-12 col-sm-4">
+                <h2 class="about-title">Почта</h2>
+                <p>airsoftplace@mail.ru</p>
+            </div>
+            <div class="col-xs-12 col-sm-4">
+                <h2 class="about-title">Мы в социальных сетях</h2>
+                <div class="contact-social">
+                    <a href="https://vk.com/" title="vk">
+                        <i class="fa fa-vk"></i>
+                    </a>
+                    <a href="https://telegram.org/" title="telegram"><i class="fa fa-paper-plane"></i></a>
+                </div>
+            </div>
+        </div>
+        {%if request.user.is_authenticated%}
+        <div class="row">
+                            <h4>Связь с поддержкой AirsoftPlace</h4>
+                            <form method="post">
+                                {% csrf_token %}
+                                <div class="mb-3">
+                                    <br>
+                                    <textarea name="message" class="form-control"></textarea>
+                                    <br>
+                                </div>
+                                <button type="submit" class="btn btn-light">Отправить</button>
+                            </form>
+        </div>
+        {%else%}
+        <div class="row">
+                            <h4>Связь с поддержкой AirsoftPlace</h4>
+                                <div class="mb-3">
+                                    <br>
+                                    <textarea name="message" class="form-control" readonly>Доступна зарегистрированным пользователям</textarea>
+                                    <br>
+                                </div>
+                                <form action="{% url 'login' %}" method="get">
+                                   <button type="submit" class="btn btn-light">Регистрация</button>
+                                </form>
+        </div>
+        {%endif%}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% block title %}
+{{ category.title }}
+{% endblock %}
+
+{% block content %}
+{% load static %}
+<div class="page-heading">
+    <div class="banner-heading">
+        <img src="{% static 'img/headerbg.png' %}" alt="" class="img-reponsive">
+        <div class="heading-content text-center">
+            <div class="container container-42">
+                <h1 class="page-title white">{{ category.title }}</h1>
+                <ul class="breadcrumb white">
+                    <li><a href="{% url 'index' %}">Главная</a></li>
+                    <li><a href="{% url 'categories' %}">Категории</a></li>
+                    {% for obj in category.get_ancestors %}
+                    <li><a href="{% url 'subcategories' obj.slug %}">{{ obj.title }}</a></li>
+                    {% endfor %}
+                    <li><a href="">{{ category.title }}</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="wrap-filter">
+    {% include 'products/includes/products_on_page.html' %}
+    <div class="wrap-filter-box text-center view-mode">
+        <a class="col" href="#" onclick="return false;"><span class="icon-grid-img"></span></a>
+    </div>
+    <div class="wrap-filter-box text-center js-filter"><a href="#" class="filter-title"><i
+            class="icon-equalizer"></i></a>
+        {% include 'products/includes/filters_for_category_list.html' %}
+    </div>
+    <div class="wrap-filter-box text-center view-mode">
+        <a class="list" href="#" onclick="return false;"><span class="icon-list-img"></span></a>
+    </div>
+    {% include 'products/includes/sort_by.html' %}
+    <div class="clearfix"></div>
+</div>
+
+<div class="product-standard product-grid">
+    <div class="container container-42">
+        <div class="tab-content">
+            <div id="all" class="tab-pane fade in active">
+                <div class="row">
+                    {% for product in page_obj %}
+                    <div class="col-md-15 col-sm-3 col-xs-6 product-item">
+                        <div class="product-images">
+                            <a href="{% url 'product_detail' product.pk %}" class="hover-images effect"><img
+                                    src="{{ product.image6.url }}"
+                                    alt="photo" class="img-reponsive"></a>
+                            {% if product.items_left < 1 %}
+                            <div class="ribbon-sale ver3"><span>отсутствует &nbsp &nbsp</span></div>
+                            {% endif %}
+                        </div>
+                        <div class="product-info-ver2">
+                            <h3 class="product-title">
+                                <a href="{% url 'product_detail' product.pk %}">
+                                    {{product.name}}
+                                    {% if product.review_count > 0 %}
+                                        <span class="star" style="color: gold;"></span> {{ product.avg_rating|floatformat:1 }} ({{ product.review_count }} отзывов)
+                                    {% endif %}
+                                </a>
+                            </h3>
+                            <div class="product-after-switch">
+                                <div class="product-price">{{ product.price |floatformat:2}} ₽</div>
+                                <div class="product-after-button">
+                                    {% if product.items_left < 1 %}
+                                    <a href="{% url 'product_detail' product.pk %}" class="addcart">ОТСУТСТВУЕТ</a>
+                                    {% else %}
+                                    <a href="{% url 'product_detail' product.pk %}" class="addcart">ПОСМОТРЕТЬ</a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <p class="product-desc" style="white-space: pre-wrap;">{{ product.description |truncatechars:100}}</p>
+                            <div class="product-price">{{ product.price }} ₽</div>
+                            <div class="button-group">
+                                {% if product.items_left < 1 %}
+                                <a href="{% url 'product_detail' product.pk %}" class="button add-view">ОТСУТСТВУЕТ</a>
+                                {% else %}
+                                <a href="{% url 'product_detail' product.pk %}" class="button add-view">ПОСМОТРЕТЬ</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="pagination-container pagination-blog button-v text-center">
+                    {% include 'products/includes/paginator.html' %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'products/includes/recommendations.html' %}
+{% include 'products/includes/recently_viewed.html' %}
+
+{% endblock %}

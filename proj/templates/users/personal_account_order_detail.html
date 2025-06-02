@@ -1,0 +1,182 @@
+{% extends 'base.html' %}
+{% block title %}
+Заказ № {{ order.pk }}
+{% endblock %}
+
+{% block content %}
+{% load static %}
+{% load user_filters %}
+<div class="orders-page space-padding-tb-70">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12">
+                <div class="">
+                    <div class="title-page">
+                        <h3>Заказ № {{ order.pk }}</h3>
+                        <ul class="breadcrumb white">
+                            <li><a href="{% url  'users:personal_account_main' %}">Личный кабинет</a></li>
+                            <li><a href="{% url 'users:orders' %}">Заказы</a></li>
+                            <li><a href="{% url 'users:order_detail' order.pk  %}">Заказ № {{ order.pk }}</a></li>
+                        </ul>
+                        <p class="text-muted">Создан: {{ order.created|date:"d.m.Y H:i" }}</p>
+                    </div>
+
+                    <div class="order-details">
+                        <!-- Статус и общая информация -->
+                        <div class="order-section">
+                            <h4>Статус заказа</h4>
+                            <div class="status-badge status-{{ order.status }}">
+                                {{ order.get_status_display }}
+                            </div>
+                        </div>
+
+                        <!-- Информация о клиенте -->
+                        <div class="order-section">
+                            <h4>Оставленные контакты</h4>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <p><strong>ФИО:</strong> {{ order.customer_last_name }} {{ order.customer_first_name }} {{ order.customer_patronymic }}</p>
+                                    <p><strong>Телефон:</strong> {{ order.customer_phone }}</p>
+                                    <p><strong>Email:</strong> {{ order.customer_email }}</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Состав заказа -->
+                        <div class="order-section">
+                            <h4>Состав заказа</h4>
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Товар</th>
+                                            <th>Цена</th>
+                                            <th>Количество</th>
+                                            <th>Сумма</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for item in order.items.all %}
+                                        <tr>
+                                            <td>
+                                                <a href="{% url 'product_detail' product_id=item.product.id %}"
+                                                   class="product-link">
+                                                    {{ item.product.name }}
+                                                </a>
+                                                <small class="text-muted">(ID: {{ item.product.id }})</small>
+                                            </td>
+                                            <td>{{ item.price }} ₽</td>
+                                            <td>{{ item.quantity }}</td>
+                                            <td>{{ item.total_cost }} ₽</td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="total-amount text-right">
+                                <h4>Итого: {{ order.amount }} ₽</h4>
+                            </div>
+                        </div>
+
+                        <!-- Информация о доставке -->
+                        <div class="order-section">
+                            <h4>Доставка</h4>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <p><strong>Способ:</strong> {{ order.get_delivery_method_display }}</p>
+                                    <p><strong>Адрес:</strong></p>
+                                    <address>
+                                        {{ order.shipping_address.country }},
+                                        {{ order.shipping_address.region }},
+                                        {{ order.shipping_address.city }},
+                                        {% if order.shipping_address.street %}<br>{{ order.shipping_address.street }}{% endif %}
+                                        {% if order.shipping_address.house %}, д. {{ order.shipping_address.house }}{% endif %}
+                                        {% if order.shipping_address.flat %}, кв. {{ order.shipping_address.flat }}{% endif %}
+                                        {% if order.shipping_address.entrance %}, подъезд {{ order.shipping_address.entrance }}{% endif %}
+                                        {% if order.shipping_address.floor %}, этаж {{ order.shipping_address.floor }}{% endif %}
+                                        {% if order.shipping_address.intercom %}, домофон {{ order.shipping_address.intercom }}{% endif %}
+                                    </address>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Дополнительная информация -->
+                        <div class="order-section">
+                            <h4>Дополнительно</h4>
+                            <p><strong>Магазин:</strong> {{ order.shop.title }}</p>
+                            <p><strong>Контакты продавца:</strong> {{ owner.email }}</p>
+                            <p><strong>Дата обновления:</strong> {{ order.updated|date:"d.m.Y H:i" }}</p>
+                        </div>
+
+                        <div class="order-section">
+                            <h4>Связь с поддержкой AirsoftPlace по заказу № {{ order.pk }}</h4>
+                            <form method="post">
+                                {% csrf_token %}
+                                <div class="mb-3">
+                                    <br>
+                                    <textarea name="message" class="form-control"></textarea>
+                                    <br>
+                                </div>
+                                <button type="submit" class="btn btn-light">Отправить</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .order-section {
+        margin-bottom: 30px;
+        padding: 20px;
+        border: 1px solid #eee;
+        border-radius: 5px;
+    }
+
+    .status-badge {
+        display: inline-block;
+        padding: 5px 15px;
+        border-radius: 15px;
+        font-weight: bold;
+    }
+
+    .status-awaiting_payment { background: #ffd700; color: #000; }
+    .status-in_assembly { background: #87ceeb; color: #000; }
+    .status-transferred_to_delivery { background: #87ceeb; color: #000; }
+    .status-on_the_way { background: #87ceeb; color: #000; }
+    .status-awaiting_receipt { background: #98fb98; color: #000; }
+    .status-received { background: #98fb98; color: #000; }
+    .status-canceled { background: #f18681; color: #000; }
+
+    .product-link {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    .product-link:hover {
+        text-decoration: underline;
+    }
+
+    .total-amount {
+        margin-top: 20px;
+        font-size: 1.2em;
+    }
+    /* Дополнительные отступы между элементами внутри блоков */
+    .order-section h4 {
+        margin-bottom: 15px;
+    }
+    .order-section p,
+    .order-section address,
+    .order-section .status-badge {
+        margin-bottom: 10px;
+    }
+    .order-section .table-responsive {
+        margin-bottom: 15px;
+    }
+    .order-section form .form-control {
+        margin-bottom: 15px;
+    }
+</style>
+{% endblock %}

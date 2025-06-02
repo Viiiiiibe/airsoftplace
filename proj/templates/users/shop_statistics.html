@@ -1,0 +1,272 @@
+{% extends 'base.html' %}
+{% block title %}
+Статистика магазина
+{% endblock %}
+
+{% block content %}
+{% load static %}
+{% load user_filters %}
+<div class="orders-page space-padding-tb-70">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12">
+        <div class="">
+          <!-- Заголовок страницы -->
+          <div class="title-page">
+            <h3>Статистика вашего магазина</h3>
+            <ul class="breadcrumb white">
+              <li><a href="{% url 'users:personal_account_main' %}">Личный кабинет</a></li>
+              <li><a href="{% url 'users:shop_statistics' %}">Статистика вашего магазина</a></li>
+            </ul>
+          </div>
+          <!-- Меню магазина -->
+          <div class="navbar main-menu">
+            <div class="shop-links">
+              <a href="{% url 'users:shop_docs' %}" class="level1 active"><h4>Документы</h4></a>
+              <a href="{% url 'users:shop_orders' %}" class="level1 active"><h4>Заказы</h4></a>
+              <a href="{% url 'users:shop_products' %}" class="level1 active"><h4>Товары</h4></a>
+              <a href="{% url 'users:shop_statistics' %}" class="level1 active"><h4>Статистика</h4></a>
+            </div>
+          </div>
+
+          <!-- Отчёты -->
+          {% for report in reports %}
+          <div class="card mb-4 report-card" id="report-{{ report.pk }}">
+            <div class="card-header d-flex justify-content-between align-items-center">
+              <h4 class="mb-0">
+                Отчет за период: {{ report.start_date|date:"d.m.Y" }} - {{ report.end_date|date:"d.m.Y" }}
+              </h4>
+              <br>
+              <h3 class="text-primary">Выручка: {{ report.revenue }} ₽</h3>
+              <br>
+            </div>
+            <div class="card-body">
+              <!-- Таблица заказов -->
+              <div class="card mb-4">
+                <div class="card-header">
+                  <h5>Заказы</h5>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>Номер заказа</th>
+                          <th>Сумма</th>
+                          <th>Статус</th>
+                          <th>Товары</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for order in report.orders.all %}
+                        <tr>
+                          <td>#{{ order.pk }}</td>
+                          <td>{{ order.amount }} ₽</td>
+                          <td>{{ order.get_status_display }}</td>
+                          <td>
+                            <ul class="list-unstyled">
+                              {% for item in order.items.all %}
+                              <li>
+                                <a href="{% url 'product_detail' item.product.id %}">
+                                  {{ item.product.name }}
+                                </a>
+                                x{{ item.quantity }} шт. = {{ item.price }} ₽
+                              </li>
+                              {% endfor %}
+                            </ul>
+                          </td>
+                        </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <!-- Продажи по категориям -->
+{% if report.category_performance %}
+<div class="card mb-4">
+  <div class="card-header">
+    <h5>Продажи по категориям</h5>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-striped fixed-table">
+        <thead>
+          <tr>
+            <th>Категория</th>
+            <th>Количество продаж</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for cat_id, quantity in report.category_performance.items %}
+          {% with category=cat_id|get_category_by_id %}
+          <tr>
+            <td>
+              {% if category %}
+                {{ category.title }}
+              {% else %}
+                Категория #{{ cat_id }}
+              {% endif %}
+            </td>
+            <td>{{ quantity }} шт.</td>
+          </tr>
+          {% endwith %}
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endif %}
+
+<!-- Продажи по товарам -->
+{% if report.products_performance %}
+<div class="card mb-4">
+  <div class="card-header">
+    <h5>Продажи по товарам</h5>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-striped fixed-table">
+        <thead>
+          <tr>
+            <th>Товар</th>
+            <th>Количество продаж</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for product_id, quantity in report.products_performance.items %}
+          {% with product=product_id|get_product_by_id %}
+          <tr>
+            <td>
+              {% if product %}
+                <a href="{% url 'product_detail' product.id %}">
+                  {{ product.name }} (ID: {{ product.id }})
+                </a>
+              {% else %}
+                Товар #{{ product_id }}
+              {% endif %}
+            </td>
+            <td>{{ quantity }} шт.</td>
+          </tr>
+          {% endwith %}
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endif %}
+
+            </div>
+          </div>
+          {% empty %}
+          <div class="alert alert-info">
+            Нет доступных отчетов
+          </div>
+          {% endfor %}
+
+          <!-- Пагинация (оставляем без изменений) -->
+          {% if reports.has_other_pages %}
+          <div class="pagination-container pagination-blog button-v text-center">
+            <nav>
+              <ul class="pagination">
+                {% if reports.has_previous %}
+                <li>
+                  <a class="page-link" href="?page=1{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">
+                    <i class="fa fa-angle-double-left" aria-hidden="true"></i>
+                  </a>
+                </li>
+                <li>
+                  <a class="page-link" href="?page={{ reports.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">
+                    <i class="fa fa-angle-left" aria-hidden="true"></i>
+                  </a>
+                </li>
+                {% endif %}
+                {% for i in reports.paginator.page_range %}
+                  {% if reports.number == i %}
+                    <li>
+                      <a class="active" href="#">{{ i }}</a>
+                    </li>
+                  {% else %}
+                    <li>
+                      <a href="?page={{ i }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">{{ i }}</a>
+                    </li>
+                  {% endif %}
+                {% endfor %}
+                {% if reports.has_next %}
+                <li class="page-item">
+                  <a class="page-link" href="?page={{ reports.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                  </a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="?page={{ reports.paginator.num_pages }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">
+                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                  </a>
+                </li>
+                {% endif %}
+              </ul>
+            </nav>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .shop-links {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .report-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
+  }
+  .report-header {
+    padding-bottom: 15px;
+    border-bottom: 1px solid #dee2e6;
+  }
+  .card-header h4,
+  .card-header h5,
+  .card-header h3 {
+    margin: 0;
+  }
+  .table th {
+    background-color: #f8f9fa;
+    border-bottom: 2px solid #dee2e6;
+  }
+  .table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0,0,0,.03);
+  }
+  .list-unstyled li {
+    padding: 3px 0;
+  }
+  @media (max-width: 768px) {
+    .report-header {
+      flex-direction: column;
+      align-items: flex-start !important;
+    }
+  }
+
+  .fixed-table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.fixed-table th,
+.fixed-table td {
+  width: 50%;
+  word-wrap: break-word;
+}
+ы
+</style>
+{% endblock %}
